@@ -1,0 +1,23 @@
+button {
+	a, a:hover {
+		color: $off-white;
+	}
+}
+
+.btn-default {
+	color: $off-white;	
+	background: rgba(0, 73, 94, 0.8)!important;
+	border: 1px solid $blue;
+	&:hover, &:focus {
+		background: $blue!important;
+		color: $off-white!important;
+		border: 1px solid $blue!important;
+	}	
+}
+
+.edit-account {
+	background: rgba(0, 73, 94, 0.8)!important;
+	a {
+		color: $off-white!important;
+	}
+}

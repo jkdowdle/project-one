@@ -1,8 +1,20 @@
-.row {
-	border: 2px solid red;
-	.col-sm-12 {
-		h2 {
-			color: blue;
-		}
-	}
+// Unverified Account Alert 
+
+.alert {
+	padding: 2rem;
+	margin-bottom: 0px;
+}
+
+// Register & Carousel
+
+#signUpCarousel {
+	background: $green;
+}
+
+.register-segment {
+	padding: 3rem 0;
+}
+
+section>.container>.row>h3 {
+	padding-bottom: 1rem;
 }

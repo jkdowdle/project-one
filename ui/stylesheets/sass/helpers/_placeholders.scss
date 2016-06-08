@@ -1,0 +1,52 @@
+// Text Align 
+
+%text-center {
+	text-align: center;
+}
+
+// Typography
+
+%header-font {
+	font: {
+		family: $bree-serif;
+	}
+}
+
+%paragraph-font {
+	font: {
+		family: $source-serif-pro;
+	}
+}
+
+// Color 
+
+%default-text-color {
+	color: $black-text;
+}
+
+// Social Media
+
+%social-media-icon {
+
+}
+
+%social-media-img {
+	width: 100%;
+	position: absolute;
+}
+
+// Parallax Section
+
+%centralize {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateZ(0px) translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+
+
+
+

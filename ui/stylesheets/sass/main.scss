@@ -1,17 +1,37 @@
+// Helpers
+@import "helpers/variables";
+@import "helpers/placeholders";
+@import "helpers/functions";
+@import "helpers/mixins";
+
 // Components
 @import "components/buttons";
 @import "components/carousel";
-
-// Helpers
-@import "helpers/functions";
-@import "helpers/mixins";
-@import "helpers/variables";
-@import "helpers/placeholders";
+@import "components/landingPage";
+@import "components/homeParallax";
+@import "components/loginModal";
+@import "components/register";
 
 //Layout
+@import "layout/grid";
+@import "layout/sections";
 @import "layout/header";
 @import "layout/footer";
+@import "layout/navbar";
+
+// Typography 
+@import "typography/font-family";
+@import "typography/color";
 
 // Pages
 @import "pages/home";
+@import "pages/editMyAccount";
+@import "pages/pricing";
+@import "pages/program";
+@import "pages/schedule";
 
+@import "pages/admin/listStudents";
+
+//@import "pages/teachers/";
+
+@import "pages/students/studentEventModal";

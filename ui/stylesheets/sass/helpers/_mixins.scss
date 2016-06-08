@@ -1,0 +1,32 @@
+@mixin sm-icon-position($left, $top) {
+	left: $left;
+	top: $top;
+	width: 154px;
+	position: absolute;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+	&:hover {
+		transform: scale(1.4);
+	}
+}
+
+@mixin drag-by-user($key) {
+	user-drag: $key;
+	-moz-user-drag: $key;	
+	-ms-user-drag: $key;
+	-webkit-user-drag: $key;
+}
+
+@mixin select-by-user($key) {
+	user-select: $key;
+	-moz-user-select: $key;
+	-ms-user-select: $key;
+	-webkit-user-select: $key;
+}
+
+@mixin transform-translate($x, $y) {
+	transform: translate($x, $y);
+	-moz-transform: translate($x, $y);
+	-ms-transform: translate($x, $y);
+    -webkit-transform: translate($x, $y);
+}
