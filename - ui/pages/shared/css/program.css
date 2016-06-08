@@ -1,0 +1,17 @@
+.panel-primary {
+	border-color: #00495E;
+}
+
+.panel-primary > .panel-heading {
+	border-color: #00495E;
+	background-color: #00495E;
+}
+
+.panel-primary h3 {
+	font-size: 2rem;
+}
+
+.cat-title {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}

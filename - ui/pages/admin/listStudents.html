@@ -1,0 +1,37 @@
+<template name="listStudents">
+	<section class="page-content">
+		<div class="container">
+			<div class="row">
+				<h3>Students</h3>
+				<div class="table-responsive">
+					<table class="table table-condensed table-hover table-bordered">
+						<thead>
+							<tr>			  			
+					  			<th>Name</th>
+					  			<th>Email</th>
+					  			<th>Skype Id</th>
+					  			<th>Assigned Teacher</th>				  			
+					  			<th>Time Zone</th>
+					  			<th>Gender</th>
+					  			<th class="text-center">Credits</th>
+					  		</tr>
+						</thead>
+				  		<tbody>
+				  			{{#each students}}
+						  		<tr>
+						  			<td>{{profile.name}}</td>
+						  			<td><a href="mailto:{{emails.[0].address}}">{{emails.[0].address}}</a></td>
+						  			<td>{{profile.skypeid}}</td>
+						  			<td><a href="/admin/teachers/{{teacherId profile.teachersRosterId}}/students-of">{{teacherName profile.teachersRosterId}} </a> <h6 class="change-teacher"><a href="/admin/students/{{_id}}/change-students-teacher">Change</a></h6></td>
+						  			<td>{{profile.timezone.name}}</td>
+						  			<td>{{profile.gender}}</td>
+						  			<td class="text-center">{{profile.credits}}</td>
+						  		</tr> 
+					  		{{/each}}
+				  		</tbody>				  		
+					</table>
+				</div>
+			</div>
+		</div>		
+	</section>
+</template>

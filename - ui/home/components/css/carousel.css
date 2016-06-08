@@ -1,0 +1,81 @@
+/* Carousel */
+
+#signUpCarousel {
+	padding: 0;
+}
+
+#signUpCarousel .row {
+	margin-left: -15px;
+}
+
+/* Carousel */
+.carousel-caption {
+	background: rgba(0, 0, 0, 0.00);
+	border-radius: 4px;
+	padding-top: 5px;
+	padding-bottom: 15px;
+	color: #FFF;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+/*Carousel Controlls */
+.owl-controls {
+	position: absolute;
+	bottom: 10px;
+	left: 473.4685px;
+}
+.owl-prev, .owl-next {
+	text-transform: capitalize;
+	display: inline-block;
+	color: rgba(247, 244, 228, 0.81);
+	font-size: 16px;
+	margin: 5px;
+	padding: 4px 12px;
+	background: rgba(0, 73, 94, 0.5);
+	border-radius: 3px;
+	border: .5px solid #00495E;
+}
+.owl-prev:hover, .owl-next:hover {
+	background: #00A2BC;
+	color: #F7F4E4;
+	border: 1px solid #00A2BC;
+}
+/* Carousel @ different screen size */
+/* xm */
+.owl-carousel, .owl-carousel .owl-item, .owl-carousel .item {
+	max-height: 200px;
+	background: red!important;
+	soverflow: hidden;
+}
+.owl-carousel .item {
+    width: 100%;
+    height: 100%;
+}
+
+/* sm */
+@media (min-width: 768px) { 
+	.owl-carousel, .owl-carousel .owl-item, .owl-carousel .item {
+		background: green!important;	
+	}
+	.carousel-caption {
+		background: rgba(0, 0, 0, 0.30);
+	}
+}
+
+/* md */
+@media (min-width: 992px) { 
+	.owl-carousel, .owl-carousel .owl-item, .owl-carousel .item {
+		max-height: 346px;
+		background: purple!important;	
+	}
+}
+
+/* lg */
+@media (min-width: 1200px) { 
+	.owl-carousel, .owl-carousel .owl-item, .owl-carousel .item {
+		max-height: 542px;
+		background: orange!important;	
+	}
+	.loc-text {
+	  	padding:30px;
+	}
+}

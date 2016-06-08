@@ -1,0 +1,11 @@
+.change-teacher {
+	display: inline-block;
+	float: right;
+	position: relative;
+	top: 50%;
+	transform: translateY(-28%);
+}
+
+.change-teacher a {
+	font-size: 12px;
+}

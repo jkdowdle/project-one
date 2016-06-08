@@ -1,0 +1,202 @@
+<template name="home">
+	<div class="main-content">
+		<div class="row main-content">
+
+			{{#unless currentUser.emails.[0].verified}}
+				{{#if currentUser}}
+					{{> unverifiedAccounts}}
+				{{/if}}
+			{{/unless}}
+
+			{{> carouselRegister}}
+
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12">
+						<h2>Ted Cruz would have been the best President.</h2>
+					</div>
+				</div>
+			</div>
+
+			{{> newsfeed}}
+
+			{{> parallaxSection}}  
+
+		</div>
+	</div>	
+</template>
+
+<template name="carouselRegister">
+	<section id="signUpCarousel">
+		<div class="row">
+			<div class="col-md-7">
+				<div class="carousel-segment">
+					{{> carouselTemplate}}
+				</div>				
+			</div>
+			<div class="col-md-5">
+				<div class="register-segment">
+					<h3 class="text-center">Sign up and receive a free class!</h3>
+					{{> registerSection}}
+				</div>				
+			</div>
+		</div>
+	</section>
+</template>
+
+<template name="carouselTemplate">
+	{{> carousel}}
+</template>
+
+<template name="registerSection">
+	{{> register}}
+</template>
+
+<template name="newsfeed">
+	<section id="newfeed">
+		<div class="row">
+			<h2>News Feed Section</h2>
+			<div class="col-md-4">
+				<h2>Lorem Ipsum</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nihil, eligendi atque fugit necessitatibus nesciunt esse, magni, culpa rerum ratione ea omnis eveniet! Provident velit, optio soluta, atque magnam dicta.</p>
+			</div>
+			<div class="col-md-4">
+				<h2>Lorem Ipsum</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis magnam dolor odio modi mollitia ad aliquam nobis aspernatur! Cupiditate, reprehenderit. Doloribus iste illum, ratione temporibus et earum. Beatae, aut, consequatur!</p>
+			</div>
+			<div class="col-md-4">
+				<h2>Lorem Ipsum</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa expedita, rerum libero quis nobis provident quisquam minus magni ipsum iure esse aperiam inventore ipsam. Aspernatur autem repudiandae perspiciatis cupiditate nisi?</p>
+			</div>
+		</div>		
+	</section>
+</template>
+
+<template name="parallaxSection">
+
+	{{> promos}}
+
+	{{> classRoomSection}}
+
+</template>
+
+<template name="promos">
+	<section id="promoSection">
+		<section class="special" data-scrollax-parent="true">
+	   		<div class="cover" data-scrollax="properties: { translateY: '30%' }">
+	      		<img class="image-4" src="/img/parallax/campus-shot.jpg" />
+	      	</div>
+	      	<div class="content">
+	        	<div class="text centralize">
+	          		<div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
+	                	<div class="row">
+							<div class="col-md-4">
+								<div class="panel panel-default">
+									<div class="panel-heading text-center">
+										<img src="/img/newnew.png">
+									</div>
+									<div class="panel-body">
+										<h4 class="promo-title">Better Method</h4>
+										<p>Fluency in a language comes with dedicated effort and confidence. Our individual training will allow you to feel comfortable and confident while progressing in life and total comprehension of your target language.</p>
+										<div class="text-center">
+											<a href="#">Learn More</a>
+										</div>					
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="panel panel-default">
+									<div class="panel-heading text-center">
+										<img src="/img/better-future-mini.png">
+									</div>
+									<div class="panel-body">
+										<h4 class="promo-title">Better Future</h4>
+										<p>Our goal is your immediate success in learning your target language, but also success and satisfaction throughout your entire life.</p>
+										<div class="text-center">
+											<a href="#">Learn More</a>
+										</div>					
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="panel panel-default">
+									<div class="panel-heading text-center">
+										<img src="/img/better-you-mini.png">
+									</div>
+									<div class="panel-body">
+										<h4 class="promo-title">Better You</h4>
+										<p>You will have opportunity to connect with people from different countries, cultures, and walks of life. You will make connections that will change your life!</p>
+										<div class="text-center">
+											<a href="#">Learn More</a>
+										</div>					
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	        	</div>
+	      	</div>
+	    </section>
+	</section>	
+</template>
+
+<template name="classRoomSection">
+	<section id="classRoomLocations">
+		{{> parallaxOne}}
+		{{> parallaxTwo}}
+	</section>
+</template>
+
+<template name="parallaxOne">
+	<section class="special classroom-locations" data-scrollax-parent="true">
+		<div class="cover" data-scrollax="properties: { translateY: '50%' }">
+			<img src="img/parallax/tools-for-study.jpg" />
+		</div>
+		<div class="content">
+			<div class="text centralize">
+				<div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
+					<header class="major">
+						<h2>Classroom Locations</h2>
+					</header>
+					<div class="row" style="padding-top:30px;padding-left:20px;">
+						<div class="loc-text col-xs-12 col-sm-3">
+							<h3>Personalized Help Just for Your Needs!</h3>
+						</div>
+						<div class="loc-text col-xs-12 col-sm-3">
+							<h3>Always Find Time to Improve Yourself!</h3>
+						</div>
+						<div class="loc-text col-xs-12 col-sm-3">
+							<h3>Make New Friends, and Gain Confidence!</h3>
+						</div>
+						<div class="loc-text col-xs-12 col-sm-3">
+							<h3>Achieve Fluency Quickly, Acomplish More Daily!</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</template>
+
+<template name="parallaxTwo">
+	<section class="special" style="z-index:0;" data-scrollax-parent="true">
+   		<div class="cover" data-scrollax="properties: { translateY: '30%' }">
+      		<img class="image-4" src="/img/parallax/table-shop-session.jpg" />
+      	</div>
+      	<div class="content" style="z-index:1;">
+        	<div class="text centralize">
+          		<div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
+                	<header class="major">
+                  		<h2>Study conveniently</h2>
+                  		<h2>Speak Freely</h2>
+                  		<h2>Understand Fluently</h2>
+                	</header>
+                	<h4>- Select class times that work for you!</h4>
+                	<h4>- Study anywhere you want!</h4>
+                	<h4>- Design custom lessons that will always be interesting!</h4>
+          		</div>
+        	</div>
+      	</div>
+    </section>
+</template>
+

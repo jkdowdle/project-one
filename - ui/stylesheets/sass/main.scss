@@ -1,0 +1,17 @@
+// Components
+@import "components/buttons";
+@import "components/carousel";
+
+// Helpers
+@import "helpers/functions";
+@import "helpers/mixins";
+@import "helpers/variables";
+@import "helpers/placeholders";
+
+//Layout
+@import "layout/header";
+@import "layout/footer";
+
+// Pages
+@import "pages/home";
+

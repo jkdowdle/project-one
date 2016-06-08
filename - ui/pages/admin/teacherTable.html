@@ -1,0 +1,28 @@
+<template name="teacherTable">
+	<div class="table-responsive">
+		<table class="table table-condensed table-hover table-bordered">
+			<thead>
+				<tr>			  			
+		  			<th>Name</th>
+		  			<th>Email</th>
+		  			<th>Skype Id</th>				  			
+		  			<th>Time Zone</th>
+		  			<th>Gender</th>
+		  			<th class="text-center">Students</th>
+		  		</tr>
+			</thead>
+	  		<tbody>
+	  			{{#each teachers}}
+			  		<tr>
+			  			<td><a href="/admin/teachers/{{_id}}/students-of">{{profile.name}}</a></td>
+			  			<td><a href="mailto:{{emails.[0].address}}">{{emails.[0].address}}</a></td>
+			  			<td>{{profile.skypeid}}</td>
+			  			<td>{{profile.timezone.name}}</td>
+			  			<td>{{profile.gender}}</td>
+			  			<td class="text-center">{{studentCount profile.rosterId}}</td>
+			  		</tr> 
+		  		{{/each}}
+	  		</tbody>				  		
+		</table>
+	</div>
+</template>
