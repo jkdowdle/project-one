@@ -1,0 +1,22 @@
+.login-segment {
+	padding: 1rem;
+	text-align: center;
+}
+
+// Media Queries 
+// xm
+
+.modal-sm {
+	width: 99%;
+}
+
+// md
+
+@media (min-width: 992px) { 
+	
+	.modal-sm {
+		width: 570px;
+	}
+
+}
+

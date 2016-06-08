@@ -1,0 +1,19 @@
+.cat-title {
+	@extend %text-center;
+	padding: {
+		top: 1rem;
+		bottom: 1rem;
+	}
+}
+
+.panel-primary {
+	border-color: $blue;
+	h3 {
+		font-size: 2rem;
+	}
+	.panel-heading {
+		border-color: $blue;
+		background-color: $blue;
+	}
+}
+

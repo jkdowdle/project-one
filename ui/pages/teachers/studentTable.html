@@ -1,0 +1,28 @@
+<template name="studentTable">
+	<div class="table-responsive">
+		<table class="table table-condensed table-hover table-bordered">
+			<thead>
+				<tr>			  			
+		  			<th>Name</th>
+		  			<th>Email</th>
+		  			<th>Skype Id</th>				  			
+		  			<th>Time Zone</th>
+		  			<th>Gender</th>
+		  			<th class="text-center">Credits</th>
+		  		</tr>
+			</thead>
+	  		<tbody>
+	  			{{#each myStudentInfo}}
+			  		<tr>
+			  			<td>{{profile.name}}</td>
+			  			<td><a href="mailto:{{emails.[0].address}}">{{emails.[0].address}}</a></td>
+			  			<td>{{profile.skypeid}}</td>
+			  			<td>{{profile.timezone.name}}</td>
+			  			<td>{{profile.gender}}</td>
+			  			<td class="text-center">{{profile.credits}}</td>
+			  		</tr>
+		  		{{/each}}
+	  		</tbody>				  		
+		</table>
+	</div>
+</template>

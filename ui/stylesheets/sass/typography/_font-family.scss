@@ -1,0 +1,80 @@
+h1, h2, h3, h4, h5, h6 {
+	@extend %header-font;
+}
+
+h1 {
+	font-size: 5rem;
+}
+
+h2 {
+	font-size: 4rem;
+}
+
+h3 {
+	font-size: 3.5rem;
+}
+
+h4 {
+	font-size: 3rem;
+}
+
+p {
+	@extend %paragraph-font;
+	font: {
+		size: 1.8rem; 
+	}
+}
+
+a {
+	font: {
+		size: 1.85rem;
+	}
+}
+
+.navbar-inverse, .navbar-inverse .dropdown {
+	a {
+		font: {
+			size: 1em;
+		}
+	}
+}
+
+.navbar-inverse .dropdown a:hover, a:hover {
+	text-decoration: none;
+}
+
+.form-control {
+	@extend %paragraph-font;
+	font: {
+		size: 1.6rem;
+	}
+}
+
+.table {
+	@extend %paragraph-font;
+	font: {
+		size: 1.2em;
+	}
+}
+
+.nav, .dropdown {
+	a {
+		@extend %header-font;
+	}
+}
+
+.exit-landing {
+	font: {
+		family: $bree-serif;
+		size: 1.8rem;
+	}
+	cursor: pointer;
+}
+
+button, input {
+	font: {
+		family: $bree-serif;
+		size: 1.2em!important;
+	}
+	letter-spacing: .06em!important;
+}

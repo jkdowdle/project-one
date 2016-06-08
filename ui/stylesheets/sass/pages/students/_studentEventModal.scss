@@ -1,0 +1,14 @@
+// Media Queries
+// xs
+
+.modal-footer {
+	text-align: center;
+}
+
+// sm 
+
+@media ( min-width: $screen-sm ) { 
+	.modal-footer {
+		text-align: right;
+	}
+}

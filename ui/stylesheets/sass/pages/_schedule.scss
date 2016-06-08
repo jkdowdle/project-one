@@ -1,0 +1,35 @@
+.fc-event-container {
+	@include drag-by-user(none);
+	@include select-by-user(none);
+}
+
+.fc-toolbar h2 {
+	font-size: 3.7rem;
+}
+
+.fc-day-grid-event {
+	background: #FFF;
+	border-color: #777;
+}
+
+.fc-content {
+	cursor: pointer;
+	h5 {
+		margin: {
+			top: 5px;
+			bottom: 5px;
+		}
+	}
+	.row {
+		div {
+			padding: {
+				left: 5px;
+				right: 5px;
+			}
+		}
+	}
+}
+
+.fc-content.filled {
+	background: #D9EDF7;
+}
