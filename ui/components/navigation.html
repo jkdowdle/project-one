@@ -16,9 +16,9 @@
 			<div class="collapse navbar-collapse" id="mainNav">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="{{pathFor route="home"}}">Home</a></li>
-					<!--{{#unless currentUser.emails.[0].verified}}
+					{{#unless currentUser.emails.[0].verified}}
 
-				    {{else}} -->
+				    {{else}} 
 					    {{#if isInRole 'student'}}
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
@@ -49,7 +49,7 @@
 								</ul>
 							</li>
 						{{/if}}
-				    <!-- {{/unless}}	-->				
+				   {{/unless}}					    				
 					<li><a href="{{pathFor route='program'}}">Program</a></li>
 					<li><a href="{{pathFor route='pricing'}}">Pricing</a></li>					
 					<li class="dropdown">
