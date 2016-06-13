@@ -1,0 +1,23 @@
+.form-control.error {
+	border: {
+		color: #a94442;
+	}
+	@include box-shadow(rgba(0,0,0,.075), #ce8483);
+	&:focus {
+		@include box-shadow(rgba(0,0,0,.075), #ce8483);
+	}
+}
+
+.popover.alert {
+	background: #ffeded;
+	padding: 1.4rem;
+	.popover-content {
+		display: inline;
+	}
+	.arrow {
+		&:after {
+			border-left-color: #ffeded;
+		}
+	}
+}
+

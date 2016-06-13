@@ -1,0 +1,532 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Users\\Joshua Dowdle\\AppData\\Local\\.meteor\\packages\\meteor-tool\\1.3.2_4\\mt-os.windows.x86_32\\dev_bundle\\bin\\\\node.exe',
+1 verbose cli   'C:\\Users\\Joshua Dowdle\\AppData\\Local\\.meteor\\packages\\meteor-tool\\1.3.2_4\\mt-os.windows.x86_32\\dev_bundle\\lib\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'i',
+1 verbose cli   'jquery-validation-bootstrap-tooltip' ]
+2 info using npm@2.14.22
+3 info using node@v0.10.43
+4 verbose install initial load of C:\Users\Joshua Dowdle\Meteor\flueint\package.json
+5 verbose installManyTop reading scoped package data from C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery\package.json
+6 verbose installManyTop reading scoped package data from C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\meteor-node-stubs\package.json
+7 verbose readDependencies loading dependencies from C:\Users\Joshua Dowdle\Meteor\flueint\package.json
+8 silly cache add args [ 'i', null ]
+9 verbose cache add spec i
+10 silly cache add args [ 'jquery-validation-bootstrap-tooltip', null ]
+11 verbose cache add spec jquery-validation-bootstrap-tooltip
+12 silly cache add parsed spec { raw: 'i',
+12 silly cache add   scope: null,
+12 silly cache add   name: 'i',
+12 silly cache add   rawSpec: '',
+12 silly cache add   spec: 'latest',
+12 silly cache add   type: 'tag' }
+13 silly addNamed i@latest
+14 verbose addNamed "latest" is being treated as a dist-tag for i
+15 info addNameTag [ 'i', 'latest' ]
+16 silly mapToRegistry name i
+17 silly mapToRegistry using default registry
+18 silly mapToRegistry registry https://registry.npmjs.org/
+19 silly mapToRegistry uri https://registry.npmjs.org/i
+20 verbose addNameTag registry:https://registry.npmjs.org/i not in flight; fetching
+21 silly cache add parsed spec { raw: 'jquery-validation-bootstrap-tooltip',
+21 silly cache add   scope: null,
+21 silly cache add   name: 'jquery-validation-bootstrap-tooltip',
+21 silly cache add   rawSpec: '',
+21 silly cache add   spec: 'latest',
+21 silly cache add   type: 'tag' }
+22 silly addNamed jquery-validation-bootstrap-tooltip@latest
+23 verbose addNamed "latest" is being treated as a dist-tag for jquery-validation-bootstrap-tooltip
+24 info addNameTag [ 'jquery-validation-bootstrap-tooltip', 'latest' ]
+25 silly mapToRegistry name jquery-validation-bootstrap-tooltip
+26 silly mapToRegistry using default registry
+27 silly mapToRegistry registry https://registry.npmjs.org/
+28 silly mapToRegistry uri https://registry.npmjs.org/jquery-validation-bootstrap-tooltip
+29 verbose addNameTag registry:https://registry.npmjs.org/jquery-validation-bootstrap-tooltip not in flight; fetching
+30 verbose request uri https://registry.npmjs.org/jquery-validation-bootstrap-tooltip
+31 verbose request no auth needed
+32 info attempt registry request try #1 at 11:33:03
+33 verbose request id b43e9f57b103f85c
+34 verbose etag "BHYN7EDD8QIFO4CU70KTIWAIB"
+35 http request GET https://registry.npmjs.org/jquery-validation-bootstrap-tooltip
+36 verbose request uri https://registry.npmjs.org/i
+37 verbose request no auth needed
+38 info attempt registry request try #1 at 11:33:03
+39 http request GET https://registry.npmjs.org/i
+40 http 200 https://registry.npmjs.org/i
+41 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+41 verbose headers   etag: '"QVRTAPOIULHWK59ICSMRJS8R"',
+41 verbose headers   'content-type': 'application/json',
+41 verbose headers   'content-encoding': 'gzip',
+41 verbose headers   'cache-control': 'max-age=300',
+41 verbose headers   'content-length': '2852',
+41 verbose headers   'accept-ranges': 'bytes',
+41 verbose headers   date: 'Mon, 13 Jun 2016 17:33:12 GMT',
+41 verbose headers   via: '1.1 varnish',
+41 verbose headers   age: '250',
+41 verbose headers   connection: 'keep-alive',
+41 verbose headers   'x-served-by': 'cache-iad2128-IAD',
+41 verbose headers   'x-cache': 'HIT',
+41 verbose headers   'x-cache-hits': '181',
+41 verbose headers   'x-timer': 'S1465839192.104800,VS0,VE0',
+41 verbose headers   vary: 'Accept-Encoding' }
+42 silly get cb [ 200,
+42 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+42 silly get     etag: '"QVRTAPOIULHWK59ICSMRJS8R"',
+42 silly get     'content-type': 'application/json',
+42 silly get     'content-encoding': 'gzip',
+42 silly get     'cache-control': 'max-age=300',
+42 silly get     'content-length': '2852',
+42 silly get     'accept-ranges': 'bytes',
+42 silly get     date: 'Mon, 13 Jun 2016 17:33:12 GMT',
+42 silly get     via: '1.1 varnish',
+42 silly get     age: '250',
+42 silly get     connection: 'keep-alive',
+42 silly get     'x-served-by': 'cache-iad2128-IAD',
+42 silly get     'x-cache': 'HIT',
+42 silly get     'x-cache-hits': '181',
+42 silly get     'x-timer': 'S1465839192.104800,VS0,VE0',
+42 silly get     vary: 'Accept-Encoding' } ]
+43 verbose get saving i to C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\registry.npmjs.org\i\.cache.json
+44 verbose correctMkdir C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+45 silly addNameTag next cb for i with tag latest
+46 silly addNamed i@0.3.5
+47 verbose addNamed "0.3.5" is a plain semver version for i
+48 silly mapToRegistry name i
+49 silly mapToRegistry using default registry
+50 silly mapToRegistry registry https://registry.npmjs.org/
+51 silly mapToRegistry uri https://registry.npmjs.org/i
+52 verbose addRemoteTarball https://registry.npmjs.org/i/-/i-0.3.5.tgz not in flight; adding
+53 verbose addRemoteTarball [ 'https://registry.npmjs.org/i/-/i-0.3.5.tgz',
+53 verbose addRemoteTarball   '1d2b854158ec8169113c6cb7f6b6801e99e211d5' ]
+54 info retry fetch attempt 1 at 11:33:03
+55 info attempt registry request try #1 at 11:33:03
+56 http fetch GET https://registry.npmjs.org/i/-/i-0.3.5.tgz
+57 http 304 https://registry.npmjs.org/jquery-validation-bootstrap-tooltip
+58 verbose headers { date: 'Mon, 13 Jun 2016 17:33:12 GMT',
+58 verbose headers   via: '1.1 varnish',
+58 verbose headers   'cache-control': 'max-age=300',
+58 verbose headers   etag: '"BHYN7EDD8QIFO4CU70KTIWAIB"',
+58 verbose headers   age: '0',
+58 verbose headers   connection: 'keep-alive',
+58 verbose headers   'x-served-by': 'cache-iad2122-IAD',
+58 verbose headers   'x-cache': 'MISS',
+58 verbose headers   'x-cache-hits': '0',
+58 verbose headers   'x-timer': 'S1465839192.112077,VS0,VE102',
+58 verbose headers   vary: 'Accept-Encoding' }
+59 silly get cb [ 304,
+59 silly get   { date: 'Mon, 13 Jun 2016 17:33:12 GMT',
+59 silly get     via: '1.1 varnish',
+59 silly get     'cache-control': 'max-age=300',
+59 silly get     etag: '"BHYN7EDD8QIFO4CU70KTIWAIB"',
+59 silly get     age: '0',
+59 silly get     connection: 'keep-alive',
+59 silly get     'x-served-by': 'cache-iad2122-IAD',
+59 silly get     'x-cache': 'MISS',
+59 silly get     'x-cache-hits': '0',
+59 silly get     'x-timer': 'S1465839192.112077,VS0,VE102',
+59 silly get     vary: 'Accept-Encoding' } ]
+60 verbose etag https://registry.npmjs.org/jquery-validation-bootstrap-tooltip from cache
+61 verbose get saving jquery-validation-bootstrap-tooltip to C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\registry.npmjs.org\jquery-validation-bootstrap-tooltip\.cache.json
+62 verbose correctMkdir C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+63 silly addNameTag next cb for jquery-validation-bootstrap-tooltip with tag latest
+64 silly addNamed jquery-validation-bootstrap-tooltip@0.9.0
+65 verbose addNamed "0.9.0" is a plain semver version for jquery-validation-bootstrap-tooltip
+66 silly cache afterAdd jquery-validation-bootstrap-tooltip@0.9.0
+67 verbose afterAdd C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\jquery-validation-bootstrap-tooltip\0.9.0\package\package.json not in flight; writing
+68 verbose correctMkdir C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+69 verbose afterAdd C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\jquery-validation-bootstrap-tooltip\0.9.0\package\package.json written
+70 http fetch 200 https://registry.npmjs.org/i/-/i-0.3.5.tgz
+71 silly fetchAndShaCheck shasum 1d2b854158ec8169113c6cb7f6b6801e99e211d5
+72 verbose addTmpTarball C:\Users\JOSHUA~1\AppData\Local\Temp\npm-7524-ed900efb\registry.npmjs.org\i\-\i-0.3.5.tgz not in flight; adding
+73 verbose addTmpTarball already have metadata; skipping unpack for i@0.3.5
+74 verbose correctMkdir C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+75 silly cache afterAdd i@0.3.5
+76 verbose afterAdd C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\i\0.3.5\package\package.json not in flight; writing
+77 verbose correctMkdir C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+78 verbose afterAdd C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\i\0.3.5\package\package.json written
+79 silly install resolved [ { name: 'jquery-validation-bootstrap-tooltip',
+79 silly install resolved     version: '0.9.0',
+79 silly install resolved     description: 'A drop in extension replacing error labels from jQuery Validation plugin with Twitter Bootstrap tooltips',
+79 silly install resolved     main: 'jquery-validate.bootstrap-tooltip.flickerfix.js',
+79 silly install resolved     repository:
+79 silly install resolved      { type: 'git',
+79 silly install resolved        url: 'git+https://github.com/Thrilleratplay/jquery-validation-bootstrap-tooltip.git' },
+79 silly install resolved     keywords:
+79 silly install resolved      [ 'jquery',
+79 silly install resolved        'validation',
+79 silly install resolved        'twitter',
+79 silly install resolved        'bootstrap',
+79 silly install resolved        'tooltip',
+79 silly install resolved        'popover',
+79 silly install resolved        'plugin',
+79 silly install resolved        'error',
+79 silly install resolved        'validate' ],
+79 silly install resolved     dependencies: { jquery: '~1.10', bootstrap: '~3.3.5' },
+79 silly install resolved     author: { name: 'ThrillerAtPlay', email: 'thrilleratplay@gmail.com' },
+79 silly install resolved     license: 'MIT',
+79 silly install resolved     bugs: { url: 'https://github.com/Thrilleratplay/jquery-validation-bootstrap-tooltip/issues' },
+79 silly install resolved     homepage: 'https://github.com/Thrilleratplay/jquery-validation-bootstrap-tooltip',
+79 silly install resolved     gitHead: '614a7f20be9dfabedccd344c6f355ae5ff34c929',
+79 silly install resolved     _id: 'jquery-validation-bootstrap-tooltip@0.9.0',
+79 silly install resolved     scripts: {},
+79 silly install resolved     _shasum: '97fff0d5a7517ce7878b16bc81dc74fd13b312bf',
+79 silly install resolved     _from: 'jquery-validation-bootstrap-tooltip@latest',
+79 silly install resolved     _npmVersion: '2.14.1',
+79 silly install resolved     _nodeVersion: '0.12.7',
+79 silly install resolved     _npmUser: { name: 'thrilleratplay', email: 'thrilleratplay@gmail.com' },
+79 silly install resolved     dist:
+79 silly install resolved      { shasum: '97fff0d5a7517ce7878b16bc81dc74fd13b312bf',
+79 silly install resolved        tarball: 'https://registry.npmjs.org/jquery-validation-bootstrap-tooltip/-/jquery-validation-bootstrap-tooltip-0.9.0.tgz' },
+79 silly install resolved     maintainers: [ [Object] ],
+79 silly install resolved     directories: {},
+79 silly install resolved     _resolved: 'https://registry.npmjs.org/jquery-validation-bootstrap-tooltip/-/jquery-validation-bootstrap-tooltip-0.9.0.tgz',
+79 silly install resolved     readme: 'ERROR: No README data found!' },
+79 silly install resolved   { name: 'i',
+79 silly install resolved     version: '0.3.5',
+79 silly install resolved     author:
+79 silly install resolved      { name: 'Pavan Kumar Sunkara',
+79 silly install resolved        email: 'pavan.sss1991@gmail.com',
+79 silly install resolved        url: 'pksunkara.github.com' },
+79 silly install resolved     description: 'custom inflections for nodejs',
+79 silly install resolved     main: './lib/inflect',
+79 silly install resolved     repository: { type: 'git', url: 'git://github.com/pksunkara/inflect.git' },
+79 silly install resolved     keywords:
+79 silly install resolved      [ 'singular',
+79 silly install resolved        'plural',
+79 silly install resolved        'camelize',
+79 silly install resolved        'underscore',
+79 silly install resolved        'dasherize',
+79 silly install resolved        'demodulize',
+79 silly install resolved        'ordinalize',
+79 silly install resolved        'uncountable',
+79 silly install resolved        'pluralize',
+79 silly install resolved        'singularize',
+79 silly install resolved        'titleize',
+79 silly install resolved        'tableize',
+79 silly install resolved        'classify',
+79 silly install resolved        'foreign_key' ],
+79 silly install resolved     homepage: 'http://pksunkara.github.com/inflect',
+79 silly install resolved     scripts: { test: 'vows --spec $(find test -name \'*-test.js\')' },
+79 silly install resolved     contributors: [ [Object] ],
+79 silly install resolved     dependencies: {},
+79 silly install resolved     devDependencies: { vows: '0.7.0' },
+79 silly install resolved     engines: { node: '>=0.4' },
+79 silly install resolved     bugs: { url: 'https://github.com/pksunkara/inflect/issues' },
+79 silly install resolved     licenses: [ [Object] ],
+79 silly install resolved     gitHead: 'bbcadd57a182007ab158acea511515b815385d4d',
+79 silly install resolved     _id: 'i@0.3.5',
+79 silly install resolved     _shasum: '1d2b854158ec8169113c6cb7f6b6801e99e211d5',
+79 silly install resolved     _from: 'i@latest',
+79 silly install resolved     _npmVersion: '2.14.9',
+79 silly install resolved     _nodeVersion: '0.12.9',
+79 silly install resolved     _npmUser: { name: 'pksunkara', email: 'pavan.sss1991@gmail.com' },
+79 silly install resolved     dist:
+79 silly install resolved      { shasum: '1d2b854158ec8169113c6cb7f6b6801e99e211d5',
+79 silly install resolved        tarball: 'https://registry.npmjs.org/i/-/i-0.3.5.tgz' },
+79 silly install resolved     maintainers: [ [Object] ],
+79 silly install resolved     _npmOperationalInternal:
+79 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
+79 silly install resolved        tmp: 'tmp/i-0.3.5.tgz_1462355680372_0.1744775390252471' },
+79 silly install resolved     directories: {},
+79 silly install resolved     _resolved: 'https://registry.npmjs.org/i/-/i-0.3.5.tgz' } ]
+80 info install jquery-validation-bootstrap-tooltip@0.9.0 into C:\Users\Joshua Dowdle\Meteor\flueint
+81 info install i@0.3.5 into C:\Users\Joshua Dowdle\Meteor\flueint
+82 info installOne jquery-validation-bootstrap-tooltip@0.9.0
+83 verbose installOne of jquery-validation-bootstrap-tooltip to C:\Users\Joshua Dowdle\Meteor\flueint not in flight; installing
+84 verbose correctMkdir C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+85 info installOne i@0.3.5
+86 verbose installOne of i to C:\Users\Joshua Dowdle\Meteor\flueint not in flight; installing
+87 verbose correctMkdir C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\_locks correctMkdir already in flight; waiting
+88 verbose lock using C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\_locks\jquery-validation-bootst-f20f478700c428d7.lock for C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip
+89 verbose lock using C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\_locks\i-a32ceb7085bea394.lock for C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i
+90 silly install write writing jquery-validation-bootstrap-tooltip 0.9.0 to C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip
+91 silly install write writing i 0.3.5 to C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i
+92 verbose unbuild node_modules\jquery-validation-bootstrap-tooltip
+93 verbose unbuild node_modules\i
+94 silly gentlyRm C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip is being purged from base C:\Users\Joshua Dowdle\Meteor\flueint
+95 verbose gentlyRm don't care about contents; nuking C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip
+96 silly gentlyRm C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i is being purged from base C:\Users\Joshua Dowdle\Meteor\flueint
+97 verbose gentlyRm don't care about contents; nuking C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i
+98 verbose tar unpack C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\jquery-validation-bootstrap-tooltip\0.9.0\package.tgz
+99 verbose tar unpacking to C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip
+100 silly gentlyRm C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip is being purged
+101 verbose gentlyRm don't care about contents; nuking C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip
+102 verbose tar unpack C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\i\0.3.5\package.tgz
+103 verbose tar unpacking to C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i
+104 silly gentlyRm C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i is being purged
+105 verbose gentlyRm don't care about contents; nuking C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i
+106 silly gunzTarPerm modes [ '777', '666' ]
+107 silly gunzTarPerm modes [ '777', '666' ]
+108 silly gunzTarPerm extractEntry package.json
+109 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+110 silly gunzTarPerm extractEntry package.json
+111 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+112 silly gunzTarPerm extractEntry .npmignore
+113 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+114 silly gunzTarPerm extractEntry README.md
+115 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+116 silly gunzTarPerm extractEntry README.md
+117 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+118 silly gunzTarPerm extractEntry jquery-validate.bootstrap-tooltip.flickerfix.js
+119 silly gunzTarPerm modified mode [ 'jquery-validate.bootstrap-tooltip.flickerfix.js', 420, 438 ]
+120 silly gunzTarPerm extractEntry LICENSE
+121 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+122 silly gunzTarPerm extractEntry .travis.yml
+123 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+124 silly gunzTarPerm extractEntry jquery-validate.bootstrap-tooltip.flickerfix.min.js
+125 silly gunzTarPerm modified mode [ 'jquery-validate.bootstrap-tooltip.flickerfix.min.js',
+125 silly gunzTarPerm   420,
+125 silly gunzTarPerm   438 ]
+126 silly gunzTarPerm extractEntry jquery-validate.bootstrap-tooltip.js
+127 silly gunzTarPerm modified mode [ 'jquery-validate.bootstrap-tooltip.js', 420, 438 ]
+128 silly gunzTarPerm extractEntry lib/defaults.js
+129 silly gunzTarPerm modified mode [ 'lib/defaults.js', 420, 438 ]
+130 silly gunzTarPerm extractEntry lib/inflect.js
+131 silly gunzTarPerm modified mode [ 'lib/inflect.js', 420, 438 ]
+132 silly gunzTarPerm extractEntry jquery-validate.bootstrap-tooltip.min.js
+133 silly gunzTarPerm modified mode [ 'jquery-validate.bootstrap-tooltip.min.js', 420, 438 ]
+134 silly gunzTarPerm extractEntry .jscsrc
+135 silly gunzTarPerm modified mode [ '.jscsrc', 420, 438 ]
+136 silly gunzTarPerm extractEntry MIT-LICENSE.txt
+137 silly gunzTarPerm modified mode [ 'MIT-LICENSE.txt', 420, 438 ]
+138 silly gunzTarPerm extractEntry bower.json
+139 silly gunzTarPerm modified mode [ 'bower.json', 420, 438 ]
+140 silly gunzTarPerm extractEntry lib/inflections.js
+141 silly gunzTarPerm modified mode [ 'lib/inflections.js', 420, 438 ]
+142 silly gunzTarPerm extractEntry lib/methods.js
+143 silly gunzTarPerm modified mode [ 'lib/methods.js', 420, 438 ]
+144 silly gunzTarPerm extractEntry lib/native.js
+145 silly gunzTarPerm modified mode [ 'lib/native.js', 420, 438 ]
+146 silly gunzTarPerm extractEntry lib/util.js
+147 silly gunzTarPerm modified mode [ 'lib/util.js', 420, 438 ]
+148 silly gunzTarPerm extractEntry test/inflector/cases.js
+149 silly gunzTarPerm modified mode [ 'test/inflector/cases.js', 420, 438 ]
+150 silly gunzTarPerm extractEntry test/inflector/inflections-test.js
+151 silly gunzTarPerm modified mode [ 'test/inflector/inflections-test.js', 420, 438 ]
+152 silly gunzTarPerm extractEntry test/inflector/methods-test.js
+153 silly gunzTarPerm modified mode [ 'test/inflector/methods-test.js', 420, 438 ]
+154 silly gunzTarPerm extractEntry test/utils/array-test.js
+155 silly gunzTarPerm modified mode [ 'test/utils/array-test.js', 420, 438 ]
+156 silly gunzTarPerm extractEntry test/utils/string-test.js
+157 silly gunzTarPerm modified mode [ 'test/utils/string-test.js', 420, 438 ]
+158 verbose write writing to C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip\package.json
+159 info preinstall jquery-validation-bootstrap-tooltip@0.9.0
+160 verbose readDependencies loading dependencies from C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip\package.json
+161 silly prepareForInstallMany adding jquery@~1.10 from jquery-validation-bootstrap-tooltip dependencies
+162 silly prepareForInstallMany adding bootstrap@~3.3.5 from jquery-validation-bootstrap-tooltip dependencies
+163 verbose readDependencies loading dependencies from C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip\package.json
+164 silly cache add args [ 'jquery@~1.10', null ]
+165 verbose cache add spec jquery@~1.10
+166 silly cache add args [ 'bootstrap@~3.3.5', null ]
+167 verbose cache add spec bootstrap@~3.3.5
+168 silly cache add parsed spec { raw: 'jquery@~1.10',
+168 silly cache add   scope: null,
+168 silly cache add   name: 'jquery',
+168 silly cache add   rawSpec: '~1.10',
+168 silly cache add   spec: '>=1.10.0 <1.11.0',
+168 silly cache add   type: 'range' }
+169 silly addNamed jquery@>=1.10.0 <1.11.0
+170 verbose addNamed ">=1.10.0 <1.11.0" is a valid semver range for jquery
+171 silly addNameRange { name: 'jquery', range: '>=1.10.0 <1.11.0', hasData: false }
+172 silly mapToRegistry name jquery
+173 silly mapToRegistry using default registry
+174 silly mapToRegistry registry https://registry.npmjs.org/
+175 silly mapToRegistry uri https://registry.npmjs.org/jquery
+176 verbose addNameRange registry:https://registry.npmjs.org/jquery not in flight; fetching
+177 silly cache add parsed spec { raw: 'bootstrap@~3.3.5',
+177 silly cache add   scope: null,
+177 silly cache add   name: 'bootstrap',
+177 silly cache add   rawSpec: '~3.3.5',
+177 silly cache add   spec: '>=3.3.5 <3.4.0',
+177 silly cache add   type: 'range' }
+178 silly addNamed bootstrap@>=3.3.5 <3.4.0
+179 verbose addNamed ">=3.3.5 <3.4.0" is a valid semver range for bootstrap
+180 silly addNameRange { name: 'bootstrap', range: '>=3.3.5 <3.4.0', hasData: false }
+181 silly mapToRegistry name bootstrap
+182 silly mapToRegistry using default registry
+183 silly mapToRegistry registry https://registry.npmjs.org/
+184 silly mapToRegistry uri https://registry.npmjs.org/bootstrap
+185 verbose addNameRange registry:https://registry.npmjs.org/bootstrap not in flight; fetching
+186 verbose request uri https://registry.npmjs.org/bootstrap
+187 verbose request no auth needed
+188 info attempt registry request try #1 at 11:33:04
+189 verbose etag "39BZDAGWC68A97JGSTP2Y4BBM"
+190 http request GET https://registry.npmjs.org/bootstrap
+191 verbose request uri https://registry.npmjs.org/jquery
+192 verbose request no auth needed
+193 info attempt registry request try #1 at 11:33:04
+194 verbose etag "1WSNLAD0QQ4LZJISXI16PF07W"
+195 http request GET https://registry.npmjs.org/jquery
+196 verbose write writing to C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i\package.json
+197 info preinstall i@0.3.5
+198 verbose readDependencies loading dependencies from C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i\package.json
+199 verbose readDependencies loading dependencies from C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i\package.json
+200 silly install resolved []
+201 verbose about to build C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i
+202 info build C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i
+203 info linkStuff i@0.3.5
+204 silly linkStuff i@0.3.5 has C:\Users\Joshua Dowdle\Meteor\flueint\node_modules as its parent node_modules
+205 verbose linkBins i@0.3.5
+206 verbose linkMans i@0.3.5
+207 verbose rebuildBundles i@0.3.5
+208 info install i@0.3.5
+209 info postinstall i@0.3.5
+210 verbose unlock done using C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\_locks\i-a32ceb7085bea394.lock for C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\i
+211 http 304 https://registry.npmjs.org/bootstrap
+212 verbose headers { date: 'Mon, 13 Jun 2016 17:33:13 GMT',
+212 verbose headers   via: '1.1 varnish',
+212 verbose headers   'cache-control': 'max-age=300',
+212 verbose headers   etag: '"39BZDAGWC68A97JGSTP2Y4BBM"',
+212 verbose headers   age: '257',
+212 verbose headers   connection: 'keep-alive',
+212 verbose headers   'x-served-by': 'cache-iad2140-IAD',
+212 verbose headers   'x-cache': 'HIT',
+212 verbose headers   'x-cache-hits': '4',
+212 verbose headers   'x-timer': 'S1465839193.125919,VS0,VE0',
+212 verbose headers   vary: 'Accept-Encoding' }
+213 silly get cb [ 304,
+213 silly get   { date: 'Mon, 13 Jun 2016 17:33:13 GMT',
+213 silly get     via: '1.1 varnish',
+213 silly get     'cache-control': 'max-age=300',
+213 silly get     etag: '"39BZDAGWC68A97JGSTP2Y4BBM"',
+213 silly get     age: '257',
+213 silly get     connection: 'keep-alive',
+213 silly get     'x-served-by': 'cache-iad2140-IAD',
+213 silly get     'x-cache': 'HIT',
+213 silly get     'x-cache-hits': '4',
+213 silly get     'x-timer': 'S1465839193.125919,VS0,VE0',
+213 silly get     vary: 'Accept-Encoding' } ]
+214 verbose etag https://registry.npmjs.org/bootstrap from cache
+215 verbose get saving bootstrap to C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\registry.npmjs.org\bootstrap\.cache.json
+216 verbose correctMkdir C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+217 http 304 https://registry.npmjs.org/jquery
+218 verbose headers { date: 'Mon, 13 Jun 2016 17:33:13 GMT',
+218 verbose headers   via: '1.1 varnish',
+218 verbose headers   'cache-control': 'max-age=300',
+218 verbose headers   etag: '"1WSNLAD0QQ4LZJISXI16PF07W"',
+218 verbose headers   age: '251',
+218 verbose headers   connection: 'keep-alive',
+218 verbose headers   'x-served-by': 'cache-iad2120-IAD',
+218 verbose headers   'x-cache': 'HIT',
+218 verbose headers   'x-cache-hits': '3',
+218 verbose headers   'x-timer': 'S1465839193.134772,VS0,VE0',
+218 verbose headers   vary: 'Accept-Encoding' }
+219 silly get cb [ 304,
+219 silly get   { date: 'Mon, 13 Jun 2016 17:33:13 GMT',
+219 silly get     via: '1.1 varnish',
+219 silly get     'cache-control': 'max-age=300',
+219 silly get     etag: '"1WSNLAD0QQ4LZJISXI16PF07W"',
+219 silly get     age: '251',
+219 silly get     connection: 'keep-alive',
+219 silly get     'x-served-by': 'cache-iad2120-IAD',
+219 silly get     'x-cache': 'HIT',
+219 silly get     'x-cache-hits': '3',
+219 silly get     'x-timer': 'S1465839193.134772,VS0,VE0',
+219 silly get     vary: 'Accept-Encoding' } ]
+220 verbose etag https://registry.npmjs.org/jquery from cache
+221 verbose get saving jquery to C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\registry.npmjs.org\jquery\.cache.json
+222 verbose correctMkdir C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+223 silly addNameRange number 2 { name: 'bootstrap', range: '>=3.3.5 <3.4.0', hasData: true }
+224 silly addNameRange versions [ 'bootstrap',
+224 silly addNameRange   [ '0.0.1',
+224 silly addNameRange     '0.0.2',
+224 silly addNameRange     '3.1.1',
+224 silly addNameRange     '3.2.0',
+224 silly addNameRange     '3.3.0',
+224 silly addNameRange     '3.3.1',
+224 silly addNameRange     '3.3.2',
+224 silly addNameRange     '3.3.4',
+224 silly addNameRange     '3.3.5',
+224 silly addNameRange     '3.3.6',
+224 silly addNameRange     '4.0.0-alpha.2' ] ]
+225 silly addNamed bootstrap@3.3.6
+226 verbose addNamed "3.3.6" is a plain semver version for bootstrap
+227 silly cache afterAdd bootstrap@3.3.6
+228 verbose afterAdd C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\bootstrap\3.3.6\package\package.json not in flight; writing
+229 verbose correctMkdir C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+230 silly addNameRange number 2 { name: 'jquery', range: '>=1.10.0 <1.11.0', hasData: true }
+231 silly addNameRange versions [ 'jquery',
+231 silly addNameRange   [ '1.5.1',
+231 silly addNameRange     '1.6.2',
+231 silly addNameRange     '1.6.3',
+231 silly addNameRange     '1.7.2',
+231 silly addNameRange     '1.7.3',
+231 silly addNameRange     '1.8.2',
+231 silly addNameRange     '1.8.3',
+231 silly addNameRange     '2.1.0-beta2',
+231 silly addNameRange     '2.1.0-beta3',
+231 silly addNameRange     '1.11.0-beta3',
+231 silly addNameRange     '1.11.0-rc1',
+231 silly addNameRange     '2.1.0-rc1',
+231 silly addNameRange     '1.11.0',
+231 silly addNameRange     '2.1.0',
+231 silly addNameRange     '2.1.1-beta1',
+231 silly addNameRange     '1.11.1-beta1',
+231 silly addNameRange     '2.1.1-rc1',
+231 silly addNameRange     '1.11.1-rc1',
+231 silly addNameRange     '2.1.1-rc2',
+231 silly addNameRange     '1.11.1-rc2',
+231 silly addNameRange     '2.1.1',
+231 silly addNameRange     '1.11.1',
+231 silly addNameRange     '1.9.1',
+231 silly addNameRange     '2.1.2',
+231 silly addNameRange     '1.11.2',
+231 silly addNameRange     '2.1.3',
+231 silly addNameRange     '2.1.4',
+231 silly addNameRange     '1.11.3',
+231 silly addNameRange     '3.0.0-alpha1',
+231 silly addNameRange     '1.12.0',
+231 silly addNameRange     '2.2.0',
+231 silly addNameRange     '3.0.0-beta1',
+231 silly addNameRange     '1.12.1',
+231 silly addNameRange     '2.2.1',
+231 silly addNameRange     '1.12.2',
+231 silly addNameRange     '2.2.2',
+231 silly addNameRange     '1.12.3',
+231 silly addNameRange     '2.2.3',
+231 silly addNameRange     '1.12.4',
+231 silly addNameRange     '2.2.4',
+231 silly addNameRange     '3.0.0-rc1',
+231 silly addNameRange     '3.0.0' ] ]
+232 verbose afterAdd C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\bootstrap\3.3.6\package\package.json written
+233 verbose about to build C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip
+234 verbose unlock done using C:\Users\Joshua Dowdle\AppData\Roaming\npm-cache\_locks\jquery-validation-bootst-f20f478700c428d7.lock for C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip
+235 verbose stack Error: No compatible version found: jquery@'>=1.10.0 <1.11.0'
+235 verbose stack Valid install targets:
+235 verbose stack ["1.5.1","1.6.2","1.6.3","1.7.2","1.7.3","1.8.2","1.8.3","2.1.0-beta2","2.1.0-beta3","1.11.0-beta3","1.11.0-rc1","2.1.0-rc1","1.11.0","2.1.0","2.1.1-beta1","1.11.1-beta1","2.1.1-rc1","1.11.1-rc1","2.1.1-rc2","1.11.1-rc2","2.1.1","1.11.1","1.9.1","2.1.2","1.11.2","2.1.3","2.1.4","1.11.3","3.0.0-alpha1","1.12.0","2.2.0","3.0.0-beta1","1.12.1","2.2.1","1.12.2","2.2.2","1.12.3","2.2.3","1.12.4","2.2.4","3.0.0-rc1","3.0.0"]
+235 verbose stack
+235 verbose stack     at installTargetsError (C:\Users\Joshua Dowdle\AppData\Local\.meteor\packages\meteor-tool\1.3.2_4\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\lib\cache\add-named.js:284:12)
+235 verbose stack     at next (C:\Users\Joshua Dowdle\AppData\Local\.meteor\packages\meteor-tool\1.3.2_4\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\lib\cache\add-named.js:262:19)
+235 verbose stack     at setData (C:\Users\Joshua Dowdle\AppData\Local\.meteor\packages\meteor-tool\1.3.2_4\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\lib\cache\add-named.js:236:5)
+235 verbose stack     at RES (C:\Users\Joshua Dowdle\AppData\Local\.meteor\packages\meteor-tool\1.3.2_4\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\inflight\inflight.js:23:14)
+235 verbose stack     at f (C:\Users\Joshua Dowdle\AppData\Local\.meteor\packages\meteor-tool\1.3.2_4\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\once\once.js:17:25)
+235 verbose stack     at fixName (C:\Users\Joshua Dowdle\AppData\Local\.meteor\packages\meteor-tool\1.3.2_4\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\lib\cache\add-named.js:29:5)
+235 verbose stack     at saved (C:\Users\Joshua Dowdle\AppData\Local\.meteor\packages\meteor-tool\1.3.2_4\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\lib\cache\caching-client.js:173:7)
+235 verbose stack     at C:\Users\Joshua Dowdle\AppData\Local\.meteor\packages\meteor-tool\1.3.2_4\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\graceful-fs\polyfills.js:210:7
+235 verbose stack     at Object.oncomplete (fs.js:108:15)
+236 verbose cwd C:\Users\Joshua Dowdle\Meteor\flueint
+237 error Windows_NT 10.0.10586
+238 error argv "C:\\Users\\Joshua Dowdle\\AppData\\Local\\.meteor\\packages\\meteor-tool\\1.3.2_4\\mt-os.windows.x86_32\\dev_bundle\\bin\\\\node.exe" "C:\\Users\\Joshua Dowdle\\AppData\\Local\\.meteor\\packages\\meteor-tool\\1.3.2_4\\mt-os.windows.x86_32\\dev_bundle\\lib\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save" "i" "jquery-validation-bootstrap-tooltip"
+239 error node v0.10.43
+240 error npm  v2.14.22
+241 error code ETARGET
+242 error notarget No compatible version found: jquery@'>=1.10.0 <1.11.0'
+242 error notarget Valid install targets:
+242 error notarget ["1.5.1","1.6.2","1.6.3","1.7.2","1.7.3","1.8.2","1.8.3","2.1.0-beta2","2.1.0-beta3","1.11.0-beta3","1.11.0-rc1","2.1.0-rc1","1.11.0","2.1.0","2.1.1-beta1","1.11.1-beta1","2.1.1-rc1","1.11.1-rc1","2.1.1-rc2","1.11.1-rc2","2.1.1","1.11.1","1.9.1","2.1.2","1.11.2","2.1.3","2.1.4","1.11.3","3.0.0-alpha1","1.12.0","2.2.0","3.0.0-beta1","1.12.1","2.2.1","1.12.2","2.2.2","1.12.3","2.2.3","1.12.4","2.2.4","3.0.0-rc1","3.0.0"]
+242 error notarget
+242 error notarget This is most likely not a problem with npm itself.
+242 error notarget In most cases you or one of your dependencies are requesting
+242 error notarget a package version that doesn't exist.
+242 error notarget
+242 error notarget It was specified as a dependency of 'jquery-validation-bootstrap-tooltip'
+243 verbose exit [ 1, true ]
+244 verbose unbuild node_modules\jquery-validation-bootstrap-tooltip
+245 info preuninstall jquery-validation-bootstrap-tooltip@0.9.0
+246 info uninstall jquery-validation-bootstrap-tooltip@0.9.0
+247 verbose unbuild rmStuff jquery-validation-bootstrap-tooltip@0.9.0 from C:\Users\Joshua Dowdle\Meteor\flueint\node_modules
+248 info postuninstall jquery-validation-bootstrap-tooltip@0.9.0
+249 silly gentlyRm C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip is being purged from base C:\Users\Joshua Dowdle\Meteor\flueint
+250 verbose gentlyRm don't care about contents; nuking C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip
+251 silly vacuum-fs purging C:\Users\Joshua Dowdle\Meteor\flueint\node_modules\jquery-validation-bootstrap-tooltip
+252 silly vacuum-fs quitting because other entries in C:\Users\Joshua Dowdle\Meteor\flueint\node_modules

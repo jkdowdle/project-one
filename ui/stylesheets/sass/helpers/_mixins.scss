@@ -10,6 +10,12 @@
 	}
 }
 
+@mixin box-shadow($color-one, $color-two){
+	box-shadow: inset 0 1px 1px $color-one, 0 0 6px $color-two;
+	-moz-box-shadow: inset 0 1px 1px $color-one, 0 0 6px $color-two;
+	-webkit-box-shadow: inset 0 1px 1px $color-one, 0 0 6px $color-two;
+}
+
 @mixin drag-by-user($key) {
 	user-drag: $key;
 	-moz-user-drag: $key;	

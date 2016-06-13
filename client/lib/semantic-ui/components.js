@@ -1,9 +1,17 @@
 // Skrollax - Parallax
-
-Template.parallaxSection.onRendered(function(){
+/*
+Template.parallaxSection.onCreated(() => {
   		'use strict';
 
   		$.Scrollax();
+  		console.log('Parallax section created');
+});
+*/
+Template.parallaxSection.onRendered(() => {
+  		'use strict';
+
+  		$.Scrollax();
+  		console.log('Parallax section rendered');
 });
 
 

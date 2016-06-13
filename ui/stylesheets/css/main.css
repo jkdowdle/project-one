@@ -185,6 +185,9 @@ section.special {
   background: #888;
   -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3); }
 
+#loginModal {
+  margin-top: 50px; }
+
 .login-segment {
   padding: 1rem;
   text-align: center; }
@@ -198,6 +201,24 @@ section.special {
 .register-segment h3 {
   margin-top: 0px;
   margin-bottom: 2rem; }
+
+.form-control.error {
+  border-color: #a94442;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; }
+  .form-control.error:focus {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; }
+
+.popover.alert {
+  background: #ffeded;
+  padding: 1.4rem; }
+  .popover.alert .popover-content {
+    display: inline; }
+  .popover.alert .arrow:after {
+    border-left-color: #ffeded; }
 
 html,
 body {
