@@ -1,3 +1,5 @@
+import { authenticate } from '../authenticate';
+
 Router.route('/admin/teachers/:_id/students-of', {
 	name: 'adminTeachersStudents',
 	template: 'adminTeachersStudents',
@@ -5,5 +7,6 @@ Router.route('/admin/teachers/:_id/students-of', {
 		var teacherId = this.params._id;
 		var currentTeacher = Accounts.users.findOne({_id: teacherId});
 		return currentTeacher;
-	}
+	},
+	before: [ authenticate.loggedIn, authenticate.admin ]
 });

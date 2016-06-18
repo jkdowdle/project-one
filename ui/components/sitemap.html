@@ -1,0 +1,15 @@
+<template name="sitemap">
+	<ul class="sitemap nav">
+	    <li><a href="{{pathFor route="home"}}">Home</a></li>
+	    <li><a href="{{pathFor route='program'}}">Program</a></li>
+	    <li><a href="{{pathFor route='pricing'}}">Pricing</a></li>
+	    <li><a>The Company</a></li>
+	    <li>
+	        <ul>
+	            <li><a href="#">Curriculum</a></li>
+	            <li><a href="{{pathFor route='theCompany'}}">The Company</a></li>
+	        </ul>
+	    </li>
+	    <li><a href="#">Contact Us</a></li>
+	</ul>
+</template>

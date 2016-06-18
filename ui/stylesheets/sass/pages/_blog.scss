@@ -1,0 +1,8 @@
+.blog-preview {
+	a {
+		font-size: 1.8rem;
+	}
+	.blog-preview-content {
+		@include text-ellipsis(1.8rem, 1.3, 3);
+	}
+}

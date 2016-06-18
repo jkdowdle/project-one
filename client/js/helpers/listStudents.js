@@ -5,7 +5,6 @@ Template.listStudents.helpers({
 	},
 	teacherId (teachersRosterId) {
 		var teachersId = Accounts.users.findOne({ 'roles': 'teacher', 'profile.rosterId': teachersRosterId})._id;
-		console.log(teachersId);
 		return teachersId;
 	}
 });

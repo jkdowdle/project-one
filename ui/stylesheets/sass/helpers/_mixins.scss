@@ -36,3 +36,22 @@
 	-ms-transform: translate($x, $y);
     -webkit-transform: translate($x, $y);
 }
+
+@mixin text-ellipsis($font-size, $line-height, $lines-to-show) {
+	display: block; /* Fallback for non-webkit */
+	display: -webkit-box;
+	height: $font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+	margin: 0 auto;
+	font-size: $font-size;
+	line-height: $line-height;
+	-webkit-line-clamp: $lines-to-show;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin loading-animation-delay($delay, $color) {
+    -webkit-animation-delay: $delay;
+    -moz-animation-delay: $delay;
+    background: $color; 
+}

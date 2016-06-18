@@ -14,8 +14,6 @@ Template.schedule.onRendered( () => {
     $( '#events-calendar' ).fullCalendar({
         events( start, end, timezone, callback ) {
 
-            console.log(timezone);
-
             let currentUser = Meteor.userId();
 
             if(Roles.userIsInRole(currentUser, 'teacher')){
@@ -112,10 +110,14 @@ Template.schedule.onRendered( () => {
             }
         },
         dayClick( date ) {
-            Session.set( 'eventModal', { type: 'add', date: date.format() } );
-            $( '#add-edit-event-modal' ).modal( 'show' );
+            let currentUser = Meteor.userId();
+
+            if(Roles.userIsInRole(currentUser, 'teacher')){
+                Session.set( 'eventModal', { type: 'add', date: date.format() } );
+                $( '#add-edit-event-modal' ).modal( 'show' );
+            }
         },
-        eventClick( event ) {
+        eventClick( event ) {            
             Session.set( 'eventModal', { type: 'edit', event: event._id } );
             $( '#add-edit-event-modal' ).modal( 'show' );
         }

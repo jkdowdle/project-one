@@ -1,43 +1,5 @@
 /* Footer */
 
 #mainFooter {
-	background-color: $blue;
-	padding-top: 4rem;
-	min-height: 40.75rem;
-	#socialMedia {
-	  animation-name: pulse;
-	  animation-duration: 1s;
-	}	
-}
-
-.social-media-base {
-	width: 16.625rem;
-	height: 28.625rem;
-	background: {
-		image: url(#{$smart-phone-sm-png});
-		repeat: no-repeat;
-		size: cover;
-	}
-	img {
-		@extend %social-media-img;
-	}
-	.position-one {
-		@include sm-icon-position(-72px, -58px);
-	}
-	.position-two {
-		@include sm-icon-position(-75px, 44px);
-		z-index: 1;
-	}
-	.position-three {
-		@include sm-icon-position(-88px, 124px);
-	}
-	.position-four {
-		@include sm-icon-position(118px, -74px);
-	}
-	.position-five {
-		@include sm-icon-position(84px, 86px);
-	}
-	.position-six {
-		@include sm-icon-position(85px, 212px);
-	}	
+	background-color: $blue;	
 }

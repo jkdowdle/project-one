@@ -1,4 +1,5 @@
 // Admin Routes
+import { authenticate } from '../authenticate';
 
 Router.route('/admin/teachers', {
 	name: 'listTeachers',
@@ -7,5 +8,6 @@ Router.route('/admin/teachers', {
 		teachers: function () {
 			return Accounts.users.find({"roles":"teacher"}, { sort: { createdAt: 1 } });
 		}
-	}		
+	},
+	before: [ authenticate.loggedIn, authenticate.admin ]		
 });

@@ -12,13 +12,17 @@
 @import "components/loginModal";
 @import "components/register";
 @import "components/validate";
+@import "components/newsfeed";
+@import "components/sitemap";
+@import "components/socialMedia";
+@import "components/newsLetterSignUp";
+@import "components/navbar";
 
 //Layout
 @import "layout/grid";
 @import "layout/sections";
 @import "layout/header";
 @import "layout/footer";
-@import "layout/navbar";
 
 // Typography 
 @import "typography/font-family";
@@ -30,8 +34,13 @@
 @import "pages/pricing";
 @import "pages/program";
 @import "pages/schedule";
+@import "pages/blog";
+@import "pages/blogPost";
+@import "pages/pageNotFound";
+@import "pages/loading";
 
 @import "pages/admin/listStudents";
+@import "pages/admin/createBlogPost";
 
 //@import "pages/teachers/";
 

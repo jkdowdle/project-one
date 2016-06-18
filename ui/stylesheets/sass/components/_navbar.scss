@@ -1,12 +1,17 @@
 .navbar {
 	border-radius: 0;
 	margin-bottom: 0px;
-	box-shadow: 2px 1px 3px black;
 }
 
 .navbar-inverse {
 	background-color: $blue;
 	border-color: $blue;
+	.navbar-toggle {
+		border-color: $light-blue;
+		&:hover, &:focus {
+			background-color: $blue;
+		}
+	}
 	a {
 		color: $off-white!important;
 		&:hover {
@@ -43,8 +48,14 @@
 	}
 	&:hover {
 		.dropdown-menu {
-			display:block;
+			display:run-in!important;
 		}
+	}
+}
+
+@media (min-width: $screen-sm) { 
+	.dropdown:hover .dropdown-menu {
+		display: block;
 	}
 }
 

@@ -1,5 +1,8 @@
-Router.route('/reset-password/:token', {
-	name: 'resetPassword',
+import { authenticate } from './authenticate';
+
+Router.route('/verify-email/:token', {
+	name: 'verifyEmail',
+	template: 'verifyEmail',
 	data: () => {
 		console.log('this.params');
 	},
@@ -13,5 +16,6 @@ Router.route('/reset-password/:token', {
 				Bert.alert( 'Email verified! Thanks!', 'success' );
 			}
 		});
-    }
+    },
+    before: authenticate.loggedIn
 });

@@ -1,19 +1,19 @@
-
 <template name="mainFooter">
-	<div class="row">
-		<section id="mainFooter">
-            <div class="row hidden-xs">
-                <div class="col-sm-10 col-sm-offset-2">
-                    <div id="socialMedia" class="social-media-base animated pulse">
-                        <div class="social-media-icon position-one"><img src="/img/icons/kakao.png"></div>
-                        <div class="social-media-icon position-two"><img src="/img/icons/insta.png"></div>
-                        <div class="social-media-icon position-three"><img src="/img/icons/fb.png"></div>
-                        <div class="social-media-icon position-four"><img src="/img/icons/weibo.png"></div>
-                        <div class="social-media-icon position-five"><img src="/img/icons/twitter.png"></div>
-                        <div class="social-media-icon position-six"><img src="/img/icons/wechat.png"></div>
-                    </div>
+	<section id="mainFooter">
+        <div class="container-fluid">
+            <div class="row">                
+                <div class="hidden-xs col-xs-12 col-sm-3 col-sm-push-5 col-md-3 col-md-push-6">
+                    {{> sitemap}}
+                </div>
+                
+                <div class="col-xs-12 col-sm-3 col-sm-push-5 col-md-3 col-md-push-6">
+                    {{> newsLetterSignUp}}
+                </div>
+                
+                <div class="col-xs-12 col-sm-offset-3 col-sm-3 col-sm-pull-9 col-md-3">
+                    {{> socialMedia}}
                 </div>
             </div>
-        </section>			
-	</div>
+        </div>
+    </section>			
 </template>

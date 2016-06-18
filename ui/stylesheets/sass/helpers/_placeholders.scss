@@ -45,6 +45,20 @@
     transform: translateX(-50%) translateY(-50%);
 }
 
+// Loading
+
+%loading-animation {
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    margin: 50px auto;
+    background: $black-text;
+    border-radius: 10px;
+    -webkit-animation: loading 0.9s infinite alternate;
+    -moz-animation: loading 0.9s infinite alternate;
+    box-shadow:1px 1px 1px #444444;
+}
 
 
 

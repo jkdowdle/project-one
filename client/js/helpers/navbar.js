@@ -1,4 +1,4 @@
-Template.navigation.helpers({
+Template.navbar.helpers({
 	userId () {
 		return Meteor.userId();
 	}

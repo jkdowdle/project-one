@@ -45,22 +45,22 @@
 </template>
 
 <template name="newsfeed">
-	<section id="newfeed">
-		<div class="row">
-			<h2>News Feed Section</h2>
-			<div class="col-md-4">
-				<h2>Lorem Ipsum</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nihil, eligendi atque fugit necessitatibus nesciunt esse, magni, culpa rerum ratione ea omnis eveniet! Provident velit, optio soluta, atque magnam dicta.</p>
+	<section id="newsfeed">
+		<div class="container-fluid">
+			<div class="row">
+				<h2>Blog</h2>
+				{{#each blogPosts}}
+					<div class="col-md-4">
+						<div class="blog-excerpt">
+							<h4>{{title}}</h4>
+							<p class="excerpt-content">{{content}}</p>
+							<hr>
+							<p class="text-right"><a href="{{pathFor route='blogPost'}}"><em>Read More</em></a></p>
+						</div>					
+					</div>
+				{{/each}}
 			</div>
-			<div class="col-md-4">
-				<h2>Lorem Ipsum</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis magnam dolor odio modi mollitia ad aliquam nobis aspernatur! Cupiditate, reprehenderit. Doloribus iste illum, ratione temporibus et earum. Beatae, aut, consequatur!</p>
-			</div>
-			<div class="col-md-4">
-				<h2>Lorem Ipsum</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa expedita, rerum libero quis nobis provident quisquam minus magni ipsum iure esse aperiam inventore ipsam. Aspernatur autem repudiandae perspiciatis cupiditate nisi?</p>
-			</div>
-		</div>		
+		</div>
 	</section>
 </template>
 

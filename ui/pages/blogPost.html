@@ -1,0 +1,36 @@
+<template name="blogPost">
+	<section class="page-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<div class="blog-post">
+						<div class="page-header">
+							<h3>{{title}}</h3>
+							<h4><small><em>{{convertTimeToFormat createdAt usersTimezone 'LLL'}}</em></small></h4>					
+						</div>
+						<p class="blog-content">{{{content}}}</p>
+					</div>
+					{{#if isInRole 'admin'}}
+						<div class="text-right">						
+							<p><a href="{{pathFor route='editBlogPost'}}"><em>Edit This Post</em></a></p>						
+						</div>
+					{{/if}}	
+				</div>
+				
+				<div class="col-md-3">
+					<div class="blog-sidebar hidden-xs hidden-sm affix">							
+						<div class="well well-lg">
+							<h5>Blog Search</h5>
+						</div>
+						<div class="well well-lg">
+							<h5>Blog Categories</h5>
+						</div>
+						{{#if isInRole 'admin'}}
+							<button class="btn btn-default"><a href="{{pathFor route="createBlogPost"}}">Create Blog Post</a></button>
+						{{/if}}	
+					</div>
+				</div>							
+			</div>
+		</div>		
+	</section>
+</template>

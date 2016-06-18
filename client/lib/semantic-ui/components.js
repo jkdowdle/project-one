@@ -59,3 +59,37 @@ Template.carousel.onDestroyed( () => {
 });
 
 */
+
+/* Social Media Carousel */
+
+Template.mainFooter.rendered = function() {
+	let owl = $('.social-media-carousel');
+
+	owl.owlCarousel({
+		autoplay: true,
+		autoplayHoverPause: true,
+	    center: true,
+	    items:4,
+	    loop:true,
+	    margin:10,
+	    dots: false,
+/*	    responsive:{
+	        600:{
+	            items:4
+	        }
+	    }*/
+	});
+/*
+	$(".owl-item.active h2").addClass('animated flipInX');
+
+	owl.on('changed.owl.carousel', function() {
+		$(".owl-item.active h2").addClass('animated flipInX');
+
+	    setTimeout(function(){
+	    	$(".owl-item.active h2").addClass('animated flipInX');
+	    	setTimeout(function(){
+	    		$(".owl-item h2").removeClass('animated flipInX');
+	    	}, 1000);
+		}, 10);
+	});*/
+};

@@ -7,6 +7,14 @@ Template.registerHelper( 'convertTime', ( timestamp, timezone ) => {
 	}
 });
 
+Template.registerHelper( 'convertTimeToFormat', ( timestamp, timezone, format ) => {
+	if ( timestamp ) {
+		let time   = moment( timestamp );
+
+		return timezone ? time.tz( timezone ).format( format ) : time.format( format );
+	}
+});
+
 Template.registerHelper( 'convertDay', ( timestamp, timezone ) => {
 	if ( timestamp ) {
 		let time   = moment( timestamp ),

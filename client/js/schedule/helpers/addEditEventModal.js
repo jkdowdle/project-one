@@ -1,3 +1,23 @@
+Template.addEditEventModal.rendered = () => {
+    Template.addEditEventModal.helpers({
+        scheduledStudentInfo() {
+            let eventModal = Session.get('eventModal').event,
+                studentId = Events.findOne(eventModal).scheduledStudent,
+                student = Accounts.users.findOne(studentId);
+
+            let name = student && student.profile && student.profile.name,
+                skypeid = student && student.profile && student.profile.skypeid,
+                email = student && student.emails[0] && student.emails[0].address;
+
+            return {
+                name: name,
+                skypeid: skypeid,
+                email: email
+            }
+        }        
+    });
+};
+
 Template.addEditEventModal.helpers({
     modalType( type ) {
         let eventModal = Session.get( 'eventModal' );
@@ -40,40 +60,16 @@ Template.addEditEventModal.helpers({
     },
     formatTime(time) {
         return moment(time).format('LT');
+    },
+    disableFilled() {
+        let appointmentId = Session.get('eventModal'),
+            appointment = Events.findOne(appointmentId)
+
+        let status = appointment && appointment.status;
+
+        if (status === 'Filled')
+            return true;
+        else 
+            return false;
     }    
 });
-/*
-Template.addEditEventModal( 'convertTime', ( timestamp, timezone ) => {
-    if ( timestamp ) {
-        let time   = moment( timestamp ),
-        format = 'dddd, MMMM Do YYYY h:mm a';
-
-        return timezone ? time.tz( timezone ).format( format ) : time.format( format );
-    }
-});
-*/
-Template.addEditEventModal.rendered = () => {
-    Template.addEditEventModal.helpers({
-        scheduledStudentInfo() {
-            let eventModal = Session.get('eventModal').event,
-                studentId = Events.findOne(eventModal).scheduledStudent,
-                student = Accounts.users.findOne(studentId);
-
-            return {
-                name: student.profile.name,
-                skypeid: student.profile.skypeid,
-                email: student.emails[0].address
-            }
-        },
-        disableFilled() {
-            if(Meteor.user()){
-                let appointment = Session.get('eventModal'),
-                status = Events.findOne(appointment.event).status;
-
-                if (status === 'Filled')
-                    return true;
-            }
-        }
-    });
-};
-

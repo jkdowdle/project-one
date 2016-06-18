@@ -1,0 +1,28 @@
+.sitemap.nav {
+	float: left;
+	padding-top: 1rem;
+	li > a {
+		color: $off-white;
+		font-size: 1.6rem;
+		&:hover, &:active, &:focus {
+			background: $blue;
+		}
+	}
+	ul {
+		list-style: none;
+		li > a {
+			padding: 0 0rem!important;
+		}
+	}
+}
+
+@media (min-width: $screen-sm) {
+	.sitemap.nav {
+		float: right;
+	}
+}
+
+
+.sitemap.nav > li > a {
+	padding: 0 2.5rem!important;
+}

@@ -6,8 +6,16 @@ Meteor.startup(() => {
 		// Create Admin
 		let admin = Accounts.createUser({
 		  	email: 'admin@flueint.com',
-		  	password: 'admin',
-		  	profile: {name: 'Administrator'}		  	
+		  	password: ')f"*?$aY3w<XR$6c~P33lSi',
+		  	profile: {
+		  		name: 'Administrator',
+		  		gender: 'Male',
+		  		skypeid: 'flueintadmin',
+		  		timezone: {
+		  			name: "UTC",
+		  			offset: "UTC"
+		  		}
+		  	}		  	
 		});
 		Roles.addUsersToRoles(admin, 'admin');
 		Meteor.users.update(admin, {$set: {"emails.0.verified": true} });
@@ -17,10 +25,16 @@ Meteor.startup(() => {
 		let rosterId = TeachersRosters.insert({ students: [ {dummyData: 'arrayLengthOne'} ] });
 		let teacher = Accounts.createUser({
 			email: 'teacher@flueint.com',
-		  	password: 'teacher',
+		  	password: ')f"*?$aY3w<XR$6c~P33lSi',
 		  	profile: {
 		  		name: teacherName,
-		  		rosterId: rosterId
+		  		rosterId: rosterId,
+		  		gender: "Male",
+		  		skypeid: "teacher.3",
+		  		timezone: {
+		  			name: "UTC",
+		  			offset: "UTC"
+		  		}
 		    }
 		});
 		TeachersRosters.update(rosterId, {$set: { teacherId: teacher } });
@@ -32,9 +46,16 @@ Meteor.startup(() => {
 			email: 'student@gmail.com',
 		  	password: 'student',
 		  	profile: {
-		  		name: 'Student Boy',
+		  		name: ')f"*?$aY3w<XR$6c~P33lSi',
 		  		teacher: teacherName,
-		  		teachersRosterId: rosterId
+		  		teachersRosterId: rosterId,
+		  		gender: "Male",
+		  		skypeid: "student.3",
+		  		credits: 1,
+		  		timezone: {
+		  			name: "UTC",
+		  			offset: "UTC"
+		  		}
 		  	}
 		});
 		Roles.addUsersToRoles(student, 'student');
