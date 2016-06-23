@@ -31,6 +31,10 @@ Meteor.methods({
 
 		TeachersRosters.update(rosterId, {$set: { teacherId: teacher } });
 		Roles.addUsersToRoles(teacher, String(accountTypeInput));
+	},
+	'postBlogPost': function(blog) {
+		console.log(blog);
+		return BlogPosts.insert(blog);
 	}
 });
 /*

@@ -1,6 +1,9 @@
 Template.login.events({
 	'submit form': function (event) {
 		event.preventDefault();
+	},
+	'click .forgot-password a': () => {
+		$('.login-modal').modal('toggle');	
 	}
 });
 
@@ -19,6 +22,7 @@ Template.login.onRendered(()=> {
 	});
 
 	$('.form-login').validate({
+		onkeyup: false,
 		submitHandler: () => {
 			let emailInput = $('[name=login-email]').val(),
 				passwordInput = $('[name=login-password]').val();

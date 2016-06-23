@@ -7,7 +7,6 @@ Template.changeStudentsTeacher.events({
 		var newRosterId = TeachersRosters.findOne({ teacherId: changeTeacherTo })._id;
 
 		Meteor.call('adminChangeTeacher', studentsId, changeTeacherTo, newRosterId);
-		console.log('new Teacher ' + changeTeacherTo + ' students id ' + studentsId + ' new roster Id ' + newRosterId);
 	}
 });
 

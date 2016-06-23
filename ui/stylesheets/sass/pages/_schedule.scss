@@ -3,6 +3,10 @@
 	@include select-by-user(none);
 }
 
+.credit-warning {
+	color: #da5347;
+}
+
 .fc-toolbar h2 {
 	font-size: 3.7rem;
 }
@@ -10,6 +14,15 @@
 .fc-day-grid-event {
 	background: #FFF;
 	border-color: #777;
+}
+
+.fc-today-button {
+	text-transform: capitalize;
+}
+
+td.fc-today {
+	background-color: rgba(92, 184, 92, 0.15)!important;
+	font-weight: bolder;
 }
 
 .fc-content {

@@ -1,4 +1,4 @@
-Meteor.publish("users", function(){
+/*Meteor.publish("users", function(){
   return Meteor.users.find();
 });
 
@@ -14,3 +14,4 @@ Meteor.publish("forTeachers", function () {
 });
 
 
+*/

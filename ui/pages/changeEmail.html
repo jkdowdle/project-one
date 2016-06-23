@@ -1,32 +1,31 @@
 <template name="changeEmail">
-	<section class="page-content">
-		<div class="container">
-			<h3>Change Email</h3>
-			<form class="form-horizontal">
-				<div class="form-group">
-					<label for="changeEmail" class="col-sm-2 control-label">Email Addres</label>
-					<div class="col-sm-10">
-						<input value="{{myEmail}}" type="email" class="form-control" id="changeEmail" name="changeEmail" placeholder="example@flueint.com">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="passwordChangeEmail" class="col-sm-2 control-label">Password</label>
-					<div class="col-sm-10">
-						<input type="password" class="form-control" id="passwordChangeEmail" name="passwordChangeEmail" placeholder="Password">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="verifyChangeEmail" class="col-sm-2 control-label">Verify Password</label>
-					<div class="col-sm-10">
-						<input type="password" class="form-control" id="verifyChangeEmail" name="verifyChangeEmail" placeholder="Verify Password">
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="text-center">
-						<input type="submit" class="btn btn-default" value="Change Email">
-					</div>
-				</div>
-			</form>		
+	<section class="page-content secondary-layout">
+		<div class="container">			
+			<div class="row">
+    			<div class="col-sm-offset-3 col-sm-6">
+    				<h1>Change Email</h1>
+    			</div>
+    			<form id="changeEmailForm" class="form-horizontal">
+    				<div class="form-group">
+    					<label class="sr-only" for="newEmail">New Email address</label>
+    					<div class="col-sm-offset-3 col-sm-6">
+    						<input type="email" class="form-control input-lg" id="newEmail" name="newEmail" placeholder="New Email" data-container="body" data-toggle="popover">
+    					</div>  						
+    				</div>
+    				<div class="form-group">
+    					<label class="sr-only" for="oldEmail">Old Email address</label>
+    					<div class="col-sm-offset-3 col-sm-6">
+    						<input type="email" class="form-control input-lg" id="oldEmail" name="oldEmail" placeholder="Old Email" data-container="body" data-toggle="popover">
+    					</div>  						
+    				</div>
+    				<div class="form-group">
+    					<div class="col-sm-offset-6 col-sm-3 text-right">
+	    					<button type="button" class="btn btn-lg btn-default go-back">Cancel</button>
+    						<button type="submit" class="btn btn-lg btn-default">Send Link</button>
+    					</div>	
+    				</div>  									
+    			</form>
+    		</div>	
 		</div>		
 	</section>
 </template>

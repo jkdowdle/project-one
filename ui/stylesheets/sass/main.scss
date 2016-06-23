@@ -17,6 +17,7 @@
 @import "components/socialMedia";
 @import "components/newsLetterSignUp";
 @import "components/navbar";
+@import "components/bertAlert";
 
 //Layout
 @import "layout/grid";
@@ -38,6 +39,8 @@
 @import "pages/blogPost";
 @import "pages/pageNotFound";
 @import "pages/loading";
+@import "pages/forgotPassword";
+@import "pages/resetPassword";
 
 @import "pages/admin/listStudents";
 @import "pages/admin/createBlogPost";

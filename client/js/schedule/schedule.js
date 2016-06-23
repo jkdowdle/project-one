@@ -19,7 +19,7 @@ Template.schedule.onRendered( () => {
             if(Roles.userIsInRole(currentUser, 'teacher')){
                 teachersRosterId = Accounts.users.findOne(currentUser).profile.rosterId;
                 let timezone = Accounts.users.findOne(currentUser).profile.timezone.name;
-                let data = Events.find({teachersRosterId: teachersRosterId}).fetch().map( ( event ) => {
+                let data = Events.find({teachersRosterId: teachersRosterId}, {sort: {timeStart: 1}}).fetch().map( ( event ) => {
                     event.editable = !isPast( event.start );
                     return {
                         _id: event._id,
@@ -40,7 +40,7 @@ Template.schedule.onRendered( () => {
             } else if (Roles.userIsInRole(currentUser, 'student')) { 
                 teachersRosterId = Accounts.users.findOne(currentUser).profile.teachersRosterId;
                 let timezone = Accounts.users.findOne(currentUser).profile.timezone.name;
-                let data = Events.find({teachersRosterId: teachersRosterId, scheduledStudent: { $in: ["Not Yet Available", currentUser ] } }).fetch().map( ( event ) => {
+                let data = Events.find({teachersRosterId: teachersRosterId, scheduledStudent: { $in: ["Not Yet Available", currentUser ] } }, {sort: {timeStart: 1}}).fetch().map( ( event ) => {
                     return {
                         _id: event._id,
                         title: event.title,

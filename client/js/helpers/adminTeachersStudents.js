@@ -1,5 +1,5 @@
 Template.adminTeachersStudents.helpers({
 	allTeachersStudents (rosterId) {
-		return Accounts.users.find({ "roles": "student", "profile.teachersRosterId": rosterId }, { sort: { createdAt: 1 } });
+		return Accounts.users.find({'profile.teachersRosterId': rosterId});
 	}
 });

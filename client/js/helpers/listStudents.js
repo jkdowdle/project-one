@@ -4,7 +4,9 @@ Template.listStudents.helpers({
 		return teachersProfile.name;
 	},
 	teacherId (teachersRosterId) {
-		var teachersId = Accounts.users.findOne({ 'roles': 'teacher', 'profile.rosterId': teachersRosterId})._id;
-		return teachersId;
+		if (Meteor.user()){
+			var teachersId = Accounts.users.findOne({ 'roles': 'teacher', 'profile.rosterId': teachersRosterId})._id;
+			return teachersId;
+		}
 	}
 });

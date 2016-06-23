@@ -8,15 +8,15 @@ Template.editBlogPost.events({
 			content: $('[name=edit-content]').val()
 		}
 
-		BlogPosts.update(currentPost, {$set: { title: editBlog.title, content: editBlog.content } });
-		Router.go('blogPost');	
+		Meteor.call('editBlogPost', currentPost, editBlog);
+		Router.go('blogPost', {_id: currentPost});	
 	},
 	'click .delete-post': () => {
 		let currentPost = $('[name=post-id]').val(),
 			confirm = window.confirm('Are you sure you want to delete this post?');
 
 		if (confirm){
-			BlogPosts.remove(currentPost);
+			Meteor.call('removeBlogPost', currentPost);
 			Router.go('blog');
 		}
 	},

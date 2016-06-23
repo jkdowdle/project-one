@@ -8,7 +8,10 @@ Template.createBlogPost.events({
 			createdAt: new Date()
 		}
 
-		postId = BlogPosts.insert(blog);
-		Router.go('/blog/post/' + postId);
+		Meteor.call('postBlogPost', blog, (error, result) => {
+			let postId = result;
+			Router.go('/blog/post/' + result);
+		});
 	}
 });
+

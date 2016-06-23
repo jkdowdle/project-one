@@ -10,18 +10,22 @@ Meteor.methods({
 			}
 		});
 	},
-	'changeEmail': function (currentUser, emailChangedTo, digest) {
-	/*	var correctPassword = Accounts._checkPassword(currentUser, password);
-		var password = {digest: digest, algorithm: 'sha-256'};
-		var correctPassword = Accounts._checkPassword(currentUser, password);
-		console.log(correctPassword);	
-		console.log(emailChangedTo);*/
-	},
 	'adminChangeTeacher': function ( studentsId, changeTeacherTo, newRosterId) {
 		var oldRosterId = Meteor.users.findOne(studentsId).profile.teachersRosterId;
-		console.log(changeTeacherTo + ' ' + studentsId + ' ' + newRosterId);
-		Meteor.users.update({ _id: studentsId }, {$set: { "profile.teachersRosterId": newRosterId } });
+		let newTeacherName = Meteor.users.findOne(changeTeacherTo).profile.name;
+
+		Meteor.users.update({ _id: studentsId }, {$set: { "profile.teacher": newTeacherName, "profile.teachersRosterId": newRosterId } });
 		TeachersRosters.update({ _id: newRosterId }, { $push: { students: { studentId: studentsId } } });
 		TeachersRosters.update({ _id: oldRosterId }, { $pull: { students: { studentId: studentsId } } });
+	},
+	'editBlogPost': (currentPost, editBlog) => {
+		BlogPosts.update(currentPost, {$set: { title: editBlog.title, content: editBlog.content } });
+	},
+	'buyCredits': creditAmount => {
+		let currentUser = Meteor.userId();
+
+		Meteor.users.update(currentUser, {$inc: {'profile.credits': 10 }});
+		console.log(currentUser);
+		console.log(creditAmount);
 	}
 });

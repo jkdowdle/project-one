@@ -251,6 +251,9 @@ section.special {
   padding: 1rem;
   text-align: center; }
 
+.forgot-password p {
+  margin: 3px 11px -6px 0; }
+
 .modal-sm {
   width: 99%; }
 
@@ -433,6 +436,11 @@ section.special {
 .navbar-inverse .navbar-nav > .open > a:focus {
   background: #00495E; }
 
+.growl-top-right {
+  margin: 4% auto;
+  left: 0 !important;
+  right: 0 !important; }
+
 html,
 body {
   height: 100%; }
@@ -542,12 +550,22 @@ section > .container > .row > h3 {
   -ms-user-select: none;
   -webkit-user-select: none; }
 
+.credit-warning {
+  color: #da5347; }
+
 .fc-toolbar h2 {
   font-size: 3.7rem; }
 
 .fc-day-grid-event {
   background: #FFF;
   border-color: #777; }
+
+.fc-today-button {
+  text-transform: capitalize; }
+
+td.fc-today {
+  background-color: rgba(92, 184, 92, 0.15) !important;
+  font-weight: bolder; }
 
 .fc-content {
   cursor: pointer; }
@@ -659,6 +677,35 @@ p.blog-content {
     width: 24px;
     height: 24px;
     -moz-transform: translateZ(-21px); } }
+.forgot-password-page {
+  padding: 12rem 0; }
+  .forgot-password-page h1 {
+    margin-left: -.7rem;
+    padding-bottom: 2rem; }
+  .forgot-password-page .input-lg {
+    margin-bottom: 1rem; }
+  .forgot-password-page .text-right {
+    text-align: center; }
+    .forgot-password-page .text-right .btn-lg {
+      font-size: 132% !important; }
+    @media (min-width: 768px) {
+      .forgot-password-page .text-right {
+        text-align: right !important; } }
+
+.secondary-layout {
+  padding: 12rem 0; }
+  .secondary-layout h1 {
+    margin-left: -.7rem;
+    padding-bottom: 2rem; }
+  .secondary-layout .text-right {
+    text-align: center; }
+    .secondary-layout .text-right .btn-lg {
+      margin-top: 1rem;
+      font-size: 132% !important; }
+    @media (min-width: 768px) {
+      .secondary-layout .text-right {
+        text-align: right !important; } }
+
 .change-teacher {
   display: inline-block;
   position: relative;

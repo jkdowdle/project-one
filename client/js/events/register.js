@@ -7,17 +7,18 @@ Template.register.events({
 Template.register.onRendered(()=> {
 	$('[data-toggle="popover"]').popover({
 		trigger: 'focus',
-		placement: 'auto left'
+		placement: 'auto left',
+		template: '<div class="popover alert alert-danger" role="tooltip"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"><span class="sr-only">Error:</span></span><div class="popover-content"></div><div class="arrow"></div></div>'
 	});
 
 	$('.form-register').validate({
+		onkeyup: false,
 		submitHandler: () => {
 			let passwordInput = $('[name=register-password]').val(),
-			passwordVerify = $('[name=register-password-verify]').val(),
-			accountTypeInput = $('[name=account-type] option:selected').val();
+				passwordVerify = $('[name=register-password-verify]').val(),
+				accountTypeInput = $('[name=account-type] option:selected').val();
 
 			if( passwordVerify == passwordInput){
-
 				let id = {
 					email: $('[name=register-email]').val(),
 					password: $('[name=register-password]').val(),

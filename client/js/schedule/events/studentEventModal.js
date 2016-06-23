@@ -1,22 +1,12 @@
 Template.studentEventModal.events({
-    'submit form' ( event, template ) {
+    'click .schedule-btn' ( event, template ) {
         event.preventDefault();
 
-    /*    let apptStart = new Date( template.find( '[name="start"]' ).value + ' ' + template.find('[name="timeStart"]').value);
-        let apptEnd = moment(apptStart).add(30, 'minutes');
-        let teachersRosterId = Meteor.user().profile.rosterId;
-    */
-        let currentStudent = Meteor.userId();
-
-        let eventModal = Session.get( 'eventModal' ),
+        let currentStudent = Meteor.userId(),
+            creditAmmount = Accounts.users.findOne(currentStudent).profile.credits,
+            eventModal = Session.get( 'eventModal' ),
             submitType = eventModal.type === 'edit' ? 'editEvent' : 'addEvent',
-            eventItem  = {
-        /*        title: template.find( '[name="title"]' ).value,
-                start: template.find( '[name="start"]' ).value,
-                end: template.find( '[name="end"]' ).value,
-                timeStart: apptStart,
-                timeEnd: new Date(apptEnd),
-                teachersRosterId: teachersRosterId,*/ 
+            eventItem  = { 
                 status: 'Filled',               
                 scheduledStudent: currentStudent
             };         
@@ -25,28 +15,22 @@ Template.studentEventModal.events({
             eventItem._id   = eventModal.event;
         }
 
-        Meteor.call('changeStatus', eventItem, ( error ) => {
-            if ( error ) {
-                Bert.alert( error.reason, 'danger' );
-            } else {
-                Bert.alert( `Appointment scheduled!`, 'success' );
-                closeModal();
-            }
-        });
-
-/*
-        Meteor.call( submitType, eventItem, ( error ) => {
-            if ( error ) {
-                Bert.alert( error.reason, 'danger' );
-            } else {
-                Bert.alert( `Event ${ eventModal.type }ed!`, 'success' );
-                closeModal();
-            }
-        });
-        */
+        if (creditAmmount > 0){
+            Meteor.call('changeStatus', eventItem, currentStudent, -1, ( error ) => {
+                if ( error ) {
+                    Bert.alert( error.reason, 'danger' );
+                } else {
+                    Bert.alert( `Appointment scheduled!`, 'success' );
+                    closeModal();
+                }
+            });
+        } else {
+            Bert.alert('I am sorry, you do not have enough credits. <a href="/buy-credits">Buy more here.</a>', 'danger');
+            closeModal();
+        }        
     },
     'click .unschedule-btn' ( event, template ) {
-        console.log('hello test');
+        let currentStudent = Meteor.userId();
         let eventModal = Session.get( 'eventModal' ),
             submitType = eventModal.type === 'edit' ? 'editEvent' : 'addEvent',
             eventItem  = {
@@ -59,7 +43,7 @@ Template.studentEventModal.events({
         }
 
         if ( confirm( 'Are you sure? This is permanent.' ) ) {
-            Meteor.call('changeStatus', eventItem, ( error ) => {
+            Meteor.call('changeStatus', eventItem, currentStudent, 1, ( error ) => {
                 if ( error ) {
                     Bert.alert( error.reason, 'danger' );
                 } else {
@@ -74,4 +58,4 @@ Template.studentEventModal.events({
 let closeModal = () => {
     $( '#add-edit-event-modal' ).modal( 'hide' );
     $( '.modal-backdrop' ).fadeOut();
-};
+}; 

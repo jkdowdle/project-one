@@ -37,10 +37,21 @@ Template.studentEventModal.helpers({
                 timezone = Accounts.users.findOne(currentUser).profile.timezone.name;
             return timezone;
         }
+    },
+    unscheduleAppt() {
+        if (Meteor.userId()){
+            let eventModal = Session.get('eventModal');
+                eventStatus = Events.findOne(eventModal.event).status;
+
+            if(eventStatus === 'Filled')
+                return true;
+            else 
+                return false;
+        }        
     }
 });
 
-Template.studentEventModal.rendered = () => {
+Template.studentEventModal.rendered = () => {/*
     Template.studentEventModal.helpers({
         unscheduleAppt() {
             let eventModal = Session.get('eventModal');
@@ -51,5 +62,5 @@ Template.studentEventModal.rendered = () => {
             else 
                 return false;
         }
-    });
+    });*/
 };

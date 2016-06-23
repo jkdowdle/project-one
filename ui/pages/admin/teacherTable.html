@@ -15,7 +15,7 @@
 	  			{{#each teachers}}
 			  		<tr>
 			  			<td><a href="/admin/teachers/{{_id}}/students-of">{{profile.name}}</a></td>
-			  			<td><a href="mailto:{{emails.[0].address}}">{{emails.[0].address}}</a></td>
+			  			<td><a target="_blank" href="mailto:{{emails.[0].address}}">{{emails.[0].address}}</a></td>
 			  			<td>{{profile.skypeid}}</td>
 			  			<td>{{profile.timezone.name}}</td>
 			  			<td>{{profile.gender}}</td>

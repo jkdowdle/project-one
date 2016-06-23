@@ -12,15 +12,17 @@ Meteor.methods({
             scheduledStudent: String
         });
 
-        try {
-            return Events.update( event._id, {
-                $set: event
-            });
+        try {           
+            return [
+                Events.update( event._id, {
+                    $set: event
+                })                
+            ];
         } catch ( exception ) {
             throw new Meteor.Error( '500', `${ exception }` );
         }
     },
-    changeStatus( event ) {
+    changeStatus( event, studentId, changeCredit ) {
         check( event, {
             _id: Match.Optional( String ),
             title: Match.Optional( String ),
@@ -33,10 +35,17 @@ Meteor.methods({
             scheduledStudent: String
         });
 
+        console.log(typeof changeCredit);
+
         try {
-            return Events.update( event._id, {
-                $set: event
-            });
+            return [
+                Events.update( event._id, {
+                    $set: event
+                }),
+                Accounts.users.update(studentId, {
+                    $inc: { 'profile.credits': changeCredit } 
+                })  
+            ];
         } catch ( exception ) {
             throw new Meteor.Error( '500', `${ exception }` );
         }

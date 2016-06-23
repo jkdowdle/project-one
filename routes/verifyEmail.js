@@ -3,8 +3,8 @@ import { authenticate } from './authenticate';
 Router.route('/verify-email/:token', {
 	name: 'verifyEmail',
 	template: 'verifyEmail',
-	data: () => {
-		console.log('this.params');
+	data: function(params) {
+		console.log(this.params.token);
 	},
     action( params ) {
     	console.log(params.token);
@@ -16,6 +16,5 @@ Router.route('/verify-email/:token', {
 				Bert.alert( 'Email verified! Thanks!', 'success' );
 			}
 		});
-    },
-    before: authenticate.loggedIn
+    }
 });

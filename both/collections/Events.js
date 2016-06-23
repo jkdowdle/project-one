@@ -29,11 +29,14 @@ let EventsSchema = new SimpleSchema({
     'timeStart': {
         type: Date,
         min: new Date(),
-        label: 'What time the appointment begins.'
+        max: new Date(moment().add(1, 'month')),
+        label: 'The time the appointment begins.'
     },
     'timeEnd': {
         type: Date,
-        label: 'What time the appointment ends.'
+        min: new Date(),
+        max: new Date(moment().add(1, 'month')),
+        label: 'The time the appointment ends.'
     },    
     'status': {
         type: String,

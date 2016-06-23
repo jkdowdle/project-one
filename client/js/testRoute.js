@@ -62,7 +62,13 @@ import {auth} from './test';
 Router.route('/loading',{
 	template: 'loading',
 	waitOn: function () {
-		console.log('waiting on me?! how nice');
+		let getFields = {
+			one: 1,
+			two: 1,
+			three: -1
+		};
+		getFields.three = 1;
+		console.log(getFields);
 	},
 	before: auth.one//[authenticate.loggedIn, authenticate.student]
 });
