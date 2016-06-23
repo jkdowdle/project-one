@@ -2,3 +2,5 @@ node_modules/
 .meteor/local
 .meteor/meteorite
 public
+mup.json
+settings.json
