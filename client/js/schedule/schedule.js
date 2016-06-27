@@ -40,7 +40,7 @@ Template.schedule.onRendered( () => {
             } else if (Roles.userIsInRole(currentUser, 'student')) { 
                 teachersRosterId = Accounts.users.findOne(currentUser).profile.teachersRosterId;
                 let timezone = Accounts.users.findOne(currentUser).profile.timezone.name;
-                let data = Events.find({teachersRosterId: teachersRosterId, scheduledStudent: { $in: ["Not Yet Available", currentUser ] } }, {sort: {timeStart: 1}}).fetch().map( ( event ) => {
+                let data = Events.find({/*teachersRosterId: teachersRosterId,*/ scheduledStudent: { $in: ["Not Yet Available", currentUser ] } }, {sort: {timeStart: 1}}).fetch().map( ( event ) => {
                     return {
                         _id: event._id,
                         title: event.title,

@@ -1,23 +1,3 @@
-Template.addEditEventModal.rendered = () => {
-    Template.addEditEventModal.helpers({
-        scheduledStudentInfo() {
-            let eventModal = Session.get('eventModal').event,
-                studentId = Events.findOne(eventModal).scheduledStudent,
-                student = Accounts.users.findOne(studentId);
-
-            let name = student && student.profile && student.profile.name,
-                skypeid = student && student.profile && student.profile.skypeid,
-                email = student && student.emails[0] && student.emails[0].address;
-
-            return {
-                name: name,
-                skypeid: skypeid,
-                email: email
-            }
-        }        
-    });
-};
-
 Template.addEditEventModal.helpers({
     modalType( type ) {
         let eventModal = Session.get( 'eventModal' );
@@ -71,5 +51,20 @@ Template.addEditEventModal.helpers({
             return true;
         else 
             return false;
-    }    
+    },
+    scheduledStudentInfo() {
+        let eventModal = Session.get('eventModal').event,
+            studentId = Events.findOne(eventModal).scheduledStudent,
+            student = Accounts.users.findOne(studentId);
+
+        let name = student && student.profile && student.profile.name,
+            skypeid = student && student.profile && student.profile.skypeid,
+            email = student && student.emails[0] && student.emails[0].address;
+
+        return {
+            name: name,
+            skypeid: skypeid,
+            email: email
+        }
+    } 
 });

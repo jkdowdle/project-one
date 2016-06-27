@@ -15,3 +15,23 @@ Meteor.publish("forTeachers", function () {
 
 
 */
+
+/*
+SeoCollection.insert({
+    "route_name" : "home", // the name of the Iron-Router route
+    "title" : "Native English Tutors Online | Flueint.com",
+    "meta" : [
+        {"description": 
+        	{
+	        	content: "Chinese to English; Learn English online with your personal Native English speaking tutor over skype!"
+        	}
+    	},
+        {"coverage": "Worldwide"}
+        // add more meta tags
+    ]/*,
+    "og" : [
+        { "image": "http://your-domain.com/images/image.jpg" },
+        // add more open graph tags
+    ]
+});*/
+

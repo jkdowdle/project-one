@@ -16,7 +16,7 @@ Template.register.onRendered(()=> {
 		submitHandler: () => {
 			let passwordInput = $('[name=register-password]').val(),
 				passwordVerify = $('[name=register-password-verify]').val(),
-				accountTypeInput = $('[name=account-type] option:selected').val();
+				accountTypeInput = $('[name=account-type]').val();
 
 			if( passwordVerify == passwordInput){
 				let id = {
@@ -34,7 +34,7 @@ Template.register.onRendered(()=> {
 					}			
 				};
 
-				if (accountTypeInput == 'student'){
+				if (accountTypeInput == 'student') {
 					Meteor.call('createNewStudent', id, accountTypeInput, error => {
 						if (error) {
 							Bert.alert(error.reason, 'danger');
@@ -43,53 +43,18 @@ Template.register.onRendered(()=> {
 								if(error)
 									Bert.alert(error.reason, 'danger');
 								else {
-									Meteor.call('sendVerificationEmailLink', (error, response) => {
-										if (error){
-											Bert.alert(error.reason, 'danger');
-										} else {
-											Bert.alert('Welcome!', 'success');
-											$('[name=register-email]').val('');
-											$('[name=register-password]').val('');
-											$('[name=register-password-verify]').val();
-											$('[name=register-skypeid]').val('');
-											$('[name=register-timezone] option[value=""').prop('selected', true);
-											$('[name=account-type] option[value=""').prop('selected', true);
-										}
-									});
+									Bert.alert('Welcome!', 'success');
+									$('[name=register-email]').val('');
+									$('[name=register-password]').val('');
+									$('[name=register-password-verify]').val();
+									$('[name=register-skypeid]').val('');
+									$('[name=register-timezone] option[value=""').prop('selected', true);
+									$('[name=account-type] option[value=""').prop('selected', true);
 								}
 							});
 						}						
 					});
 				}
-				else if ( accountTypeInput == 'teacher'){
-					Meteor.call('createNewTeacher', id, accountTypeInput, error => {
-						if (error) {
-							Bert.alert(error.reason, 'danger');
-						} else {
-							Meteor.loginWithPassword(id.email, id.password, error => {
-								if(error)
-									Bert.alert(error.reason, 'danger');
-								else {
-									Meteor.call('sendVerificationEmailLink', (error, response) => {
-										if (error){
-											Bert.alert(error.reason, 'danger');
-										} else {
-											Bert.alert('Welcome!', 'success');
-											$('[name=register-email]').val('');
-											$('[name=register-password]').val('');
-											$('[name=register-password-verify]').val();
-											$('[name=register-skypeid]').val('');
-											$('[name=register-timezone] option[value=""').prop('selected', true);
-											$('[name=account-type] option[value=""').prop('selected', true);
-										}
-									});
-								}
-							});
-						}							
-					}); 
-				}
-				else 
-					Bert.alert("Account type is not set", "warning");
 			} else {
 				Bert.alert("The passwords do not match", "warning");
 			}

@@ -10,5 +10,17 @@ Router.route('/blog/post/:_id', {
 		let postId = this.params._id,
 			post = BlogPosts.findOne(postId);
 		return post;		
+	},
+	onAfterAction: function() {
+		DocHead.removeDocHeadAddedTags()
+		
+		let postId = this.params._id,
+			post = BlogPosts.findOne(postId);
+
+		DocHead.setTitle( post.title + ' | Blog | Flueint.com');
+		DocHead.addMeta({
+			name: "description",
+			content: post.content
+		});
 	}
 });

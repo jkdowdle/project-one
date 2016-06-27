@@ -1,6 +1,5 @@
 Meteor.methods({
 	'createNewStudent': function (id, accountTypeInput) {		
-
 		let getLowestStudentRoster = [
 		    { $unwind : "$students" },
 		    { $group : { _id : "$_id", len : { $sum : 1 } } },
@@ -16,12 +15,10 @@ Meteor.methods({
 
 		let student = Accounts.createUser(id);
 
-		console.log(roster);
-
 		TeachersRosters.update(rosterId, {$push: { students: { studentId: student } } });
 		Roles.addUsersToRoles(student, String(accountTypeInput));
-	/*	Meteor.loginWithPassword(student); */
-		
+		Meteor.users.update(student, {$set: {"emails.0.verified": true} }); //
+		Accounts.sendVerificationEmail( student );				
 	},
 	'createNewTeacher': function (id, accountTypeInput){
 		let rosterId = TeachersRosters.insert({ students: [ {dummyData: 'arrayLengthOne'} ] });
@@ -31,42 +28,14 @@ Meteor.methods({
 
 		TeachersRosters.update(rosterId, {$set: { teacherId: teacher } });
 		Roles.addUsersToRoles(teacher, String(accountTypeInput));
+		Accounts.sendVerificationEmail( teacher );
+	},
+	'createNewAdmin': (id, accountTypeInput) => {
+		let newAdmin = Accounts.createUser(id);
+		Roles.addUsersToRoles(newAdmin, String(accountTypeInput));
+		Accounts.sendVerificationEmail( newAdmin );
 	},
 	'postBlogPost': function(blog) {
-		console.log(blog);
 		return BlogPosts.insert(blog);
 	}
 });
-/*
-'createNewStudent': function (emailInput, skypeInput, passwordInput, timezoneInput, accountTypeInput) {
-
-		var getLowestStudentRoster = [
-		    { $unwind : "$students" },
-		    { $group : { _id : "$_id", len : { $sum : 1 } } },
-		    { $sort : { len : 1 } },
-	    	{ $limit : 1 }
-		];
-
-		var roster = TeachersRosters.aggregate(getLowestStudentRoster);
-
-		var rosterId = roster[0]._id;
-		var myTeacherName = Meteor.users.findOne({'roles':'teacher', 'profile.rosterId':rosterId}).profile.name;
-
-		var id = Accounts.createUser({
-			email: emailInput,
-			password: passwordInput,
-			profile: {				
-				name: 'Please Edit',
-				skypeid: skypeInput,
-				timezone: timezoneInput,
-				teacher: myTeacherName,
-				teachersRosterId: rosterId,
-				gender: 'Please Edit',
-				credits: 1
-			}			
-		});
-
-		TeachersRosters.update(rosterId, {$push: { students: { studentId: id } } });
-
-		Roles.addUsersToRoles(id, String(accountTypeInput)); 
-	*/

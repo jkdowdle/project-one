@@ -1,3 +1,5 @@
+import { authenticate } from '../authenticate';
+
 Router.route('/student-roster/', {
 	name: 'teacherStudentRoster',
 	template: 'teacherStudentRoster',
@@ -8,5 +10,6 @@ Router.route('/student-roster/', {
 				&& Meteor.users.findOne(userId).profile.rosterId;
 
 		return Meteor.subscribe('teachersStudents', rosterId);
-	}
+	},
+	before: [ authenticate.loggedIn, authenticate.teacher ]
 });

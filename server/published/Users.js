@@ -19,7 +19,9 @@ Meteor.publish('studentWithTeachers', studentId => {
 // Teacher 
 
 Meteor.publish('teachersStudents', rosterId => {
-	console.log(rosterId);
+	return Meteor.users.find({roles: 'student'});
+
+/*	console.log(rosterId);
 	
-	return Meteor.users.find({'profile.teachersRosterId': rosterId});
+	return Meteor.users.find({'profile.teachersRosterId': rosterId});*/
 });
