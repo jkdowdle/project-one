@@ -1,0 +1,26 @@
+{
+	"nav": {
+		"toggle_nav": "zh - Toggle navigation",
+		"home": "zh - Home",
+		"blog": "zh - Blog",
+		"appointments": "zh - Appointments",
+		"buy_credits": "zh - Buy Credits",
+		"account_info": "zh - Account Information",
+		"management":  "zh -Management",
+		"student_roster": "zh - Student Roster",
+		"appointments": "zh - Appointments",
+		"appointments": "zh - Account Information",
+		"teachers": "zh - Teachers",
+		"students": "zh - Students",
+		"account_info": "zh - Account Information",
+		"register_users": "zh - Register Users",
+		"program": "zh - Program",
+		"pricing": "zh - Pricing",
+		"learn_more": "zh - Learn More",
+		"cirriculum": "zh - Cirriculum",
+		"the_company": "zh - The Company",
+		"contact_us": "zh - Contact Us",
+		"logout": "zh - Logout",
+		"login": "zh - Login"
+	}
+}

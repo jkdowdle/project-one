@@ -1,0 +1,10 @@
+{
+	"blog": {
+		"title": "Blog",
+		"search": "Search Blog",
+		"categories": "Blog Categories",
+		"read_more": "Read More",
+		"edit": "Edit This Post",
+		"create_post": "Create Blog Post"
+	}
+}

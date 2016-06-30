@@ -1,0 +1,30 @@
+{
+	"program": {
+		"title": "Welcome to FLUEINT!",
+		"content": {
+				"p-1": "The Flueint system is a process that we have designed over the course of 10 years experience teaching English as a foreign language. It has also been applied to our personal lives learning foreign languages such as Mandarin Chinese, Korean, and English as a second language. We are excited to help you discover your true language learning talent!",
+				"p-2": "Each individual can accomplish far more than they give themselves credit. With our cutting edge learning techniques we will have you memorizing new words, using them in context correctly, and excelling in your target language in no time! Our system will help by offering constant exposure to your target language, confidence boosting exercises, and a progressive program that will constantly help you stretch and become better!",
+				"p-3": "We have developed a unique community that allows learners to develop friendships, make business partnerships, and gain new experiences they never thought possible! Through social media, blog posts, group sessions, and one-on-one sessions you will be introduced to a world of language that you probably haven’t been exposed to before.",
+				"p-4": "Because our class settings are one-on-one in nature you will gain confidence by getting to know your mentor as a friend as well as a teacher. You will be engaged in a learning atmosphere covering topics from business to healthcare, travel to scholastics, and more! These courses will be based around your skill level in the following categories.",
+				"p-5": "You will take a quick skill evaluation for: Grammar, Reading, Writing, Speaking, and Listening Comprehension. After gauging your skills in each area customized lessons will be delivered to help you improve in every category! By the time you are finished with the Flueint program you will be ready for any test, promotion, or trip overseas!"
+		},
+		"sub-title": "See how Flueint can help you for FREE today!",
+		"categories": {
+			"title": "General Categories",
+			"p-1": "Business",
+			"p-2": "Finance",
+			"p-3": "Medical",
+			"p-4": "Travel",
+			"p-5": "Testing",
+			"p-6": "Mathematics",
+			"p-7": "Music",
+			"p-8": "Medical",
+			"p-9": "Computer Science",
+			"p-10": "Aviation",
+			"p-12": "Scholastic",
+			"p-13": "Sports",
+			"p-14": "Literature",
+			"p-15": "Cooking"
+		}
+	}	
+}
