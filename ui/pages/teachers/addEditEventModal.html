@@ -7,9 +7,9 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="add-edit-event">
                         {{#if isInRole 'teacher'}}
-                            {{modalLabel.label}} Appointment
+                            {{modalLabel.label}} {{_ 'schedule.appointment'}}
                         {{else}}
-                            Appointment Details
+                            {{_ 'schedule.appointment_details'}}
                         {{/if}}
                     </h4>                    
                 </div>
@@ -20,13 +20,13 @@
 
                         <div class="form-group">
 
-                            <label for="title">Event</label>
+                            <label for="title">{{_ 'schedule.event'}}</label>
                             <input disabled type="text" name="title" class="form-control" value="Appointment">
 
                         </div>
 
                         <div class="form-group">
-                            <label for="start">Day Of the Appointment</label>
+                            <label for="start">{{_ 'schedule.day_of'}}</label>
                             <input disabled="{{disableFilled}}" type="date" name="start" class="form-control" value="{{event.start}}">
                         </div>
 
@@ -35,18 +35,18 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="timeStart">Time <span class="apt-duration text-muted">(The appointment will last 30 minutes)</span></label>
+                            <label for="timeStart">{{_ 'schedule.time'}} <span class="apt-duration text-muted">{{_ 'schedule.appt_durration'}}</span></label>
                             <input disabled="{{disableFilled}}" type="time" name="timeStart" class="form-control" value="">                         
                         </div>
                         
                         {{#if modalType 'edit'}}
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label>Starts</label>
+                                    <label>{{_ 'schedule.starts'}}</label>
                                     <p>{{ convertTime event.timeStart usersTimezone }}</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <label>Ends</label>
+                                    <label>{{_ 'schedule.ends'}}</label>
                                     <p>{{ convertTime event.timeEnd usersTimezone }}</p>
                                 </div>
                             </div>
@@ -57,17 +57,17 @@
                                 {{#if scheduledStudentInfo}}
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <label for="status">Status</label>
+                                            <label for="status">{{_ 'schedule.status'}}</label>
                                             <p>{{ event.status }}</p>
                                         </div>
                                         <div class="col-sm-6">
-                                            <label for="status">Student's Name</label>
+                                            <label for="status">{{_ 'schedule.student_name'}}</label>
                                             <p>{{scheduledStudentInfo.name}}</p>
                                         </div>
                                     </div>                                
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <label for="status">Student's Email</label>
+                                            <label for="status">{{_ 'schedule.student_email'}}</label>
                                             <p><a target="_blank" style="font-size: 1.8rem" href="mailto:{{scheduledStudentInfo.email}}">{{scheduledStudentInfo.email}}</a></p>
                                         </div>
                                         <div class="col-sm-6">
@@ -78,7 +78,7 @@
                                 {{/if}}
                                 <input disabled type="hidden" name="status" class="form-control" value="Open">                                  
                             {{else}}
-                                <label for="status">Status</label>
+                                <label for="status">{{_ 'schedule.status'}}</label>
                                 <input disabled type="text" name="status" class="form-control" value="Open">
                             {{/if}}
                         </div>
@@ -87,10 +87,10 @@
 
                     <div class="modal-footer">
                         {{#if modalType 'edit'}}
-                            <button disabled="{{disableFilled}}" class="btn btn-danger pull-left delete-event">Delete Event</button>
+                            <button disabled="{{disableFilled}}" class="btn btn-danger pull-left delete-event">{{_ 'schedule.delete_event'}}</button>
                         {{/if}}
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
-                        <button disabled="{{disableFilled}}" type="submit" class="btn btn-success">{{modalLabel.button}} Appt.</button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">{{_ 'schedule.cancel'}}</button>
+                        <button disabled="{{disableFilled}}" type="submit" class="btn btn-success">{{modalLabel.button}} {{_ 'schedule.appt'}}</button>
                     </div>
 
                 </form>

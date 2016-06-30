@@ -1,21 +1,21 @@
 <template name="newsLetterSignUp">
 	<div class="news-letter-sign-up">
-		<h5 class="">Sign Up For News Letter</h5>
+		<h5 class="">{{_ 'footer.newsletter_title'}}</h5>
 		<form class="form-horizontal">
 			<div class="form-group">
-				<label for="nameNewsLetter" class="sr-only">Name</label>
+				<label for="nameNewsLetter" class="sr-only">{{_ 'form.name'}}</label>
 				<div class="col-sm-offset-4 col-sm-8">
-					<input type="text" class="form-control input-sm" id="nameNewsLetter" placeholder="Name">
+					<input type="text" class="form-control input-sm" id="nameNewsLetter" placeholder="{{_ 'form.name'}}">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="emailNewsLetter" class="sr-only">Email</label>
+				<label for="emailNewsLetter" class="sr-only">{{_ 'form.email'}}</label>
 				<div class="col-sm-offset-4 col-sm-8">
-					<input type="email" class="form-control input-sm" id="emailNewsLetter" placeholder="Email">
+					<input type="email" class="form-control input-sm" id="emailNewsLetter" placeholder="{{_ 'form.email'}}">
 				</div>
 			</div>
 			<div class="newsletter-btn">
-				<button type="submit" class="btn btn-sm btn-success">Get News Letter</button>
+				<button type="submit" class="btn btn-sm btn-success">{{_ 'footer.get_newsletter'}}</button>
 			</div>
 		</form>
 	</div>	

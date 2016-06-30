@@ -5,39 +5,42 @@
 		<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
+						<span class="sr-only">{{_ 'nav.toggle_nav'}}</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand text-uppercase" href="{{pathFor route='home'}}"><img src="/img/flueint-logo.png"></a>
+					<a class="navbar-brand text-uppercase" href="{{pathFor route='home'}}"><img src="/img/flueint-logo.png" alt="{{_ 'nav.logo_alt'}}"></a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="mainNav">
+					<div class="nav nav-bar navbar-left">
+						{{> i18n_dropdown}}						
+					</div>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="{{pathFor route="home"}}">Home</a></li>
-						<li><a href="{{pathFor route="blog"}}">Blog</a></li>
+						<li><a href="{{pathFor route="home"}}">{{_ 'nav.home'}}</a></li>
+						<li><a href="{{pathFor route="blog"}}">{{_ 'nav.blog'}}</a></li>
 						{{#unless currentUser.emails.[0].verified}}
 
 					    {{else}} 
 						    {{#if isInRole 'student'}}
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{_ 'nav.account'}} <span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<li><a href="{{pathFor route="schedule"}}">Appointments</a></li>
-										<li><a href="{{pathFor route='buyCredits'}}">Buy Credits</a></li>
-										<li><a href="{{pathFor route="myAccount"}}">Account Information</a></li>
+										<li><a href="{{pathFor route="schedule"}}">{{_ 'nav.appointments'}}</a></li>
+										<li><a href="{{pathFor route='buyCredits'}}">{{_ 'nav.buy_credits'}}</a></li>
+										<li><a href="{{pathFor route="myAccount"}}">{{_ 'nav.account_info'}}</a></li>
 									</ul>
 								</li>
 							{{/if}}
 							{{#if isInRole 'teacher'}}
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Management <span class="caret"></span></a>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{_ 'nav.management'}} <span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<li><a href="{{pathFor route="teacherStudentRoster"}}">Student Roster</a></li>
-										<li><a href="{{pathFor route="schedule"}}">Appointments</a></li>
-										<li><a href="{{pathFor route="myAccount"}}">Account Information</a></li>
+										<li><a href="{{pathFor route="teacherStudentRoster"}}">{{_ 'nav.student_roster'}}</a></li>
+										<li><a href="{{pathFor route="schedule"}}">{{_ 'nav.appointments'}}</a></li>
+										<li><a href="{{pathFor route="myAccount"}}">{{_ 'nav.account_info'}}</a></li>
 									</ul>
 								</li>
 							{{/if}}
@@ -45,29 +48,29 @@
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Management <span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<li><a href="{{pathFor route="blog"}}">Blog</a></li>
-										<li><a href="{{pathFor route="listTeachers"}}">Teachers</a></li>
-										<li><a href="{{pathFor route="listStudents"}}">Students</a></li>
-										<li><a href="{{pathFor route="myAccount"}}">Account Information</a></li>
-										<li><a href="{{pathFor route="registerAdmin"}}">Register Users</a></li>
+										<li><a href="{{pathFor route="blog"}}">{{_ 'nav.blog'}}</a></li>
+										<li><a href="{{pathFor route="listTeachers"}}">{{_ 'nav.teachers'}}</a></li>
+										<li><a href="{{pathFor route="listStudents"}}">{{_ 'nav.students'}}</a></li>
+										<li><a href="{{pathFor route="myAccount"}}">{{_ 'nav.account_info'}}</a></li>
+										<li><a href="{{pathFor route="registerAdmin"}}">{{_ 'nav.register_users'}}</a></li>
 									</ul>
 								</li>
 							{{/if}}
 					   {{/unless}}					    				
-						<li><a href="{{pathFor route='program'}}">Program</a></li>
-						<li><a href="{{pathFor route='pricing'}}">Pricing</a></li>					
+						<li><a href="{{pathFor route='program'}}">{{_ 'nav.program'}}</a></li>
+						<li><a href="{{pathFor route='pricing'}}">{{_ 'nav.pricing'}}</a></li>					
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learn More <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{_ 'nav.learn_more'}} <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Cirriculum</a></li>
-								<li><a href="{{pathFor route='theCompany'}}">The Company</a></li>
+								<li><a href="#">{{_ 'nav.cirriculum'}}</a></li>
+								<li><a href="{{pathFor route='theCompany'}}">{{_ 'nav.the_company'}}</a></li>
 							</ul>
 						</li>
-						<li><a href="{{pathFor route='contactUs'}}">Contact Us</a></li>
+						<li><a href="{{pathFor route='contactUs'}}">{{_ 'nav.contact_us'}}</a></li>
 						{{#if currentUser}}
-							<li><a href="#" class="logout-btn">Logout</a></li>
+							<li><a href="#" class="logout-btn">{{_ 'nav.logout'}}</a></li>
 						{{else}}
-							<li><a href="" data-toggle="modal" data-target=".login-modal">Login</a></li>
+							<li><a href="" data-toggle="modal" data-target=".login-modal">{{_ 'nav.login'}}</a></li>
 						{{/if}}
 					</ul>
 				</div><!-- /.navbar-collapse -->

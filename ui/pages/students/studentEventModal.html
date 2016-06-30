@@ -4,43 +4,43 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="add-edit-event">Appointment Details</h4>                    
+                    <h4 class="modal-title" id="add-edit-event">{{_ 'schedule.appointment_details'}}</h4>                    
                 </div>
                 <form id="add-edit-event-form">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-sm-6">
-                                <label for="title">Event</label>
-                                <p>Appointment</p>
+                                <label for="title">{{_ 'schedule.event'}}</label>
+                                <p>{{_ 'schedule.appointment'}}</p>
                             </div>
                             <div class="col-sm-6">
-                                <label for="start">Day Of the Appointment</label>
+                                <label for="start">{{_ 'schedule.day_of'}}</label>
                                 <p>{{ convertDay event.timeStart usersTimezone }}</p>                               
                             </div>
                         </div>                       
                         <div class="row">
                             <div class="col-sm-6">
-                                <label>Starts</label>
+                                <label>{{_ 'schedule.starts'}}</label>
                                 <p>{{ convertTime event.timeStart usersTimezone }}</p>
                             </div>
                             <div class="col-sm-6">
-                                <label>Ends</label>
+                                <label>{{_ 'schedule.ends'}}</label>
                                 <p>{{ convertTime event.timeEnd usersTimezone }}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <label for="status">Status</label>
+                                <label for="status">{{_ 'schedule.status'}}</label>
                                 <p>{{ event.status }}</p>
                             </div>
                         </div>                        
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">{{_ 'schedule.cancel'}}</button>
                         {{#if unscheduleAppt}}
-                            <button type="button" class="btn btn-danger unschedule-btn">Unschedule</button>
+                            <button type="button" class="btn btn-danger unschedule-btn">{{_ 'schedule.unschedule'}}</button>
                         {{else}}
-                            <button type="button" class="btn btn-success schedule-btn">Schedule</button>
+                            <button type="button" class="btn btn-success schedule-btn">{{_ 'schedule.schedule'}}</button>
                         {{/if}}
                     </div>
                 </form>
@@ -48,14 +48,3 @@
         </div>
     </div>
 </template>
-
-<!--
-    <div class="form-group">
-        <input disabled type="hidden" name="end" class="form-control" value="{{#if event.end}}{{event.end}}{{else}}{{event.start}}{{/if}}">
-    </div>
-
-    <div class="form-group">
-        <label for="timeStart">Time <span class="apt-duration text-muted">(The appointment will last 30 minutes)</span></label>
-        <input type="time" name="timeStart" class="form-control" value="">                            
-    </div>
---> 

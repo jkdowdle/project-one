@@ -8,6 +8,7 @@ aldeed:schema-deny@1.0.1
 aldeed:schema-index@1.0.1
 aldeed:simple-schema@1.5.3
 allow-deny@1.0.5
+amplify@1.0.0
 autopublish@1.0.7
 autoupdate@1.2.10
 babel-compiler@6.8.2
@@ -38,6 +39,7 @@ ejson@1.0.12
 email@1.0.14
 es5-shim@4.5.12
 fastclick@1.0.12
+force-ssl@1.0.12
 fortawesome:fontawesome@4.4.0_1
 fourseven:scss@3.3.3_3
 fullcalendar:fullcalendar@2.8.0
@@ -109,6 +111,7 @@ srp@1.0.9
 standard-minifier-css@1.0.7
 standard-minifier-js@1.0.7
 tap:i18n@1.8.2
+tap:i18n-ui@0.8.0
 templating@1.1.11
 templating-tools@1.0.4
 themeteorchef:bert@2.1.0

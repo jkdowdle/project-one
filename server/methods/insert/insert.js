@@ -17,7 +17,6 @@ Meteor.methods({
 
 		TeachersRosters.update(rosterId, {$push: { students: { studentId: student } } });
 		Roles.addUsersToRoles(student, String(accountTypeInput));
-		Meteor.users.update(student, {$set: {"emails.0.verified": true} }); //
 		Accounts.sendVerificationEmail( student );				
 	},
 	'createNewTeacher': function (id, accountTypeInput){

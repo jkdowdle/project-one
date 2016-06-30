@@ -3,25 +3,25 @@
 		<div class="container">			
 			<div class="row">
     			<div class="col-sm-offset-3 col-sm-6">
-    				<h1>Change Email</h1>
+    				<h1>{{_ 'changeEmail.title'}}</h1>
     			</div>
     			<form id="changeEmailForm" class="form-horizontal">
     				<div class="form-group">
-    					<label class="sr-only" for="newEmail">New Email address</label>
+    					<label class="sr-only" for="newEmail">{{_ 'form.new_email'}}</label>
     					<div class="col-sm-offset-3 col-sm-6">
-    						<input type="email" class="form-control input-lg" id="newEmail" name="newEmail" placeholder="New Email" data-container="body" data-toggle="popover">
+    						<input type="email" class="form-control input-lg" id="newEmail" name="newEmail" placeholder="{{_ 'form.new_email'}}" data-container="body" data-toggle="popover">
     					</div>  						
     				</div>
     				<div class="form-group">
-    					<label class="sr-only" for="oldEmail">Old Email address</label>
+    					<label class="sr-only" for="oldEmail">{{_ 'form.old_email'}}</label>
     					<div class="col-sm-offset-3 col-sm-6">
-    						<input type="email" class="form-control input-lg" id="oldEmail" name="oldEmail" placeholder="Old Email" data-container="body" data-toggle="popover">
+    						<input type="email" class="form-control input-lg" id="oldEmail" name="oldEmail" placeholder="{{_ 'form.old_email'}}" data-container="body" data-toggle="popover">
     					</div>  						
     				</div>
     				<div class="form-group">
     					<div class="col-sm-offset-6 col-sm-3 text-right">
-	    					<button type="button" class="btn btn-lg btn-default go-back">Cancel</button>
-    						<button type="submit" class="btn btn-lg btn-default">Send Link</button>
+	    					<button type="button" class="btn btn-lg btn-default go-back">{{_ 'form.cancel'}}</button>
+    						<button type="submit" class="btn btn-lg btn-default">{{_ 'form.send_link'}}</button>
     					</div>	
     				</div>  									
     			</form>

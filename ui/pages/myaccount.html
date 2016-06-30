@@ -2,29 +2,32 @@
 	<section class="page-content">
 		<div class="container">
 			<div class="row">
-				<h3>My Account</h3>
+				<h3>{{_ 'accounts.my_account'}}</h3>
 				<div class="col-sm-12">
-					<p><label>Name -</label> {{myAccount.profile.name}}</p>
+					<p><label>{{_ 'accounts.name'}} -</label> {{myAccount.profile.name}}</p>
 				</div>
 				<div class="col-sm-12">
-					<p><label>Credits -</label> {{myAccount.profile.credits}}</p>
+					<p><label>{{_ 'accounts.credits'}} -</label> {{myAccount.profile.credits}}</p>
 				</div>
 				<div class="col-sm-12">
-					<p><label>Timezone -</label> {{myAccount.profile.timezone.offset}} &ndash; {{myAccount.profile.timezone.name}}</p>
+					<p><label>{{_ 'accounts.timezone'}} -</label> {{myAccount.profile.timezone.offset}} &ndash; {{myAccount.profile.timezone.name}}</p>
 				</div>
 				<div class="col-sm-12">
-					<p><label>Email Address -</label> {{myEmail}}</p>
+					<p><label>{{_ 'accounts.email'}} -</label> {{myEmail}}</p>
+				</div>
+				<div class="col-sm-12">
+					<p><label>{{_ 'accounts.skypeId'}} -</label> {{myAccount.profile.skypeid}}</p>
 				</div>
 		<!--		{{#if isInRole 'student'}}
 					<div class="col-sm-12">
-						<p><label>Assigned Teacher -</label> {{myAccount.profile.teacher}}</p>
+						<p><label>{{_ 'accounts.assigned_teacher'}} -</label> {{myAccount.profile.teacher}}</p>
 					</div>
 				{{/if}}-->
 				<div class="col-sm-12">
-					<p><label>Gender -</label> {{myAccount.profile.gender}}</p>
+					<p><label>{{_ 'accounts.gender'}} -</label> {{myAccount.profile.gender}}</p>
 				</div>
 				<div class="col-sm-12">
-					<button class="btn btn-default edit-account"><a href="{{pathFor route="editAccountInfo"}}">Edit</a></button>	
+					<button class="btn btn-default edit-account"><a href="{{pathFor route="editAccountInfo"}}">{{_ 'accounts.edit'}}</a></button>	
 				</div>
 			</div>
 		</div>		

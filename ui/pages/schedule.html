@@ -2,9 +2,9 @@
 	<section class="page-content">
 		<div class="container">
 			<div class="row">
-				<h3> Scheduling
+				<h3> {{_ 'schedule.title'}}
 					{{#if isInRole 'student'}}
-						<small class="pull-right">Credits - <span class="{{lowCredits}}">{{profile.credits}}</span></small>
+						<small class="pull-right">{{_ 'schedule.credits'}} - <span class="{{lowCredits}}">{{profile.credits}}</span></small>
 					{{/if}}
 				</h3>
 				{{#if isInRole 'teacher'}}

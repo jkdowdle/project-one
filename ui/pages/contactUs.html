@@ -3,38 +3,38 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-offset-1 col-sm-10">
-					<h3 class="counter-padding-row">Contact Us</h3>
-					<p class="counter-padding-row">Have a question or comment? or find a bug in the site?</p>
-					<p class="counter-padding-row">Send us an email here, and we will do our best to get back to you!</p>
+					<h3 class="counter-padding-row">{{_ 'contactUs.title'}}</h3>
+					<p class="counter-padding-row">{{_ 'contactUs.p_one'}}</p>
+					<p class="counter-padding-row">{{_ 'contactUs.p_two'}}</p>
 				</div>				
 				<form class="form-horizontal form-contact-us">
 					<div class="form-group">
-						<label for="contactName" class="sr-only">Name</label>
+						<label for="contactName" class="sr-only">{{_ 'form.name'}}</label>
 						<div class="col-sm-offset-1 col-sm-10">
-							<input type="text" class="form-control" id="contactName" name="contactName" placeholder="Name" data-container="body" data-toggle="popover">
+							<input type="text" class="form-control" id="contactName" name="contactName" placeholder="{{_ 'form.name'}}" data-container="body" data-toggle="popover">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="contactEmail" class="sr-only">Email</label>
+						<label for="contactEmail" class="sr-only">{{_ 'form.email'}}</label>
 						<div class="col-sm-offset-1 col-sm-10">
-							<input type="email" class="form-control" id="contactEmail" name="contactEmail" placeholder="Email" data-container="body" data-toggle="popover">
+							<input type="email" class="form-control" id="contactEmail" name="contactEmail" placeholder="{{_ 'form.email'}}" data-container="body" data-toggle="popover">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="contactSubject" class="sr-only">Subject</label>
+						<label for="contactSubject" class="sr-only">{{_ 'form.subject'}}</label>
 						<div class="col-sm-offset-1 col-sm-10">
-							<input type="text" class="form-control" id="contactSubject" name="contactSubject" placeholder="Subject" data-container="body" data-toggle="popover">
+							<input type="text" class="form-control" id="contactSubject" name="contactSubject" placeholder="{{_ 'form.subject'}}" data-container="body" data-toggle="popover">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="contactMessage" class="sr-only">Message</label>
+						<label for="contactMessage" class="sr-only">{{_ 'form.message'}}</label>
 						<div class="col-sm-offset-1 col-sm-10">
-							<textarea id="contactMessage" class="form-control" name="contactMessage" placeholder="Message" data-container="body" data-toggle="popover"></textarea>
+							<textarea id="contactMessage" class="form-control" name="contactMessage" placeholder="{{_ 'form.message'}}" data-container="body" data-toggle="popover"></textarea>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-offset-1 col-sm-10 text-right">
-							<button type="submit" class="btn btn-default">Send Message</button>
+							<button type="submit" class="btn btn-default">{{_ 'contactUs.send'}}</button>
 						</div>
 					</div>
 				</form>

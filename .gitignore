@@ -4,3 +4,6 @@ node_modules/
 public
 mup.json
 settings.json
+flueint_com.ca-bundle
+flueint_com.crt
+flueint.com.key
