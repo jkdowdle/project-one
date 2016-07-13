@@ -3,7 +3,7 @@ Meteor.startup(() => {
 	const ensureIndex = Meteor.wrapAsync(rawCollection.ensureIndex, rawCollection);
 	ensureIndex( { "timeEnd": 1 }, { expireAfterSeconds: 259200 } );
 
-	process.env.MAIL_URL = "smtp://postmaster%40sandbox234048e4d3b647c6bfb9615d3a952819.mailgun.org:97420af15ba02c1416320bc1c1d0dea7@smtp.mailgun.org:587";
+	process.env.MAIL_URL = Meteor.settings.mailgun;
 
 	if(Meteor.users.find().count() < 1) {
 		// Create Admin

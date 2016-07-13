@@ -1,0 +1,25 @@
+.buy-credit-section {
+	min-height: 62vh;
+	.buy-credit-title {
+		padding-top: 1rem;
+	}
+
+	.buy-credit-panel {	
+		.buy-credit-tag {
+			margin: 0;
+			padding: 3rem 0;
+			transition: all 0.5s ease-in-out;
+			&:hover {
+				transform: scale(1.4);
+			}
+		}
+	}
+
+	.alert-processing {
+		margin: 4vh 0;
+	}
+
+	.processing {
+		padding: 0 6rem;
+	}
+}

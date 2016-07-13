@@ -72,8 +72,11 @@ button a, button a:hover {
 #signUpCarousel {
   padding: 0 !important; }
   #signUpCarousel .row {
-    margin-left: -15px; }
+    margin-left: 0; }
+    #signUpCarousel .row .col-md-7 {
+      padding: 0 !important; }
     #signUpCarousel .row .owl-carousel .owl-item, #signUpCarousel .row .owl-carousel .item {
+      width: 390px;
       max-height: 200px;
       background: red !important;
       overflow: hidden; }
@@ -102,7 +105,11 @@ button a, button a:hover {
     #signUpCarousel .row .owl-theme .owl-controls {
       position: absolute;
       bottom: 3vh;
-      right: 0; }
+      right: 0;
+      visibility: hidden; }
+      @media (min-width: 768px) {
+        #signUpCarousel .row .owl-theme .owl-controls {
+          visibility: visible; } }
       #signUpCarousel .row .owl-theme .owl-controls .owl-nav [class*='owl-'] {
         text-transform: capitalize !important;
         display: inline-block !important;
@@ -356,6 +363,12 @@ section.special {
     color: #F7F4E4 !important; }
     .navbar-inverse .dropdown a:hover {
       color: #00A2BC !important; }
+  .navbar-inverse .tap-i18n-dropdown select {
+    width: 75%;
+    margin: 1.5rem auto -0.5rem auto; }
+    @media (min-width: 768px) {
+      .navbar-inverse .tap-i18n-dropdown select {
+        margin: .8rem 3rem; } }
 
 .navbar-brand img {
   width: 3.6rem;
@@ -674,5 +687,19 @@ p.blog-content {
 @media (min-width: 768px) {
   .modal-footer {
     text-align: right; } }
+.buy-credit-section {
+  min-height: 62vh; }
+  .buy-credit-section .buy-credit-title {
+    padding-top: 1rem; }
+  .buy-credit-section .buy-credit-panel .buy-credit-tag {
+    margin: 0;
+    padding: 3rem 0;
+    transition: all 0.5s ease-in-out; }
+    .buy-credit-section .buy-credit-panel .buy-credit-tag:hover {
+      transform: scale(1.4); }
+  .buy-credit-section .alert-processing {
+    margin: 4vh 0; }
+  .buy-credit-section .processing {
+    padding: 0 6rem; }
 
 /*# sourceMappingURL=main.css.map */

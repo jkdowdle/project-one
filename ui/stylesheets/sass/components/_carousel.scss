@@ -3,9 +3,13 @@
 #signUpCarousel {
 	padding: 0!important;
 	.row {
-		margin-left: -15px;
+		margin-left: 0;
+		.col-md-7 {
+			padding: 0!important;
+		}
 		.owl-carousel {
 			.owl-item, .item {
+				width: 390px;
 				max-height: 200px;
 				background: red!important;
 				overflow: hidden;
@@ -40,6 +44,10 @@
 			position: absolute;
 			bottom: 3vh;
 			right: 0;
+			visibility: hidden;
+			@media (min-width: $screen-sm) {
+				visibility: visible;
+			}
 			.owl-nav [class*='owl-'] {
 				text-transform: capitalize!important;
 				display: inline-block!important;

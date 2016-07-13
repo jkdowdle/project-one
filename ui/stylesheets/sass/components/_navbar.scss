@@ -25,6 +25,15 @@
 				color: $light-blue!important;
 			}
 		}
+	}
+	.tap-i18n-dropdown {
+		select {
+			width: 75%;
+			margin: 1.5rem auto -0.5rem auto;
+			@media (min-width: $screen-sm) {
+				margin: .8rem 3rem;
+			}
+		}
 	}	
 }
 
