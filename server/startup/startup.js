@@ -3,7 +3,9 @@ Meteor.startup(() => {
 	const ensureIndex = Meteor.wrapAsync(rawCollection.ensureIndex, rawCollection);
 	ensureIndex( { "timeEnd": 1 }, { expireAfterSeconds: 259200 } );
 
-	process.env.MAIL_URL = Meteor.settings.mailgun;
+	let mailGun = Meteor.settings.mailgun;
+
+	process.env.MAIL_URL = mailGun;
 
 	if(Meteor.users.find().count() < 1) {
 		// Create Admin

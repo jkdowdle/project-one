@@ -1,11 +1,11 @@
 Meteor.methods({
-/*	'sendVerificationLink': () => {
+	'sendVerificationLink': () => {
 
 		let userId = Meteor.userId();
 	    if ( userId ) {
 	        return Accounts.sendVerificationEmail( userId );
 	    }
-	}*/
+	}
 });
 
 Accounts.emailTemplates.siteName = "Flueint";

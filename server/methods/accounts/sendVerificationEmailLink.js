@@ -1,4 +1,4 @@
-Meteor.methods({
+/*Meteor.methods({
 	'sendVerificationEmailLink': () => {
 
 		let userId = Meteor.userId();
@@ -23,4 +23,4 @@ Accounts.emailTemplates.verifyEmail = {
 
 		return emailBody;
 	}
-};
+};*/

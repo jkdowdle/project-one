@@ -19,21 +19,34 @@
 </template>
 
 <template name="carouselRegister">
-	<section id="signUpCarousel">
-		<div class="row">
-			<div class="col-md-7">
-				<div class="carousel-segment">
-					{{> carouselTemplate}}
-				</div>				
+	{{#if currentUser}}
+		<section id="signUpCarousel">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="carousel-segment">
+						{{> carouselTemplate}}
+					</div>				
+				</div>
 			</div>
-			<div class="col-md-5">
-				<div class="register-segment">
-					<h3 class="text-center">{{_ 'home.register.title'}}</h3>
-					{{> registerSection}}
-				</div>				
+		</section>
+	{{else}}
+		<section id="signUpCarousel">
+			<div class="row">
+				<div class="col-md-7">
+					<div class="carousel-segment">
+						{{> carouselTemplate}}
+					</div>				
+				</div>
+				<div class="col-md-5">
+					<div class="register-segment">
+						<h3 class="text-center">{{_ 'home.register.title'}}</h3>
+						{{> registerSection}}
+					</div>				
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	{{/if}}
+	
 </template>
 
 <template name="carouselTemplate">
