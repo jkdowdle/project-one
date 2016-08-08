@@ -1,0 +1,19 @@
+{
+	"accounts": {
+		"my_account": "My Account",
+		"name": "Name",
+		"credits": "Credits",
+		"timezone": "Timezone",
+		"email": "Email Address",
+		"skypeId": "Skype Id",
+		"assigned_teacher": "Assigned Teacher",
+		"gender": "Gender",
+		"edit": "Edit",
+		"male": "Male",
+		"female": "Female",
+		"other": "Other",
+		"change_email": "Change Email",
+		"reset_password": "Reset Password",
+		"save_exit": "Save and Exit"
+	}
+}

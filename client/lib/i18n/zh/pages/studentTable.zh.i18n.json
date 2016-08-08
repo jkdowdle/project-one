@@ -1,0 +1,10 @@
+{
+	"studentTable": {
+		"name": "Name",
+		"email": "Email",
+		"skypeId": "Skype Id",
+		"time_zone": "Time Zone",
+		"gender": "Gender",
+		"credits": "Credits"
+	}
+}
