@@ -1,0 +1,52 @@
+{
+	"home": {
+		"register": {
+			"title": "Sign up and receive a free class!"
+		},
+		"blog": "Blog",
+		"promos": {
+			"title_one": "Better Method",
+			"p_one": "Fluency in a language comes with dedicated effort and confidence. Our individual training will allow you to feel comfortable and confident while progressing in life and total comprehension of your target language.",
+			"title_two": "Better Future",
+			"p_two": "Our goal is your immediate success in learning your target language, but also success and satisfaction throughout your entire life.",
+			"title_three": "Better You",
+			"p_three": "You will have opportunity to connect with people from different countries, cultures, and walks of life. You will make connections that will change your life!",
+			"promo-link": "Learn More"
+		},
+		"para_one": {
+			"title": "Classroom Locations",
+			"sub_one": "Personalized Help Just for Your Needs!",
+			"sub_two": "Always Find Time to Improve Yourself!",
+			"sub_three": "Make New Friends, and Gain Confidence!",
+			"sub_four": "Achieve Fluency Quickly, Acomplish More Daily!"
+		},
+		"para_two": {
+			"title_one": "Study conveniently",
+			"title_two": "Speak Freely",
+			"title_three": "Understand Fluently",
+			"sub_one": "Select class times that work for you!",
+			"sub_two": "Study anywhere you want!",
+			"sub_three": "Design custom lessons that will always be interesting!"
+		},
+		"carousel_images": {
+			"title_one": "Explore New Places",
+			"alt_text_one": "Two People at a Busy Street",
+			"title_two": "Work Hard, Play Hard",
+			"alt_text_two": "Side by Side Images, Student at Hotel and Student at Basketball Game",
+			"title_three": "Experience HUGE Success",
+			"alt_text_three": "Student Graduating",
+			"title_four": "Celebrate New Friendships",
+			"alt_text_four": "People Toasting their Drinks",
+			"title_five": "Live your Dream",
+			"alt_text_five": "Space Needle",
+			"title_six": "Gain Confidence, Try New Things",
+			"alt_text_six": "Teacher with Student Who is Playing a Drum",
+			"title_seven": "Challenge Yourself",
+			"alt_text_seven": "Boy Hitting a Baseball",
+			"title_eight": "Travel with Confidence",
+			"alt_text_eight": "Student With M&amp;M Mascots",
+			"title_nine": "Be Yourself",
+			"alt_text_nine": "Teacher and Student Sledding"
+		}
+	}
+}
