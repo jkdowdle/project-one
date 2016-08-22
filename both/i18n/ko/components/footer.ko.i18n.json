@@ -1,17 +1,17 @@
 {
 	"footer": {
 		"newsletter_title": "뉴스 레터에 가입",
-		"get_newsletter": "Get News Letter",
+		"get_newsletter": "뉴스 레터를 받음",
 		"alt_text": {
-			"skype": "Skype Logo",
-			"googleplus": "Googleplus Logo",
-			"wechat": "Wechat Logo",
-			"facebook": "Facebook Logo",
-			"weibo": "Weibo Logo",
-			"kaokao": "Kaokao Logo",
-			"twitter": "Twitter Logo",
-			"instagram": "Instagram Logo",
-			"youtube": "Youtube Logo"
+			"skype": "스카이프 로고",
+			"googleplus": "쿠컬 플러쉬 로고",
+			"wechat": "위채트 로고",
+			"facebook": "페이스북 로고",
+			"weibo": "외이보 로고",
+			"kaokao": "카카오톡 로고",
+			"twitter": "트위터 로고",
+			"instagram": "인스타그램 로고",
+			"youtube": "유투브 로고"
 		}
 	}
 }

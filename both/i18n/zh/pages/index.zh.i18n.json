@@ -1,52 +1,52 @@
-{
+    {
 	"home": {
 		"register": {
-			"title": "Sign up and receive a free class!"
+			"title": "注册并获赠免费课程一套"
 		},
-		"blog": "Blog",
+		"blog": "博客 ",
 		"promos": {
-			"title_one": "Better Method",
-			"p_one": "Fluency in a language comes with dedicated effort and confidence. Our individual training will allow you to feel comfortable and confident while progressing in life and total comprehension of your target language.",
-			"title_two": "Better Future",
-			"p_two": "Our goal is your immediate success in learning your target language, but also success and satisfaction throughout your entire life.",
-			"title_three": "Better You",
-			"p_three": "You will have opportunity to connect with people from different countries, cultures, and walks of life. You will make connections that will change your life!",
-			"promo-link": "Learn More"
+			"title_one": "更好的方法",
+			"p_one": "专注的努力和自信能给你带来语言的流畅。我们为你t提供的针对性训练能帮助你自信且舒心地全方面提高英语水平。",
+			"title_two": "优异的未来",
+			"p_two": "你的目标是我们的任务。 让我们帮你掌握人生",
+			"title_three": "卓越的你",
+			"p_three": "赢取机会与来自不同国家具备不同文化的朋友交流。开阔你的视野，建立全球化的友谊。 ",
+			"promo-link": "了解更多"
 		},
 		"para_one": {
-			"title": "Classroom Locations",
-			"sub_one": "Personalized Help Just for Your Needs!",
-			"sub_two": "Always Find Time to Improve Yourself!",
-			"sub_three": "Make New Friends, and Gain Confidence!",
-			"sub_four": "Achieve Fluency Quickly, Acomplish More Daily!"
+			"title": "课室地点",
+			"sub_one": "为你的需求而个性化更改",
+			"sub_two": "常抽出时间来提高自我",
+			"sub_three": "扩大朋友圈，增强自信",
+			"sub_four": "快速达成流畅，每日多一点进步"
 		},
 		"para_two": {
-			"title_one": "Study conveniently",
-			"title_two": "Speak Freely",
-			"title_three": "Understand Fluently",
-			"sub_one": "Select class times that work for you!",
-			"sub_two": "Study anywhere you want!",
-			"sub_three": "Design custom lessons that will always be interesting!"
+			"title_one": "方便学习",
+			"title_two": "自由谈话",
+			"title_three": "完整理解",
+			"sub_one": "按照你的时间表来安排课程！",
+			"sub_two": "随心随地学习",
+			"sub_three": "为你定制你所感兴趣的课程！"
 		},
 		"carousel_images": {
-			"title_one": "Explore New Places",
+			"title_one": "探索新旅程",
 			"alt_text_one": "Two People at a Busy Street",
-			"title_two": "Work Hard, Play Hard",
+			"title_two": "努力拼搏，尽兴游乐",
 			"alt_text_two": "Side by Side Images, Student at Hotel and Student at Basketball Game",
-			"title_three": "Experience HUGE Success",
-			"alt_text_three": "Student Graduating",
-			"title_four": "Celebrate New Friendships",
-			"alt_text_four": "People Toasting their Drinks",
+			"title_three": "体验巨大的成功",
+			"alt_text_three": "学生毕业典礼",
+			"title_four": "庆祝建立新友谊",
+			"alt_text_four": "举杯同饮",
 			"title_five": "Live your Dream",
-			"alt_text_five": "Space Needle",
-			"title_six": "Gain Confidence, Try New Things",
-			"alt_text_six": "Teacher with Student Who is Playing a Drum",
-			"title_seven": "Challenge Yourself",
+			"alt_text_five": "西雅图太空针塔",
+			"title_six": "尝试新事物",
+			"alt_text_six": "师生同乐",
+			"title_seven": "挑战自己",
 			"alt_text_seven": "Boy Hitting a Baseball",
-			"title_eight": "Travel with Confidence",
+			"title_eight": "自信出游",
 			"alt_text_eight": "Student With M&amp;M Mascots",
-			"title_nine": "Be Yourself",
-			"alt_text_nine": "Teacher and Student Sledding"
+			"title_nine": "活出自我",
+			"alt_text_nine": "Teacher and Student Sledding "
 		}
 	}
 }

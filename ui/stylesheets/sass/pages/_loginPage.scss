@@ -1,0 +1,29 @@
+.flueint {
+	padding: 1rem!important;
+	margin: 0!important;
+}
+
+.alert.login-alert {
+	padding: 1rem;
+	margin: 0 0 1rem 0;
+}
+
+.login-page-form {
+	padding: 2rem;
+	border: 1px solid #CCCCCC;
+	border-radius: .5rem;
+	.form-title h3 {
+		margin-top: -1rem;
+		padding-bottom: 1rem;
+	}
+	.login-btn {
+		width: 100%;
+	}
+}
+
+.sign-up-div {
+	padding: 1rem;
+	a {
+		font-size: 100%;
+	}
+}

@@ -40,7 +40,7 @@ Template.studentEventModal.helpers({
     },
     unscheduleAppt() {
         if (Meteor.userId()){
-            let eventModal = Session.get('eventModal');
+            let eventModal = Session.get('eventModal'),
                 eventStatus = Events.findOne(eventModal.event).status;
 
             if(eventStatus === 'Filled')
@@ -48,19 +48,45 @@ Template.studentEventModal.helpers({
             else 
                 return false;
         }        
+    },
+    disabled() {
+        if (Meteor.userId()){
+            let appointment = Session.get('eventModal'),
+                startTime = Events.findOne(appointment.event).timeStart,
+                currentTime = new Date(),
+                difference = startTime - currentTime,
+                hours = moment.duration(difference).asHours();
+
+            if (hours < 36)
+                return "disabled";
+            else
+                return "";
+        }
+    },
+    teacherInfo() {
+        let eventModal = Session.get('eventModal').event,
+            rosterId = Events.findOne(eventModal).teachersRosterId,
+            teacher = Accounts.users.findOne({'profile.rosterId': rosterId});
+
+        return {
+            skypeid: teacher.profile.skypeid,
+            email: teacher.emails[0].address
+        }
     }
 });
+/*
+    scheduledStudentInfo() {
+        let eventModal = Session.get('eventModal').event,
+            studentId = Events.findOne(eventModal).scheduledStudent,
+            student = Accounts.users.findOne(studentId);
 
-Template.studentEventModal.rendered = () => {/*
-    Template.studentEventModal.helpers({
-        unscheduleAppt() {
-            let eventModal = Session.get('eventModal');
-                eventStatus = Events.findOne(eventModal.event).status;
+        let name = student && student.profile && student.profile.name,
+            skypeid = student && student.profile && student.profile.skypeid,
+            email = student && student.emails[0] && student.emails[0].address;
 
-            if(eventStatus === 'Filled')
-                return true;
-            else 
-                return false;
+        return {
+            name: name,
+            skypeid: skypeid,
+            email: email
         }
-    });*/
-};
+    }*/

@@ -1,7 +1,7 @@
 {
 	"pageNotFound": {
-		"title": "Error: 404, Page Not Found.",
-		"go_back": "Please return <a href='#' class='link-back'>back</a> - ",
-		"go_home": "or visit the <a href='{{pathFor route='home'}}'>Home</a> page."
+		"title": "오류 404 페이지를 찾을 수 없습니다.",
+		"go_back": "돌아보세요 <a href='#' class='link-back'>back</a> - ",
+		"go_home": "홈으로 돌아가기 <a href='{{pathFor route='home'}}'>Home</a> page."
 	}
 }

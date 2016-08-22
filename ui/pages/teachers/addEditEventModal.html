@@ -27,7 +27,7 @@
 
                         <div class="form-group">
                             <label for="start">{{_ 'schedule.day_of'}}</label>
-                            <input disabled="{{disableFilled}}" type="date" name="start" class="form-control" value="{{event.start}}">
+                            <input {{disableFilled}} type="date" name="start" class="form-control" value="{{event.start}}">
                         </div>
 
                         <div class="form-group">
@@ -36,7 +36,7 @@
 
                         <div class="form-group">
                             <label for="timeStart">{{_ 'schedule.time'}} <span class="apt-duration text-muted">{{_ 'schedule.appt_durration'}}</span></label>
-                            <input disabled="{{disableFilled}}" type="time" name="timeStart" class="form-control" value="">                         
+                            <input {{disableFilled}} type="time" name="timeStart" class="form-control" value="">         
                         </div>
                         
                         {{#if modalType 'edit'}}
@@ -87,10 +87,10 @@
 
                     <div class="modal-footer">
                         {{#if modalType 'edit'}}
-                            <button disabled="{{disableFilled}}" class="btn btn-danger pull-left delete-event">{{_ 'schedule.delete_event'}}</button>
+                            <button {{disableFilled}} class="btn btn-danger pull-left delete-event">{{_ 'schedule.delete_event'}}</button>
                         {{/if}}
                         <button type="button" class="btn btn-warning" data-dismiss="modal">{{_ 'schedule.cancel'}}</button>
-                        <button disabled="{{disableFilled}}" type="submit" class="btn btn-success">{{modalLabel.button}} {{_ 'schedule.appt'}}</button>
+                        <button {{disableFilled}} type="submit" class="btn btn-success">{{modalLabel.button}} {{_ 'schedule.appt'}}</button>
                     </div>
 
                 </form>

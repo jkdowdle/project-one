@@ -1,7 +1,7 @@
 {
 	"notAuthorized": {
-		"title": "You are not authorized to be here.",
-		"go_back": "Please return <a href='#' class='link-back'>back</a> - ",
-		"go_home": "or visit the <a href='{{pathFor route='home'}}'>Home</a> page."
+		"title": "당신은 여기에있을 수있는 권한이 없습니다.",
+		"go_back": "돌아보세요 <a href='#' class='link-back'>back</a> - ",
+		"go_home": "홈으로 돌아가기 <a href='{{pathFor route='home'}}'>Home</a> page."
 	}
 }

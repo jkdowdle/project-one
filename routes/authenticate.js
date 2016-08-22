@@ -8,7 +8,7 @@ export let authenticate = {
 			user = Meteor.user();
 
 			if (!user){
-				this.render('home');
+				this.render('loginPage');
 				return;
 			}
 

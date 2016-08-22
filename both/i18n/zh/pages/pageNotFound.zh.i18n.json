@@ -1,7 +1,7 @@
 {
 	"pageNotFound": {
-		"title": "Error: 404, Page Not Found.",
-		"go_back": "Please return <a href='#' class='link-back'>back</a> - ",
-		"go_home": "or visit the <a href='{{pathFor route='home'}}'>Home</a> page."
+		"title": "错误: 404, 网页不能访问.",
+		"go_back": "返回请点击 <a href='#' class='link-back'>back</a> - ",
+		"go_home": "或这里 <a href='{{pathFor route='home'}}'>Home</a> page."
 	}
 }

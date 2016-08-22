@@ -17,7 +17,17 @@
                                 <label for="start">{{_ 'schedule.day_of'}}</label>
                                 <p>{{ convertDay event.timeStart usersTimezone }}</p>                               
                             </div>
-                        </div>                       
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="title">Teacher</label>
+                                <p><a target="_blank" style="font-size: 1.8rem" href="mailto:{{teacherInfo.email}}">{{teacherInfo.email}}</a></p>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="start">Teacher's Skype Id</label>
+                                <p>{{teacherInfo.skypeid}}</p>                               
+                            </div>
+                        </div>                        
                         <div class="row">
                             <div class="col-sm-6">
                                 <label>{{_ 'schedule.starts'}}</label>
@@ -38,7 +48,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-dismiss="modal">{{_ 'schedule.cancel'}}</button>
                         {{#if unscheduleAppt}}
-                            <button type="button" class="btn btn-danger unschedule-btn">{{_ 'schedule.unschedule'}}</button>
+                            <button {{disabled}} type="button" class="btn btn-danger unschedule-btn">{{_ 'schedule.unschedule'}}</button>
                         {{else}}
                             <button type="button" class="btn btn-success schedule-btn">{{_ 'schedule.schedule'}}</button>
                         {{/if}}

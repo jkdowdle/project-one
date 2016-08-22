@@ -1,9 +1,9 @@
-{
+ {
 	"awaitingVerification": {
-		"title": "Awaiting Verification",
-		"resend_email": "You must verify your email address before using Flueint. If you haven't received a verificiation email<a href='#' class='resend-verification-link'> click here</a> to resend the link."
+		"title": "等待验证中",
+		"resend_email": "你必须确认你的邮箱地址才能使用畅语<a href='#' class='resend-verification-link'> 点击此处</a> 重新发送链接. "
 	},
 	"unverified": {
-		"resend_email": "You must verify your email address before using Flueint. If you haven't received a verificiation email<a href='#' class='resend-verification-link'> click here</a> to resend the link."
+		"resend_email": "你必须确认你的邮箱地址才能使用畅语。 如果你还没有收到一封确认邮件，<a href='#' class='resend-verification-link'> 点击此处</a> 重新发送链接。"
 	}
 }

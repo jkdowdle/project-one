@@ -1,20 +1,3 @@
-/*
-font-family: 'Bree Serif', serif;
-font-family: 'Gloria Hallelujah', cursive;
-font-family: 'Source Serif Pro', serif;
-
-Dark blue: #00495E
-Light Blue: #00A2BC
-white: #F7F4E4
-light green: #C2C247
-dark green: #82820C
-
-Sections white / offwhite
-
-white: #FFF
-offwhite: #F8FAFB
-
-*/
 .pricing-text, .cat-title {
   text-align: center; }
 
@@ -91,39 +74,46 @@ button a, button a:hover {
     #signUpCarousel .row .owl-carousel .item {
       width: 100%;
       height: 100%; }
-    #signUpCarousel .row .owl-carousel .carousel-caption {
-      padding-top: 5px;
-      padding-bottom: 15px;
-      border-radius: 4px;
-      background: transparent;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9); }
-      @media (min-width: 768px) {
-        #signUpCarousel .row .owl-carousel .carousel-caption {
-          background: rgba(0, 0, 0, 0.3); } }
-      #signUpCarousel .row .owl-carousel .carousel-caption h2 {
-        color: #FFF; }
-    #signUpCarousel .row .owl-theme .owl-controls {
-      position: absolute;
-      bottom: 3vh;
-      right: 0;
-      visibility: hidden; }
-      @media (min-width: 768px) {
-        #signUpCarousel .row .owl-theme .owl-controls {
-          visibility: visible; } }
-      #signUpCarousel .row .owl-theme .owl-controls .owl-nav [class*='owl-'] {
-        text-transform: capitalize !important;
-        display: inline-block !important;
-        color: rgba(247, 244, 228, 0.81) !important;
-        font-size: 1.4rem !important;
-        margin: 5px;
-        padding: 4px 12px;
-        background: rgba(0, 73, 94, 0.5) !important;
-        border-radius: 3px;
-        border: 0.5px solid #00495E; }
-        #signUpCarousel .row .owl-theme .owl-controls .owl-nav [class*='owl-']:hover {
-          background: #00A2BC !important;
-          color: #F7F4E4 !important;
-          border: 1px solid #00A2BC !important; }
+  #signUpCarousel .carousel-segment-logged-in {
+    max-height: 83vh; }
+    #signUpCarousel .carousel-segment-logged-in .carousel-caption {
+      width: 35%;
+      margin: auto; }
+    #signUpCarousel .carousel-segment-logged-in .item {
+      max-height: 83vh; }
+  #signUpCarousel .carousel-caption {
+    padding-top: 5px;
+    padding-bottom: 15px;
+    border-radius: 4px;
+    background: transparent;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9); }
+    @media (min-width: 768px) {
+      #signUpCarousel .carousel-caption {
+        background: rgba(0, 0, 0, 0.3); } }
+    #signUpCarousel .carousel-caption h2 {
+      color: #FFF; }
+  #signUpCarousel .owl-theme .owl-controls {
+    position: absolute;
+    bottom: 3vh;
+    right: 0;
+    visibility: hidden; }
+    @media (min-width: 768px) {
+      #signUpCarousel .owl-theme .owl-controls {
+        visibility: visible; } }
+    #signUpCarousel .owl-theme .owl-controls .owl-nav [class*='owl-'] {
+      text-transform: capitalize !important;
+      display: inline-block !important;
+      color: rgba(247, 244, 228, 0.81) !important;
+      font-size: 1.4rem !important;
+      margin: 5px;
+      padding: 4px 12px;
+      background: rgba(0, 73, 94, 0.5) !important;
+      border-radius: 3px;
+      border: 0.5px solid #00495E; }
+      #signUpCarousel .owl-theme .owl-controls .owl-nav [class*='owl-']:hover {
+        background: #00A2BC !important;
+        color: #F7F4E4 !important;
+        border: 1px solid #00A2BC !important; }
 
 .exit-landing {
   color: #FFF; }
@@ -473,6 +463,39 @@ button, input {
 section > .container > .row > h3 {
   padding-bottom: 1rem; }
 
+.flueint {
+  padding: 1rem !important;
+  margin: 0 !important; }
+
+.alert.login-alert {
+  padding: 1rem;
+  margin: 0 0 1rem 0; }
+
+.login-page-form {
+  padding: 2rem;
+  border: 1px solid #CCCCCC;
+  border-radius: .5rem; }
+  .login-page-form .form-title h3 {
+    margin-top: -1rem;
+    padding-bottom: 1rem; }
+  .login-page-form .login-btn {
+    width: 100%; }
+
+.sign-up-div {
+  padding: 1rem; }
+  .sign-up-div a {
+    font-size: 100%; }
+
+.register-page-form {
+  padding: 2rem;
+  border: 1px solid #CCCCCC;
+  border-radius: .5rem; }
+  .register-page-form .form-title h3 {
+    margin-top: -1rem;
+    padding-bottom: 1rem; }
+  .register-page-form .register-btn {
+    width: 100%; }
+
 .btn-change-login-info {
   float: right; }
 
@@ -681,6 +704,21 @@ p.blog-content {
 #blogContent {
   height: 35vh; }
 
+.multi-lang-modal {
+  padding: 2rem; }
+  .multi-lang-modal .add-lang-btn {
+    margin-top: 1rem;
+    float: right; }
+    @media (min-width: 768px) {
+      .multi-lang-modal .add-lang-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem; } }
+
+#langOfPost {
+  margin-left: -15px;
+  width: 103%; }
+
 .modal-footer {
   text-align: center; }
 
@@ -701,5 +739,18 @@ p.blog-content {
     margin: 4vh 0; }
   .buy-credit-section .processing {
     padding: 0 6rem; }
+  .buy-credit-section .glyphicon-barcode {
+    top: 4px;
+    left: 2px; }
+  .buy-credit-section .modal-content {
+    padding: 1.5rem; }
+    .buy-credit-section .modal-content .coupon-submit {
+      text-align: center; }
+      .buy-credit-section .modal-content .coupon-submit .form-group {
+        width: 55%; }
+        .buy-credit-section .modal-content .coupon-submit .form-group .input-lg {
+          width: 100%; }
+  .buy-credit-section .coupon-purchase .modal-dialog {
+    top: 20vh; }
 
 /*# sourceMappingURL=main.css.map */

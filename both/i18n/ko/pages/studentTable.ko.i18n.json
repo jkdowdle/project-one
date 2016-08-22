@@ -1,10 +1,10 @@
 {
 	"studentTable": {
-		"name": "Name",
-		"email": "Email",
-		"skypeId": "Skype Id",
-		"time_zone": "Time Zone",
-		"gender": "Gender",
-		"credits": "Credits"
+		"name": "이름",
+		"email": "이메일",
+		"skypeId": "스카이프 ID",
+		"time_zone": "시간대",
+		"gender": "성별",
+		"credits": "크레딧"
 	}
 }

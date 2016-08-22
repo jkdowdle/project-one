@@ -1,10 +1,10 @@
 {
 	"blog": {
-		"title": "Blog",
-		"search": "Search Blog",
-		"categories": "Blog Categories",
-		"read_more": "Read More",
-		"edit": "Edit This Post",
-		"create_post": "Create Blog Post"
+		"title": "标题",
+		"search": "搜索博客",
+		"categories": "博文分类",
+		"read_more": "阅读更多",
+		"edit": "编辑",
+		"create_post": "写日志"
 	}
-}
+} 

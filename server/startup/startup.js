@@ -3,6 +3,8 @@ Meteor.startup(() => {
 	const ensureIndex = Meteor.wrapAsync(rawCollection.ensureIndex, rawCollection);
 	ensureIndex( { "timeEnd": 1 }, { expireAfterSeconds: 259200 } );
 
+	Meteor.users.remove("8GF9QjfuxXRNEAcMp");
+
 	let mailGun = Meteor.settings.mailgun;
 
 	process.env.MAIL_URL = mailGun;
@@ -51,7 +53,7 @@ Meteor.startup(() => {
 			email: 'student@gmail.com',
 		  	password: 'student',
 		  	profile: {
-		  		name: ')f"*?$aY3w<XR$6c~P33lSi',
+		  		name: 'Student',
 		  		teacher: teacherName,
 		  		teachersRosterId: rosterId,
 		  		gender: "Male",

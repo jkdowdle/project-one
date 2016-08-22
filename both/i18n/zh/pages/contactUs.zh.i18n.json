@@ -1,8 +1,8 @@
 {
 	"contactUs": {
-		"title": "Contact Us",
-		"p_one": "Have a question or comment? or find a bug in the site?",
-		"p_two": "Send us an email here, and we will do our best to get back to you!",
-		"send" : "Send Message"
+		"title": "联系我们",
+		"p_one": "有问题或者建议吗? 或者网页操作有什么问题吗？",
+		"p_two": "请在这里给我们发送邮件，我们尽快回复你！",
+		"send" : "发送信息"
 	}
 }

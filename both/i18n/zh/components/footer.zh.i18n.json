@@ -3,15 +3,15 @@
 		"newsletter_title": "Sign Up For News Letter",
 		"get_newsletter": "Get News Letter",
 		"alt_text": {
-			"skype": "Skype Logo",
-			"googleplus": "Googleplus Logo",
-			"wechat": "Wechat Logo",
-			"facebook": "Facebook Logo",
-			"weibo": "Weibo Logo",
-			"kaokao": "Kaokao Logo",
-			"twitter": "Twitter Logo",
-			"instagram": "Instagram Logo",
-			"youtube": "Youtube Logo"
+			"skype": "Skype",
+			"googleplus": "谷歌圈",
+			"wechat": "微信",
+			"facebook": "脸书",
+			"weibo": "微博",
+			"kaokao": "Kaokao聊天",
+			"twitter": "推特",
+			"instagram": "Instagram",
+			"youtube": "Youtube"
 		}
 	}
 }

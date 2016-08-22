@@ -1,8 +1,8 @@
 {
 	"contactUs": {
-		"title": "Contact Us",
-		"p_one": "Have a question or comment? or find a bug in the site?",
-		"p_two": "Send us an email here, and we will do our best to get back to you!",
-		"send" : "Send Message"
+		"title": "문의 사항",
+		"p_one": "질문이나 의견이 있으세요? 아니면 사이트 안에서 버그를 발견하셨나요?",
+		"p_two": "여기에 우리에게 이메일을 보내 우리는 다시 연락하기 위해 최선을 다할 것입니다!",
+		"send" : "메시지 보내기"
 	}
 }

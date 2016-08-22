@@ -27,5 +27,8 @@ Meteor.methods({
 		Meteor.users.update(currentUser, {$inc: {'profile.credits': 10 }});
 		console.log(currentUser);
 		console.log(creditAmount);
+	},
+	'updateUsedCoupon': couponId => {
+		CouponCodes.update(couponId, {$set: { used: true } });
 	}
 });

@@ -6,10 +6,33 @@ Router.route('/blog/post/:_id', {
 			postId = this.params._id;
 		Meteor.subscribe('blogPosts', route, postId);
 	},
-	data: function () {
+	data: function () {		
 		let postId = this.params._id,
 			post = BlogPosts.findOne(postId);
-		return post;		
+
+		const currentLanguageCode = TAPi18n.getLanguage();
+
+		if (currentLanguageCode == 'zh') {
+			return {
+				title: post.zhTitle,
+				content: post.zhContent
+			}
+		} else if (currentLanguageCode == 'ko') {
+			return {
+				title: post.koTitle,
+				content: post.koContent
+			}
+		} else if (currentLanguageCode == 'es') {
+			return {
+				title: post.esTitle,
+				content: post.esContent
+			}
+		} else {
+			return {
+				title: post.title,
+				content: post.content
+			}
+		}				
 	},
 	onAfterAction: function() {
 		DocHead.removeDocHeadAddedTags()

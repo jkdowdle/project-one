@@ -10,10 +10,10 @@
 							<div class="blog-preview">
 								<div class="well">
 									<div class="page-header">
-										<h4>{{title}}</h4>
+										<h4>{{postTitle _id}}</h4>
 										<p><em>{{convertTimeToFormat createdAt usersTimezone 'LLL'}}</em></p>
 									</div>
-									<p class="blog-preview-content">{{content}}</p>
+									<p class="blog-preview-content">{{postContent _id}}</p>
 									<hr>
 									<div class="text-right">
 										<p><a href="{{pathFor route='blogPost'}}"><em>{{_ 'blog.read_more'}}</em></a></p>
@@ -25,6 +25,7 @@
 							</div>					
 						{{/each}}
 					</div>
+					<p>{{post.title}}</p>
 					<div class="col-md-3">
 						<div class="blog-sidebar hidden-xs hidden-sm affix">							
 							<div class="well well-lg">

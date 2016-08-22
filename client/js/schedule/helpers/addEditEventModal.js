@@ -42,15 +42,19 @@ Template.addEditEventModal.helpers({
         return moment(time).format('LT');
     },
     disableFilled() {
-        let appointmentId = Session.get('eventModal'),
-            appointment = Events.findOne(appointmentId)
+        let eventModal = Session.get('eventModal'),
+            appointmentStatus = Events.findOne(eventModal.event).status;
 
-        let status = appointment && appointment.status;
+        console.log(appointmentStatus);
 
-        if (status === 'Filled')
-            return true;
-        else 
-            return false;
+        if (appointmentStatus === 'Filled'){
+            console.log('yes')
+            return "disabled";
+        } else {
+            console.log('no');
+            return "";       
+        }
+        
     },
     scheduledStudentInfo() {
         let eventModal = Session.get('eventModal').event,

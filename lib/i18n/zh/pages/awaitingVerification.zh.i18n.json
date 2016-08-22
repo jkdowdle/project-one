@@ -1,9 +1,0 @@
-{
-	"awaitingVerification": {
-		"title": "Awaiting Verification",
-		"resend_email": "You must verify your email address before using Flueint. If you haven't received a verificiation email<a href='#' class='resend-verification-link'> click here</a> to resend the link."
-	},
-	"unverified": {
-		"resend_email": "You must verify your email address before using Flueint. If you haven't received a verificiation email<a href='#' class='resend-verification-link'> click here</a> to resend the link."
-	}
-}

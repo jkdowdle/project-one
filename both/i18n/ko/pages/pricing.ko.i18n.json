@@ -1,21 +1,21 @@
 {
 	"pricing": {
-		"lead": " has designed a program that uses state of the art techniques to assure you that you will achieve your language fluency goals. Our program is designed to help you achieve fluency quickly and effectively. We are geared to help learners of all ages and skill levels. We offer a variety of programs and packages that will be customized just for your needs!",
-		"plan_one": "Economy",
-		"plan_two": "Basic",
-		"plan_three": "Premium",
-		"point_one": "Social Media Community",
-		"point_two": "Email Support",
-		"point_three": "Group Classes",
-		"point_four": "Podcast",
-		"point_five": "Archived Lessons Access",
-		"point_six": "Blog Interaction",
-		"point_seven": "8:30 Minute 1:1 Sessions",
-		"point_eight": "Live Support (Phone/App)",
-		"point_nine": "Flueint Success Series",
-		"point_ten": "Fully Customized Lesson Plans",
-		"point_eleven": "36hr Lesson Time Change",
-		"point_twelve": "14:30 Minute 1:1 Sessions",
-		"get_quote": "Get A Free Quote"
+		"lead": " 는 본인이 본인의 언어를 유창하게 대화하는 목표를 달성 할 수 있음을 보장하기 위해 최첨단 기술을 사용하는 프로그램을 설계합니다. 우리의 프로그램은 본인이 신속하고 효과적으로 유창을 달성 할 수 있도록 설계되었습니다. 우리는 모든 연령과 기술 수준의 학습을 돕기 위해 준비되어 있습니다. 우리는 당신의 요구에 바로 정의된 프로그램과 다양한 패키지를 제공합니다!",
+		"plan_one": "경제 프로그램",
+		"plan_two": "기본 프로그램",
+		"plan_three": "프리미엄",
+		"point_one": "소셜 미디어 커뮤니티",
+		"point_two": "이메일 지원",
+		"point_three": "그룹 수업",
+		"point_four": "팟캐스트",
+		"point_five": "보관 된 수업 액세스",
+		"point_six": "매일 블로그 접속",
+		"point_seven": "8개의 30분씩 세션",
+		"point_eight": "전화 지원 (Phone/App)",
+		"point_nine": "Flueint 성공 시리즈",
+		"point_ten": "맞춤 교과",
+		"point_eleven": "세션 변경 36시간 전 필요함.",
+		"point_twelve": "14개의 30분씩 세션",
+		"get_quote": "무료 견적을 받으세요!"
 	}
 }

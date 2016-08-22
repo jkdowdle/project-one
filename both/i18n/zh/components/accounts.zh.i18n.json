@@ -1,19 +1,19 @@
 {
 	"accounts": {
-		"my_account": "My Account",
-		"name": "Name",
-		"credits": "Credits",
-		"timezone": "Timezone",
-		"email": "Email Address",
-		"skypeId": "Skype Id",
-		"assigned_teacher": "Assigned Teacher",
-		"gender": "Gender",
-		"edit": "Edit",
-		"male": "Male",
-		"female": "Female",
-		"other": "Other",
-		"change_email": "Change Email",
-		"reset_password": "Reset Password",
-		"save_exit": "Save and Exit"
+		"my_account": "我的账号",
+		"name": "姓名",
+		"credits": "课时",
+		"timezone": "时区",
+		"email": "邮箱地址",
+		"skypeId": "Skype 账号",
+		"assigned_teacher": "任课老师",
+		"gender": "性别",
+		"edit": "编辑",
+		"male": "男",
+		"female": "女",
+		"other": "其他",
+		"change_email": "更改邮箱地址",
+		"reset_password": "重设密码",
+		"save_exit": "保存并退出"
 	}
 }

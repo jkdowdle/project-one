@@ -1,21 +1,21 @@
-{
+  {
 	"pricing": {
-		"lead": " has designed a program that uses state of the art techniques to assure you that you will achieve your language fluency goals. Our program is designed to help you achieve fluency quickly and effectively. We are geared to help learners of all ages and skill levels. We offer a variety of programs and packages that will be customized just for your needs!",
-		"plan_one": "Economy",
-		"plan_two": "Basic",
-		"plan_three": "Premium",
-		"point_one": "Social Media Community",
-		"point_two": "Email Support",
-		"point_three": "Group Classes",
-		"point_four": "Podcast",
-		"point_five": "Archived Lessons Access",
-		"point_six": "Blog Interaction",
-		"point_seven": "8:30 Minute 1:1 Sessions",
-		"point_eight": "Live Support (Phone/App)",
-		"point_nine": "Flueint Success Series",
-		"point_ten": "Fully Customized Lesson Plans",
-		"point_eleven": "36hr Lesson Time Change",
-		"point_twelve": "14:30 Minute 1:1 Sessions",
-		"get_quote": "Get A Free Quote"
+		"lead": "我们试用最先进的技术来设计一系列课程来确保你会实现流畅英语的目标。我们旨在帮助所有年龄和技能水平的学者。我们提供各种各样的学科，课程与备考方案，并且按照你所需进行定制和更改。",
+		"plan_one": "黄金课程",
+		"plan_two": "白金课程",
+		"plan_three": "钻石课程",
+		"point_one": "社交软件",
+		"point_two": "邮件客服",
+		"point_three": "小组课程",
+		"point_four": "广播",
+		"point_five": "存档课程",
+		"point_six": "博客交流",
+		"point_seven": "8:30 分钟 1对1 课程",
+		"point_eight": "在线客服 (网页/软件)",
+		"point_nine": "畅语成功案例",
+		"point_ten": "完整的设计课程",
+		"point_eleven": "36小时前更改课程时间",
+		"point_twelve": "14:30 分钟 1对  1 课程",
+		"get_quote": "免费询价设计课程"
 	}
 }

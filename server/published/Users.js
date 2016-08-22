@@ -25,3 +25,10 @@ Meteor.publish('teachersStudents', rosterId => {
 	
 	return Meteor.users.find({'profile.teachersRosterId': rosterId});*/
 });
+
+// Student
+
+Meteor.publish('teachers', () => {
+	let options = {fields: {'profile.skypeid': 1, emails: 1, roles: 1}}
+	return Meteor.users.find({'roles.0': 'teacher'}, options);
+});

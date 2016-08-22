@@ -1,9 +1,9 @@
 {
 	"awaitingVerification": {
-		"title": "Awaiting Verification",
-		"resend_email": "You must verify your email address before using Flueint. If you haven't received a verificiation email<a href='#' class='resend-verification-link'> click here</a> to resend the link."
+		"title": "검증 기다림",
+		"resend_email": "전송된 이메일을 확인해 가입 절차를 완료해주세요. 검증 이메일 받지 못했다면 <a href='#' class='resend-verification-link'> 여기 클리그 하세요.</a> 링그를 다시 보내려면."
 	},
 	"unverified": {
-		"resend_email": "You must verify your email address before using Flueint. If you haven't received a verificiation email<a href='#' class='resend-verification-link'> click here</a> to resend the link."
+		"resend_email": "전송된 이메일을 확인해 가입 절차를 완료해주세요. 검증 이메일 받지 못했다면 <a href='#' class='resend-verification-link'> 여기 클리그 하세요</a> 링그를 다시 보내려면."
 	}
 }

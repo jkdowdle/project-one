@@ -22,4 +22,26 @@
 	.processing {
 		padding: 0 6rem;
 	}
+
+	.glyphicon-barcode {
+		top: 4px;
+		left: 2px;
+	}
+
+	.modal-content {
+		padding: 1.5rem;
+		.coupon-submit {
+			text-align: center;
+			.form-group {
+				width: 55%;
+				.input-lg {
+					width: 100%;
+				}
+			}
+		}
+	} 
+
+	.coupon-purchase .modal-dialog {
+		top: 20vh;	
+	}
 }

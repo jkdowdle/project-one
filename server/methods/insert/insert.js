@@ -8,8 +8,10 @@ Meteor.methods({
 		];
 
 		let roster       = TeachersRosters.aggregate(getLowestStudentRoster),
-			rosterId     = roster[0]._id,
-			teachersName = Meteor.users.findOne({'profile.rosterId': rosterId}).profile.name;
+			rosterId     = roster[0]._id;
+
+		let	teachersName = Meteor.users.findOne({'profile.rosterId': rosterId}).profile.name;
+
 		id.profile.teacher = teachersName;
 		id.profile.teachersRosterId = rosterId;
 
@@ -17,7 +19,8 @@ Meteor.methods({
 
 		TeachersRosters.update(rosterId, {$push: { students: { studentId: student } } });
 		Roles.addUsersToRoles(student, String(accountTypeInput));
-		Accounts.sendVerificationEmail( student );				
+		Accounts.sendVerificationEmail( student );
+		Meteor.call('couponEmail', student);				
 	},
 	'createNewTeacher': function (id, accountTypeInput){
 		let rosterId = TeachersRosters.insert({ students: [ {dummyData: 'arrayLengthOne'} ] });

@@ -1,0 +1,61 @@
+<template name="registerPage">
+	<section class="page-content secondary-layout">
+		<div class="container">
+			<div class="row">
+				<h1 class="flueint text-center">Flueint</h1>
+
+  				<div class="col-sm-offset-4 col-sm-4">
+					<form class="form-register2 register-page-form">
+						<div class="form-title">
+							<h3 class="text-center">Register</h3>
+						</div>
+				        <div class="form-group">
+			                <label class="sr-only" for="register-email2">{{_ 'form.email'}}</label>
+			                <input class="form-control input-lg" name="register-email2" id="register-email2" type="email" placeholder="{{_ 'form.email'}}" data-container="body" data-toggle="popover">
+				        </div>
+				        <div class="form-group">
+			                <label class="sr-only" for="register-skypeid2">{{_ 'form.skypeId'}}</label>
+			                <input class="form-control input-lg" name="register-skypeid2" id="register-skypeid2" type="text" placeholder="{{_ 'form.skypeId'}}" data-container="body" data-toggle="popover">
+				        </div>
+				        <div class="form-group">
+			                <label class="sr-only" for="register-password2">{{_ 'form.password'}}</label>
+			                <input id="register-password2" class="form-control input-lg" name="register-password2" type="password" placeholder="{{_ 'form.password'}}" data-container="body" data-toggle="popover">
+				        </div>
+				        <div class="form-group">
+			                <label class="sr-only" for="register-password-verify2">{{_ 'form.verify_password'}}</label>
+			                <input class="form-control input-lg" name="register-password-verify2" id="register-password-verify2" type="password" placeholder="{{_ 'form.verify_password'}}" data-container="body" data-toggle="popover">
+				        </div>
+				        <div class="form-group">
+			                <label class="sr-only" for="register-timezone2">{{_ 'form.timezone'}}</label>
+			                <select class="form-control required input-lg" name="register-timezone2" id="register-timezone2" type="text" data-container="body" data-toggle="popover">
+			                    <option value="" default>{{_ 'form.select_timezone'}}</option>
+			                    {{#each timezones}}
+			                        <option value="{{name}}" data-offset="{{offset}}">
+			                            ({{offset}}) &ndash; {{name}}
+			                        </option>
+			                    {{/each}}
+			                </select>
+				        </div>
+				        <input type="hidden" name="account-type2" value="student">
+				        <!--<div class="form-group">
+				            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+				                <select class="form-control required" name="account-type" type="text" data-container="body" data-toggle="popover">
+				                    <option value="" default>Select Type of Account</option>
+				                    <option value="student">Student</option>
+				                    <option value="teacher">Teacher</option>
+				                </select>
+				            </div>
+				        </div>-->
+				        <div class="text-center">
+				            <input class="btn btn-lg btn-default register-btn" type="submit" value="{{_ 'form.register'}}">
+				        </div>
+				    </form>
+				</div>	
+
+			</div>
+		</div>
+	
+	
+				
+	</section>
+</template>

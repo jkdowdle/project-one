@@ -21,12 +21,8 @@
 <template name="carouselRegister">
 	{{#if currentUser}}
 		<section id="signUpCarousel">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="carousel-segment">
-						{{> carouselTemplate}}
-					</div>				
-				</div>
+			<div class="carousel-segment carousel-segment-logged-in">
+				{{> carouselTemplate}}
 			</div>
 		</section>
 	{{else}}
@@ -65,8 +61,8 @@
 				{{#each blogPosts}}
 					<div class="col-md-4">
 						<div class="blog-excerpt">
-							<h4>{{title}}</h4>
-							<p class="excerpt-content">{{content}}</p>
+							<h4>{{postTitle_id}}</h4>
+							<p class="excerpt-content">{{postContent _id}}</p>
 							<hr>
 							<p class="text-right"><a href="{{pathFor route='blogPost'}}"><em>{{_ 'blog.read_more'}}</em></a></p>
 						</div>					

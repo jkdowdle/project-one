@@ -1,30 +1,30 @@
 {
 	"program": {
-		"title": "Welcome to FLUEINT!",
+		"title": "FLUEINT에 환영합니다!",
 		"content": {
-				"p-1": "The Flueint system is a process that we have designed over the course of 10 years experience teaching English as a foreign language. It has also been applied to our personal lives learning foreign languages such as Mandarin Chinese, Korean, and English as a second language. We are excited to help you discover your true language learning talent!",
-				"p-2": "Each individual can accomplish far more than they give themselves credit. With our cutting edge learning techniques we will have you memorizing new words, using them in context correctly, and excelling in your target language in no time! Our system will help by offering constant exposure to your target language, confidence boosting exercises, and a progressive program that will constantly help you stretch and become better!",
-				"p-3": "We have developed a unique community that allows learners to develop friendships, make business partnerships, and gain new experiences they never thought possible! Through social media, blog posts, group sessions, and one-on-one sessions you will be introduced to a world of language that you probably haven’t been exposed to before.",
-				"p-4": "Because our class settings are one-on-one in nature you will gain confidence by getting to know your mentor as a friend as well as a teacher. You will be engaged in a learning atmosphere covering topics from business to healthcare, travel to scholastics, and more! These courses will be based around your skill level in the following categories.",
-				"p-5": "You will take a quick skill evaluation for: Grammar, Reading, Writing, Speaking, and Listening Comprehension. After gauging your skills in each area customized lessons will be delivered to help you improve in every category! By the time you are finished with the Flueint program you will be ready for any test, promotion, or trip overseas!"
+				"p-1": "Flueint 시스템은 우리가 외국어로 영어를 10 년의 가르치는 경험을 통해 설계 한 과정입니다. 또한, 중국어, 한국어, 영어 등의 외국어를 배우는 우리의 개인 생활에 적용되었습니다.우리는 본인이 본인의 진정한 잠재력 언어 배우는 재능을 발견하게 된 것에 기쁩니다!",
+				"p-2": "각 개인은 생각보다 훨씬 더 많은 작업을 수행 할 수 있습니다. 우리의 최첨단 학습 기술을 통해 우리는 본인이 새로운 단어를 외우고 제대로 맥락에서 그단어를 사용하고, 짧은 시간에 대상 언어에 뛰어나게 배울 겁니다! 우리의 시스템은 대상 언어에 자신감 강화 훈련을 일정하게 노출을 제공함으로써 도움이 될 것이고, 그리고 진보적 인 프로그램을 지속적으로 도움이 될 것입니다!",
+				"p-3": "우리는 유일한 커뮤니타를 통해서 학습자들이 이전에 결코 생각하지 못했던 새로운 친구와 비즈니스 파트너십을 개발할 수 있고 특별한 경험을 가질 수 있습니다. 소셜 미디어, 블로그 게시물, 그룹 세션 및 일대일 세션을 통해 본인은 본인이 아마 이전에 노출되지 않은 언어의 세계에 침지 될 것입니다.",
+				"p-4": "우리의 세션이 일대일로하기 때문에 본인은 교수뿐만 아니라 멘터들이 친구로 알게함으로써 자신감을 얻을 것입니다.You will be engaged in a learning atmosphere covering topics from business to healthcare, travel to 본인은 사업및 건강, 여행및 학교 등 같은 제목이 편한 분위기에 종사 하실 겁니다. 이 과정은 다음과 같은 범주에서 능력 수준의 주위를 기반으로합니다.",
+				"p-5": "읽기, 쓰기, 말하기, 듣기, 문법 : 본인을위한 짧은 능령 평가를 보실 것입니다. 각 제목에 평가 계측한 후에 맞춤형 교과를 본인을 위해  모든 부분에서 개선하는 프로그램을 만들 것입니다! 본인이 Flueint 프로그램을 완료 한 때에는 어떤 시험을 위한 준비든, 승진을위한 준비든, 또는 해외 여행을 다 준비 되어 있을 겁니다!"
 		},
-		"sub-title": "See how Flueint can help you for FREE today!",
+		"sub-title": "오늘 무료로 본인이 Flueint는 어떻게 도움 될 수 있을지 참조하십시오!",
 		"categories": {
-			"title": "General Categories",
-			"p-1": "Business",
-			"p-2": "Finance",
-			"p-3": "Medical",
-			"p-4": "Travel",
-			"p-5": "Testing",
-			"p-6": "Mathematics",
-			"p-7": "Music",
-			"p-8": "Medical",
-			"p-9": "Computer Science",
-			"p-10": "Aviation",
-			"p-12": "Scholastic",
-			"p-13": "Sports",
-			"p-14": "Literature",
-			"p-15": "Cooking"
+			"title": "일반 카테고리",
+			"p-1": "사업",
+			"p-2": "금융",
+			"p-3": "의료",
+			"p-4": "여행",
+			"p-5": "수능및 TOEIC TOEFL",
+			"p-6": "수학",
+			"p-7": "음악",
+			"p-8": "의료",
+			"p-9": "컴퓨터 과학",
+			"p-10": "항공기 산업",
+			"p-12": "스콜라 철학자",
+			"p-13": "스포츠",
+			"p-14": "문학",
+			"p-15": "요리"
 		}
 	}	
 }

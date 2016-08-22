@@ -16,7 +16,10 @@ Router.route('/schedule', {
 			teacher = $.inArray('teacher', roles);
 
 		if (student == 0){
-			return Meteor.subscribe('events', 'student', currentUser);
+			return [
+				Meteor.subscribe('events', 'student', currentUser),
+				Meteor.subscribe('teachers')
+			];
 		}
 
 		if (teacher == 0){
@@ -29,6 +32,14 @@ Router.route('/schedule', {
 				Meteor.subscribe('teachersStudents', rosterId)
 			];
 		}
+	},
+	onAfterAction: function() {
+		DocHead.removeDocHeadAddedTags()
+		DocHead.setTitle('Flueint Appointment Manager | Flueint.com');
+		DocHead.addMeta({
+			name: "description",
+			content: "Manage your appoinments through the Flueint Scheduler."
+		});
 	},
 	before: [authenticate.loggedIn, authenticate.studentOrTeacher]
 });

@@ -2,7 +2,9 @@ node_modules/
 .meteor/local
 .meteor/meteorite
 public
+mup.js
 mup.json
+mupx.json
 settings.json
 flueint_com.ca-bundle
 flueint_com.crt

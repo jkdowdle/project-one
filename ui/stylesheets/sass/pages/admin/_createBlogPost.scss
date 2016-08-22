@@ -1,3 +1,21 @@
 #blogContent {
 	height: 35vh;
 }
+
+.multi-lang-modal {
+	padding: 2rem;
+	.add-lang-btn {
+		margin-top: 1rem;
+		float: right;
+		@media (min-width: $screen-sm) {
+			position: fixed;
+			bottom: 2rem;
+			right: 2rem;
+		}	
+	} 
+}
+
+#langOfPost {
+	margin-left: -15px;
+	width: 103%;
+}
