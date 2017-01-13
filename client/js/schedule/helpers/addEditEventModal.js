@@ -49,7 +49,7 @@ Template.addEditEventModal.helpers({
         if (!eventModal) {
           appointmentStatus;
         } else {
-          appointmentStatus = Events.findOne(eventModal.event).status;
+          appointmentStatus = Events.findOne(eventModal.event) && Events.findOne(eventModal.event).status;
         }
 
         //console.log(appointmentStatus);
