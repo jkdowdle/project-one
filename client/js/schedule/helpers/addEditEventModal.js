@@ -42,19 +42,26 @@ Template.addEditEventModal.helpers({
         return moment(time).format('LT');
     },
     disableFilled() {
+
         let eventModal = Session.get('eventModal'),
-            appointmentStatus = Events.findOne(eventModal.event).status;
+            appointmentStatus;
 
-        console.log(appointmentStatus);
+        if (!eventModal) {
+          appointmentStatus;
+        } else {
+          appointmentStatus = Events.findOne(eventModal.event).status;
+        }
 
-        if (appointmentStatus === 'Filled'){
-            console.log('yes')
+        //console.log(appointmentStatus);
+
+        if (appointmentStatus === 'Filled') {
+        //    console.log('yes')
             return "disabled";
         } else {
-            console.log('no');
-            return "";       
+        //    console.log('no');
+            return "";
         }
-        
+
     },
     scheduledStudentInfo() {
         let eventModal = Session.get('eventModal').event,
@@ -70,5 +77,5 @@ Template.addEditEventModal.helpers({
             skypeid: skypeid,
             email: email
         }
-    } 
+    }
 });
