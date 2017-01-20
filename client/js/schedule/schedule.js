@@ -154,8 +154,6 @@ Template.schedule.onRendered( () => {
                   </div>
                 </div>`
               );
-            apptPerDay = 0;
-            day += 1;
           }
 
 
@@ -173,29 +171,6 @@ Template.schedule.onRendered( () => {
 
                 `
             );
-/*
-            $('.container').append(`
-              <!-- Modal -->
-              <div class="modal fade" id="dayModal${day}" tabindex="-1" role="dialog" aria-labelledby="dayModalLabel${day}">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="dayModalLabel${day}">Modal title</h4>
-                    </div>
-                    <div class="modal-body modal-body-${day}">
-                      ...
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>`
-            );*/
-
-            beforeAppointment = event._start._a;
         },
         eventDrop( event, delta, revert ) {
             let date = event.start.format();
