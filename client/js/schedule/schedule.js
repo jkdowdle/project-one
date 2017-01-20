@@ -1,4 +1,19 @@
-$( '#events-calendar' ).fullCalendar( 'changeView', 'month' );
+// Schedule Branch
+
+$( '#events-calendar' ).fullCalendar( 'changeView', 'basicWeek' );
+
+$( '#events-calendar' ).css( 'color', 'pink' );
+
+Template.schedule.rendered = function() {
+/*
+  $( '#events-calendar' ).fullCalendar({
+    header: {
+     left: 'prev,next today',
+     center: 'title',
+     right: 'month,agendaWeek,agendaDay'
+    },
+  });*/
+};
 
 let isPast = ( date ) => {
     let today = moment().format();
@@ -10,6 +25,7 @@ let apptPerDay = 1;
 let day = 1;
 
 Template.schedule.onCreated( () => {
+
     let template = Template.instance();
     template.subscribe( 'events' );
 });
@@ -208,6 +224,8 @@ Template.schedule.onRendered( () => {
                 Session.set( 'eventModal', { type: 'add', date: date.format() } );
                 $( '#add-edit-event-modal' ).modal( 'show' );
             }
+
+            $( '#events-calendar' ).fullCalendar( 'changeView', 'basicWeek' );
         },
         eventClick( event, jsEvent, view ) {
             console.log( jsEvent, view );
