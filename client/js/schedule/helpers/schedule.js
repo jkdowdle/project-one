@@ -125,8 +125,8 @@ Template.schedule.helpers({
 				eveningEnds    = moment(selectedDay).tz(timezone).startOf('day').hour(24).minute(0).toISOString(),
 				available      = false;
 
-		console.log(eveningStarts);
-		console.log(eveningEnds);
+	//	console.log(eveningStarts);
+	//	console.log(eveningEnds);
 
 		eveningStarts = new Date(eveningStarts);
 		eveningEnds   = new Date(eveningEnds);
@@ -134,9 +134,14 @@ Template.schedule.helpers({
 		// console.log(eveningStarts);
 		// console.log(eveningEnds);
 
-		let	eveningAppts = Events.find({ /*"start": '2017-01-24'*/ 'timeStart': { '$gte': eveningStarts, '$lt': eveningEnds } }, { 'sort': { 'timeStart': 1 } });
+		let	eveningAppts = Events.find({ /*"start": '2017-01-24'*/ 'timeStart': { '$gte': eveningStarts, '$lt': eveningEnds } }, { 'sort': { 'timeStart': 1 } })
+			.fetch()
+			.map((event) => {
+				event.start = moment(event.timeStart).tz(timezone).format('YYYY-MM-DD');
+				console.log(event.start);
+			});
 
-		if ( eveningAppts && eveningAppts.count() > 0 ) {
+		if ( eveningAppts && eveningAppts.length > 0 ) {
 			available = true;
 		}
 

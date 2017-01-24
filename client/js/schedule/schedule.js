@@ -5,10 +5,6 @@ let isPast = ( date ) => {
     return moment( today ).isAfter( date );
 };
 
-let beforeAppointment = '';
-let apptPerDay = 1;
-let day = 1;
-
 Template.schedule.rendered = function() {
 	let today = moment().format('YYYY-MM-DD');
 
@@ -80,8 +76,8 @@ Template.schedule.onRendered( () => {
                   return {
                       _id: event._id,
                       title: event.title,
-                      start: event.timeStart, // moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
-                      end: event.timeEnd, // moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
+                      start: event.start,// moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
+                      end: event.end, //moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
                       timeStart: event.timeStart,
                       timeEnd: event.timeEnd,
                       status: event.status,
@@ -101,8 +97,8 @@ Template.schedule.onRendered( () => {
                   return {
                       _id: event._id,
                       title: event.title,
-                      start:  event.timeStart, //moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
-                      end:  event.timeStart, //moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
+                      start: moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
+                      end: moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
                       timeStart: event.timeEnd,
                       timeEnd: event.timeEnd,
                       status: event.status,
