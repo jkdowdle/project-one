@@ -1,4 +1,4 @@
-// Schedule Branch
+// Events Branch
 
 let isPast = ( date ) => {
     let today = moment().format();
