@@ -7,6 +7,8 @@ Meteor.startup(() => {
 
 	let mailGun = Meteor.settings.mailgun;
 
+	console.log(mailGun);
+
 	process.env.MAIL_URL = mailGun;
 
 	if(Meteor.users.find().count() < 1) {
@@ -22,7 +24,7 @@ Meteor.startup(() => {
 		  			name: "UTC",
 		  			offset: "UTC"
 		  		}
-		  	}		  	
+		  	}
 		});
 		Roles.addUsersToRoles(admin, 'admin');
 		Meteor.users.update(admin, {$set: {"emails.0.verified": true} });
@@ -69,5 +71,3 @@ Meteor.startup(() => {
 		Meteor.users.update(student, {$set: {"emails.0.verified": true} });
 	}
 });
-
-		

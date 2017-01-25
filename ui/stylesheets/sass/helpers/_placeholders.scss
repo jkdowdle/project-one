@@ -1,4 +1,4 @@
-// Text Align 
+// Text Align
 
 %text-center {
 	text-align: center;
@@ -8,17 +8,17 @@
 
 %header-font {
 	font: {
-		family: $bree-serif;
+		family: $sans-serif;
 	}
 }
 
 %paragraph-font {
 	font: {
-		family: $source-serif-pro;
+		family: $sans-serif;
 	}
 }
 
-// Color 
+// Color
 
 %default-text-color {
 	color: $black-text;
@@ -59,8 +59,3 @@
     -moz-animation: loading 0.9s infinite alternate;
     box-shadow:1px 1px 1px #444444;
 }
-
-
-
-
-

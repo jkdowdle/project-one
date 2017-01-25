@@ -26,7 +26,7 @@
 
 					<div class="col-md-4 col-lg-3 flex">
 
-						<p>Your next scheduled session: {{ nextSession }}</p>
+						<p>Your next scheduled session: <span class="next-appt">{{ nextSessionTimeFormat nextSession.timeStart usersTimezone }}</span></p>
 
 							{{#if selectedDay }}
 								<p class="selected-day-p">Selected day: {{ selectedDay }}</p>
@@ -39,9 +39,10 @@
 
 				</div>
 
-				<div class="row">
-					<div class="col-md-4">
-						<p class="text-center">Morning Sessions</p>
+			{{#if selectedDay }}
+				<div class="row appointment-container">
+					<div class="col-md-4 section-container">
+						<h3 class="text-center">Morning Sessions</h3>
 
 						{{#if getMorning.available}}
 							{{#each getMorning.appointments}}
@@ -51,8 +52,8 @@
 							<p class="text-center">No available sessions</p>
 						{{/if}}
 					</div>
-					<div class="col-md-4">
-						<p class="text-center">Afternoon Sessions</p>
+					<div class="col-md-4 section-container">
+						<h3 class="text-center">Afternoon Sessions</h3>
 
 						{{#if getAfternoon.available}}
 							{{#each getAfternoon.appointments}}
@@ -62,8 +63,8 @@
 							<p class="text-center">No available sessions</p>
 						{{/if}}
 					</div>
-					<div class="col-md-4">
-						<p class="text-center">Evening Sessions</p>
+					<div class="col-md-4 section-container">
+						<h3 class="text-center">Evening Sessions</h3>
 
 						{{#if getEvening.available}}
 							{{#each getEvening.appointments}}
@@ -74,9 +75,7 @@
 						{{/if}}
 					</div>
 				</div>
-
-
-
+			{{/if}}
 <!--
 				{{#if selectedDay }}
 

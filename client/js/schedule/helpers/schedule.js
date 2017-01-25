@@ -7,42 +7,65 @@ Template.schedule.helpers({
 			return 'credit-warning';
 		}
 	},
-/*	nextSession() {
-		let userId = Meteor.userId(),
-		//		now = moment().toISOString(),
-				nextSession;
+	nextSession() {
+		let currentUser = Meteor.user(),
+				timezone = Accounts.users.findOne(currentUser).profile.timezone.name,
+				now = new Date(moment().tz(timezone)),
+				nextApptArr;
 
-		if ( Roles.userIsInRole(userId, 'teacher') ) {
-			let rosterId = Accounts && Accounts.users.findOne(userId).profile.rosterId;
+	//	console.log(timezone);
 
-			var now = new Date().getTime();
-	    var msInDay = 1000 * 60 * 60 * 24;
-
-	      nextSession = Events.find(
-					{
-	        	timeStart: {
-	          	'$gte': ISODate("2017-01-20T23:00:00Z")
-		        }
-		      },
-					{
-						sort: { 'timeStart': 1 }
-					},
-					{
-						'limit': 1
-					}
-				);
-
-			//nextSession = Events.findOne({ 'teachersRosterId': rosterId, timeStart: { '$gte': new Date().toISOString() } }, { 'sort': { 'timeStart': 1 } }, { 'limit': 1});
-
-									//	db.coll.find({name: 'montalto', 'users.username': 'ciccio'}).count() new ISODate("2012-01-12T20:15:31Z")
-    } else {
-			nextSession = Events.findOne({ 'scheduledStudent': userId }, { 'sort': { 'timeStart': 1 } });
+		if ( Roles.userIsInRole(currentUser, 'teacher') ) {
+			nextApptArr = Events.find({ 'teachersRosterId': currentUser.profile.rosterId, 'status': 'Filled', 'timeStart': { '$gte': now } }, { 'sort': { 'timeStart': 1 }, limit: 1 })
+				.fetch()
+				.map((event) => {
+					event.start = moment(event.timeStart).tz(timezone).format('YYYY-MM-DD');
+					return event;
+				});
+		} else {
+			nextApptArr = Events.find({ 'scheduledStudent': currentUser._id, 'status': 'Filled', 'timeStart': { '$gte': now } }, { 'sort': { 'timeStart': 1 }, limit: 1 })
+				.fetch()
+				.map((event) => {
+					event.start = moment(event.timeStart).tz(timezone).format('YYYY-MM-DD');
+					return event;
+				});
 		}
 
-		console.log(moment().toISOString());
+		let [ nextAppt ] = nextApptArr;
 
-		return moment(nextSession.timeStart).format('YYYY-MM-DD hh:mm');
-	}, */
+	//	console.log(nextAppt);
+
+		if ( currentUser && nextApptArr && nextApptArr.length === 1 ) {
+			console.log(nextAppt);
+			return nextAppt; //moment(nextAppt.timeStart).format('llll');
+		} else {
+			return 'You are not currently signed up for a session';
+		}
+	},
+	nextSessionTimeFormat( momentObj, timezone ) {
+		if (momentObj) {
+			let time = moment(momentObj).tz(timezone).format('lll'),
+					relative = moment(momentObj).tz(timezone).calendar();
+
+			console.log(relative);
+
+			let check = relative.match(/\b(tomorrow|today)\b/gi);
+
+			if ( check ) {
+				return relative;
+			}
+
+			return time;
+		} else {
+			let currentUser = Meteor.userId();
+
+			if ( Roles.userIsInRole(currentUser, 'teacher') ) {
+				return 'None of your available sessions have been filled yet.';
+			} else {
+				return 'You are not currently signed up for a session.';
+			}
+		}
+	},
 	selectedDayEvents() {
 		let selectedDay = Session.get('selectedDay'),
 				daysAppts   = Events.find({ 'start': selectedDay }, { 'sort': { 'timeStart': 1 } }),
@@ -84,9 +107,15 @@ Template.schedule.helpers({
 		morningStarts = new Date(morningStarts);
 		morningEnds   = new Date(morningEnds);
 
-		let	morningAppts = Events.find({ 'timeStart': { '$gte': morningStarts, '$lt': morningEnds } }, { 'sort': { 'timeStart': 1 } });
+		let	morningAppts = Events.find({ 'timeStart': { '$gte': morningStarts, '$lt': morningEnds } }, { 'sort': { 'timeStart': 1 } })
+			.fetch()
+			.map((event) => {
+				event.start = moment(event.timeStart).tz(timezone).format('YYYY-MM-DD');
+				event.timeStart = new Date(moment(event.timeStart).tz(timezone));
+				return event;
+			});
 
-		if ( morningAppts && morningAppts.count() > 0 ) {
+		if ( morningAppts && morningAppts.length > 0 ) {
 			available = true;
 		}
 
@@ -106,9 +135,15 @@ Template.schedule.helpers({
 		afternoonStarts = new Date(afternoonStarts);
 		afternoonEnds   = new Date(afternoonEnds);
 
-		let	afternoonAppts = Events.find({ 'timeStart': { '$gte': afternoonStarts, '$lt': afternoonEnds } }, { 'sort': { 'timeStart': 1 } });
+		let	afternoonAppts = Events.find({ 'timeStart': { '$gte': afternoonStarts, '$lt': afternoonEnds } }, { 'sort': { 'timeStart': 1 } })
+			.fetch()
+			.map((event) => {
+				event.start = moment(event.timeStart).tz(timezone).format('YYYY-MM-DD');
+				event.timeStart = new Date(moment(event.timeStart).tz(timezone));
+				return event;
+			});
 
-		if ( afternoonAppts && afternoonAppts.count() > 0 ) {
+		if ( afternoonAppts && afternoonAppts.length > 0 ) {
 			available = true;
 		}
 
@@ -125,20 +160,15 @@ Template.schedule.helpers({
 				eveningEnds    = moment(selectedDay).tz(timezone).startOf('day').hour(24).minute(0).toISOString(),
 				available      = false;
 
-	//	console.log(eveningStarts);
-	//	console.log(eveningEnds);
-
 		eveningStarts = new Date(eveningStarts);
 		eveningEnds   = new Date(eveningEnds);
 
-		// console.log(eveningStarts);
-		// console.log(eveningEnds);
-
-		let	eveningAppts = Events.find({ /*"start": '2017-01-24'*/ 'timeStart': { '$gte': eveningStarts, '$lt': eveningEnds } }, { 'sort': { 'timeStart': 1 } })
+		let	eveningAppts = Events.find({ 'timeStart': { '$gte': eveningStarts, '$lt': eveningEnds } }, { 'sort': { 'timeStart': 1 } })
 			.fetch()
 			.map((event) => {
 				event.start = moment(event.timeStart).tz(timezone).format('YYYY-MM-DD');
-				console.log(event.start);
+				event.timeStart = new Date(moment(event.timeStart).tz(timezone));
+				return event;
 			});
 
 		if ( eveningAppts && eveningAppts.length > 0 ) {
@@ -150,4 +180,7 @@ Template.schedule.helpers({
 			available: available
 		}
 	},
+	tester() {
+		return 'Hey man!';
+	}
 });

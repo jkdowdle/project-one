@@ -6,6 +6,10 @@
 	}
 }
 
+.h4-link {
+	font-size: 1em;
+}
+
 .panel-primary {
 	border-color: $blue;
 	h3 {
@@ -17,3 +21,18 @@
 	}
 }
 
+.style-flueint {
+	letter-spacing: -2px;
+	.style-1 {
+		color: rgb(106, 168, 79);
+		margin-right: 3px;
+	}
+	.style-2 {
+		color: rgb(0, 0, 0);
+		margin-right: 3px;
+		font-size: 1.1em;
+	}
+	.style-3 {
+		color: rgb(103, 78, 167);
+	}
+}

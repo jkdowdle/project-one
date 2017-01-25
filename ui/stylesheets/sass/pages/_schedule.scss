@@ -8,7 +8,7 @@
 }
 
 .fc {
-	font-size: 1.2rem!important;
+	font-size: 1.4rem!important;
 }
 
 .credit-warning {
@@ -64,6 +64,10 @@ thead tr td.fc-state-highlight, th.fc-state-highlight {
 	}
 }
 
+.next-appt {
+	text-decoration: underline;
+}
+
 .fc-content.filled, .appointment.Filled {
 	background: #D9EDF7;
 }
@@ -80,22 +84,47 @@ thead tr td.fc-state-highlight, th.fc-state-highlight {
 	font-size: 1.15rem;
 }
 
-.appointment {
-	cursor: pointer;
-	margin: .5rem 0;
-	border: 1px solid #ccc;
-	border-radius: 0.1rem;
-	width: 25rem;
-	p {
-		margin: 0 1rem;
+.appointment-container {
+	margin-top: 2rem;
+	.section-container {
+		margin: 1.5rem 0;
+		padding: 1rem;
+		border: 1px solid #ccc;
+		@media(min-width: $screen-md) {
+			margin: 0;
+			border: 0;
+		}
+		h3 {
+			font-weight: 600;
+		}
+		.appointment {
+			cursor: pointer;
+			margin: .5rem auto;
+			padding: 0.2rem;
+			border: 1px solid #ccc;
+			border-radius: 0.1rem;
+			width: 82%;
+			@media(min-width: $screen-sm) {
+				width: 55%;
+			}
+			@media(min-width: $screen-md) {
+				width: 82%;
+			}
+			p {
+				margin: 0 1rem;
+			}
+		}
 	}
+
 }
+
+
 
 .flex {
 	height: auto;
 	display: flex;
 	flex-flow: column wrap;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: stretch;
 	margin: 1rem 0;
 	@media (min-width: $screen-md) {

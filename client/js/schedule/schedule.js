@@ -1,4 +1,5 @@
 // Events Branch
+let allApointments = [];
 
 let isPast = ( date ) => {
     let today = moment().format();
@@ -67,23 +68,28 @@ Template.schedule.onRendered( () => {
       events( start, end, timezone, callback ) {
 
           let currentUser = Meteor.userId();
+          let userTimezone = Accounts.users.findOne(currentUser).profile.timezone.name;
 
           if(Roles.userIsInRole(currentUser, 'teacher')){
               teachersRosterId = Accounts.users.findOne(currentUser).profile.rosterId;
-              let timezone = Accounts.users.findOne(currentUser).profile.timezone.name;
+              let usertimezone = Accounts.users.findOne(currentUser).profile.timezone.name;
               let data = Events.find({teachersRosterId: teachersRosterId}, {sort: {timeStart: 1}}).fetch().map( ( event ) => {
                   event.editable = !isPast( event.start );
-                  return {
+                  let theevent = {
                       _id: event._id,
                       title: event.title,
-                      start: event.start,// moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
-                      end: event.end, //moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
+                      start: moment(event.timeStart).tz(usertimezone).format('YYYY-MM-DD'),
+                      end: moment(event.timeStart).tz(usertimezone).format('YYYY-MM-DD'),
                       timeStart: event.timeStart,
                       timeEnd: event.timeEnd,
                       status: event.status,
                       teachersRosterId: event.teachersRosterId,
                       scheduledStudent: event.scheduledStudent
-                  }
+                  };
+
+                  allApointments.push(event);
+
+                  return theevent;
               });
 
               if ( data ) {
@@ -92,19 +98,21 @@ Template.schedule.onRendered( () => {
 
           } else if (Roles.userIsInRole(currentUser, 'student')) {
               teachersRosterId = Accounts.users.findOne(currentUser).profile.teachersRosterId;
-              let timezone = Accounts.users.findOne(currentUser).profile.timezone.name;
+              let usertimezone = Accounts.users.findOne(currentUser).profile.timezone.name;
               let data = Events.find({/*teachersRosterId: teachersRosterId,*/ scheduledStudent: { $in: ["Not Yet Available", currentUser ] } }, {sort: {timeStart: 1}}).fetch().map( ( event ) => {
-                  return {
+                  let theevent = {
                       _id: event._id,
                       title: event.title,
-                      start: moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
-                      end: moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
+                      start: moment(event.timeStart).tz(usertimezone).format('YYYY-MM-DD'),
+                      end: moment(event.timeStart).tz(usertimezone).format('YYYY-MM-DD'),
                       timeStart: event.timeEnd,
                       timeEnd: event.timeEnd,
                       status: event.status,
                       teachersRosterId: event.teachersRosterId,
                       scheduledStudent: event.scheduledStudent
                   }
+                  allApointments.push(theevent);
+                  return theevent;
               });
 
               if ( data ) {
@@ -116,6 +124,10 @@ Template.schedule.onRendered( () => {
 
       eventRender( event, element, view ) {
 
+        let currentUser = Meteor.userId(),
+            usersTimezone = Accounts.users.findOne(currentUser).profile.timezone.name,
+            time = moment(event.timeStart);
+
         if ( view.type === 'month' || view.type === 'basicWeek' ) {
           $(element).css("display", "none");
         }
@@ -123,18 +135,6 @@ Template.schedule.onRendered( () => {
         $(element).each(function () {
           $(this).attr('date-num', event.start.format('YYYY-MM-DD'));
         });
-
-        //if ( view.name === 'month' ) {
-        //  return false;
-        //}
-
-        // if (event.status === 'Filled') {
-        //   element.find('.fc-content').toggleClass('filled');
-        // }
-
-        let currentUser = Meteor.userId(),
-            usersTimezone = Accounts.users.findOne(currentUser).profile.timezone.name,
-            time = moment(event.timeStart);
 
         element.find( '.fc-content' )
           .html(`
@@ -144,11 +144,16 @@ Template.schedule.onRendered( () => {
               </div>
             </div>
           `
-        );
+          );
+
+
       },
 
-      eventAfterAllRender(view, x, y, z) {
+      eventAfterAllRender(view) {
+        allApointments = _.uniq(allApointments, function(appt) { return appt._id });
+
         let currentUser = Meteor.userId();
+        let usertimezone = Accounts.users.findOne(currentUser).profile.timezone.name;
 
         if ( view.type === 'basicWeek' ) {
           $('#events-calendar').fullCalendar('option', 'height', 199);
@@ -158,11 +163,25 @@ Template.schedule.onRendered( () => {
 
         $('.appointment-count').remove();
         for ( cDay = view.start.clone(); cDay.isBefore(view.end) ; cDay.add(1, 'day') ) {
-          let dateNum = cDay.format('YYYY-MM-DD'),
+        //  console.log(cDay);
+          /* let dateNum = cDay.format('YYYY-MM-DD'),
               dayEl = $('.fc-day[data-date="' + dateNum + '"]'),
               totalNum = Events && Events.find({ "start": dateNum }).count(),
               filledNum = Events && Events.find({ "start": dateNum, "status": "Filled" }).count(),
-              openNum = Events && Events.find({ "start": dateNum, "status": "Open" }).count();
+              openNum = Events && Events.find({ "start": dateNum, "status": "Open" }).count(); */
+
+          let dateNum = cDay.format('YYYY-MM-DD'),
+              dayEl = $('.fc-day[data-date="' + dateNum + '"]'),
+              totalNum = allApointments.filter((event, pos) => {
+                if ( event.start === dateNum ) {
+                  return event;
+                }
+              }).length,
+              openNum = allApointments.filter((event, pos) => {
+                if ( event.start === dateNum && event.status === 'Open' ) {
+                  return event;
+                }
+              }).length;
 
           if( totalNum > 0 /* && view.name === 'month' */) {
             let pluralApt = 'Appts',
@@ -170,18 +189,18 @@ Template.schedule.onRendered( () => {
 
             if( Roles.userIsInRole(currentUser, 'teacher') ) {
 
-              if ( openNum === 1 ) {
+              if ( totalNum === 1 ) {
                 pluralApt = 'Appt';
               }
 
               eventCountTemplate = `
                 <div class="appointment-count text-center" style="margin-top: 2.5rem">
-                  <i>${ filledNum }/${ totalNum }</i> <span class="hidden-xs hidden-sm"> - Filled ${ pluralApt }</span>
+                  <i>${ ( totalNum - openNum ) }/${ totalNum }</i> <span class="hidden-xs hidden-sm"> - Filled ${ pluralApt }</span>
                 </div>
               `;
             } else {
 
-              if ( totalNum === 1 ) {
+              if ( openNum === 1 ) {
                 pluralApt = 'Appt';
               }
 
