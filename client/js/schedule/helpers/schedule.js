@@ -13,8 +13,6 @@ Template.schedule.helpers({
 				now = new Date(moment().tz(timezone)),
 				nextApptArr;
 
-	//	console.log(timezone);
-
 		if ( Roles.userIsInRole(currentUser, 'teacher') ) {
 			nextApptArr = Events.find({ 'teachersRosterId': currentUser.profile.rosterId, 'status': 'Filled', 'timeStart': { '$gte': now } }, { 'sort': { 'timeStart': 1 }, limit: 1 })
 				.fetch()
@@ -33,10 +31,7 @@ Template.schedule.helpers({
 
 		let [ nextAppt ] = nextApptArr;
 
-	//	console.log(nextAppt);
-
 		if ( currentUser && nextApptArr && nextApptArr.length === 1 ) {
-			console.log(nextAppt);
 			return nextAppt; //moment(nextAppt.timeStart).format('llll');
 		} else {
 			return 'You are not currently signed up for a session';
@@ -46,8 +41,6 @@ Template.schedule.helpers({
 		if (momentObj) {
 			let time = moment(momentObj).tz(timezone).format('lll'),
 					relative = moment(momentObj).tz(timezone).calendar();
-
-			console.log(relative);
 
 			let check = relative.match(/\b(tomorrow|today)\b/gi);
 

@@ -1,4 +1,4 @@
-// Events Branch
+// Translate Schedule Branch
 let allApointments = [];
 
 let isPast = ( date ) => {
@@ -8,9 +8,7 @@ let isPast = ( date ) => {
 
 Template.schedule.rendered = function() {
 	let today = moment().format('YYYY-MM-DD');
-
   $(`[data-date='${today}']`).addClass('fc-today');
-
   $('[data-date="2017-01-21"]').css('background', 'pink');
 };
 
@@ -21,6 +19,20 @@ Template.schedule.onCreated( () => {
 
     Session.set('selectedDay', null);
 });
+/*
+Template.i18n_dropdown.events({
+  'change select' () {
+    setInterval(function () {
+      let userLang = TAPi18n.getLanguage();
+
+      if ( userLang === 'zh' ) {
+        userLang = 'zh-cn';
+      }
+
+      $('#events-calendar').fullCalendar('option', 'lang', userLang);
+    });
+  }
+});*/
 
 Template.schedule.events({
   'click .fc-month-button' () {
@@ -272,6 +284,15 @@ Template.schedule.onRendered( () => {
     });
 
     Tracker.autorun( () => {
+      let userLang = TAPi18n.getLanguage();
+
+      if ( userLang === 'zh' ) {
+        userLang = 'zh-cn';
+      }
+
+      console.log(userLang);
+      $('#events-calendar').fullCalendar('option', 'lang', userLang);
+      
         Events.find().fetch();
         $( '#events-calendar' ).fullCalendar( 'refetchEvents' );
     });
