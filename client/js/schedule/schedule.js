@@ -1,220 +1,274 @@
-$( '#events-calendar' ).fullCalendar( 'changeView', 'month' );
+// Events Branch
+let allApointments = [];
 
 let isPast = ( date ) => {
     let today = moment().format();
     return moment( today ).isAfter( date );
 };
 
-let beforeAppointment = '';
-let apptPerDay = 1;
-let day = 1;
+Template.schedule.rendered = function() {
+	let today = moment().format('YYYY-MM-DD');
+
+  $(`[data-date='${today}']`).addClass('fc-today');
+
+  $('[data-date="2017-01-21"]').css('background', 'pink');
+};
 
 Template.schedule.onCreated( () => {
+
     let template = Template.instance();
     template.subscribe( 'events' );
+
+    Session.set('selectedDay', null);
+});
+
+Template.schedule.events({
+  'click .fc-month-button' () {
+    Session.set('selectedDay', null);
+  },
+  'click .add-appt' () {
+    let currentUser = Meteor.userId();
+    if ( Roles.userIsInRole(currentUser, 'teacher') ) {
+      Session.set( 'eventModal', { type: 'add', date: Session.get('selectedDay') } );
+      $( '#add-edit-event-modal' ).modal( 'show' );
+    }
+  },
+  'click .fc-basicWeek-button' () {
+    $('.fc-state-highlight').removeClass('fc-state-highlight');
+    let today = moment().format('YYYY-MM-DD');
+    $(`[data-date='${today}']`).addClass('fc-today fc-state-highlight');
+  },
+  'click .appointment' () {
+    Session.set( 'eventModal', { type: 'edit', event: this._id } );
+    $( '#add-edit-event-modal' ).modal( 'show' );
+  },
+  'click .fc-prev-button' () {
+    $('.fc-state-highlight').removeClass('fc-state-highlight');
+    let today = moment().format('YYYY-MM-DD');
+    $(`[data-date='${today}']`).addClass('fc-today');
+  },
+  'click .fc-next-button' () {
+    $('.fc-state-highlight').removeClass('fc-state-highlight');
+    let today = moment().format('YYYY-MM-DD');
+    $(`[data-date='${today}']`).addClass('fc-today');
+  }
 });
 
 Template.schedule.onRendered( () => {
+
     $( '#events-calendar' ).fullCalendar({
-        events( start, end, timezone, callback ) {
+      firstDay: 1,
+      height: 600,
+      header: {
+       left: 'title',
+       center: '',
+       right: 'month,basicWeek,today,prev,next'
+      },
 
-            let currentUser = Meteor.userId();
+      events( start, end, timezone, callback ) {
 
-            if(Roles.userIsInRole(currentUser, 'teacher')){
-                teachersRosterId = Accounts.users.findOne(currentUser).profile.rosterId;
-                let timezone = Accounts.users.findOne(currentUser).profile.timezone.name;
-                let data = Events.find({teachersRosterId: teachersRosterId}, {sort: {timeStart: 1}}).fetch().map( ( event ) => {
-                    event.editable = !isPast( event.start );
-                    return {
-                        _id: event._id,
-                        title: event.title,
-                        start: moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
-                        end: moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
-                        timeStart: event.timeStart,
-                        timeEnd: event.timeEnd,
-                        status: event.status,
-                        teachersRosterId: event.teachersRosterId,
-                        scheduledStudent: event.scheduledStudent
-                    }
-                });
+          let currentUser = Meteor.userId();
+          let userTimezone = Accounts.users.findOne(currentUser).profile.timezone.name;
 
-                if ( data ) {
-                    callback( data );
-                }
-            } else if (Roles.userIsInRole(currentUser, 'student')) {
-                teachersRosterId = Accounts.users.findOne(currentUser).profile.teachersRosterId;
-                let timezone = Accounts.users.findOne(currentUser).profile.timezone.name;
-                let data = Events.find({/*teachersRosterId: teachersRosterId,*/ scheduledStudent: { $in: ["Not Yet Available", currentUser ] } }, {sort: {timeStart: 1}}).fetch().map( ( event ) => {
-                    return {
-                        _id: event._id,
-                        title: event.title,
-                        start: moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
-                        end: moment(event.timeStart).tz(timezone).format('YYYY-MM-DD'),
-                        timeStart: event.timeStart,
-                        timeEnd: event.timeEnd,
-                        status: event.status,
-                        teachersRosterId: event.teachersRosterId,
-                        scheduledStudent: event.scheduledStudent
-                    }
-                });
+          if(Roles.userIsInRole(currentUser, 'teacher')){
+              teachersRosterId = Accounts.users.findOne(currentUser).profile.rosterId;
+              let usertimezone = Accounts.users.findOne(currentUser).profile.timezone.name;
+              let data = Events.find({teachersRosterId: teachersRosterId}, {sort: {timeStart: 1}}).fetch().map( ( event ) => {
+                  event.editable = !isPast( event.start );
+                  let theevent = {
+                      _id: event._id,
+                      title: event.title,
+                      start: moment(event.timeStart).tz(usertimezone).format('YYYY-MM-DD'),
+                      end: moment(event.timeStart).tz(usertimezone).format('YYYY-MM-DD'),
+                      timeStart: event.timeStart,
+                      timeEnd: event.timeEnd,
+                      status: event.status,
+                      teachersRosterId: event.teachersRosterId,
+                      scheduledStudent: event.scheduledStudent
+                  };
 
-                if ( data ) {
-                    callback( data );
-                }
-            }
+                  allApointments.push(event);
 
-            /*
-            let data = Events.find().fetch().map( ( event ) => {
-                event.editable = !isPast( event.start );
-                return event;
-            });
+                  return theevent;
+              });
 
-            if ( data ) {
-                callback( data );
-            }
-            */
-        },
-        eventRender( event, element ) {
+              if ( data ) {
+                  callback( data );
+              }
 
-          //console.log(event);
+          } else if (Roles.userIsInRole(currentUser, 'student')) {
+              teachersRosterId = Accounts.users.findOne(currentUser).profile.teachersRosterId;
+              let usertimezone = Accounts.users.findOne(currentUser).profile.timezone.name;
+              let data = Events.find({/*teachersRosterId: teachersRosterId,*/ scheduledStudent: { $in: ["Not Yet Available", currentUser ] } }, {sort: {timeStart: 1}}).fetch().map( ( event ) => {
+                  let theevent = {
+                      _id: event._id,
+                      title: event.title,
+                      start: moment(event.timeStart).tz(usertimezone).format('YYYY-MM-DD'),
+                      end: moment(event.timeStart).tz(usertimezone).format('YYYY-MM-DD'),
+                      timeStart: event.timeEnd,
+                      timeEnd: event.timeEnd,
+                      status: event.status,
+                      teachersRosterId: event.teachersRosterId,
+                      scheduledStudent: event.scheduledStudent
+                  }
+                  allApointments.push(theevent);
+                  return theevent;
+              });
 
-          if (event.status === 'Filled'){
-            element.find('.fc-content').toggleClass('filled');
+              if ( data ) {
+                  callback( data );
+              }
           }
 
-          let currentUser = Meteor.userId(),
-              usersTimezone = Accounts.users.findOne(currentUser).profile.timezone.name,
-              time = moment(event.timeStart);
+      },
 
-          if ( event._start._a['0'] === beforeAppointment['0'] && event._start._a['1'] === beforeAppointment['1'] && event._start._a['2'] === beforeAppointment['2'] ) {
-            $(`.modal-body-1`).append(`
-                <div class="row">
-                  <div class="col-xs-12">
-                    <h5>${ time.tz(usersTimezone).format('LT') }</h5>
-                  </div>
+      eventRender( event, element, view ) {
+
+        let currentUser = Meteor.userId(),
+            usersTimezone = Accounts.users.findOne(currentUser).profile.timezone.name,
+            time = moment(event.timeStart);
+
+        if ( view.type === 'month' || view.type === 'basicWeek' ) {
+          $(element).css("display", "none");
+        }
+
+        $(element).each(function () {
+          $(this).attr('date-num', event.start.format('YYYY-MM-DD'));
+        });
+
+        element.find( '.fc-content' )
+          .html(`
+            <div class="row">
+              <div class="col-xs-12">
+                <h5>${ time.tz(usersTimezone).format('LT') }</h5>
+              </div>
+            </div>
+          `
+          );
+
+
+      },
+
+      eventAfterAllRender(view) {
+        allApointments = _.uniq(allApointments, function(appt) { return appt._id });
+
+        let currentUser = Meteor.userId();
+        let usertimezone = Accounts.users.findOne(currentUser).profile.timezone.name;
+
+        if ( view.type === 'basicWeek' ) {
+          $('#events-calendar').fullCalendar('option', 'height', 199);
+        } else {
+          $('#events-calendar').fullCalendar('option', 'height', 600);
+        }
+
+        $('.appointment-count').remove();
+        for ( cDay = view.start.clone(); cDay.isBefore(view.end) ; cDay.add(1, 'day') ) {
+        //  console.log(cDay);
+          /* let dateNum = cDay.format('YYYY-MM-DD'),
+              dayEl = $('.fc-day[data-date="' + dateNum + '"]'),
+              totalNum = Events && Events.find({ "start": dateNum }).count(),
+              filledNum = Events && Events.find({ "start": dateNum, "status": "Filled" }).count(),
+              openNum = Events && Events.find({ "start": dateNum, "status": "Open" }).count(); */
+
+          let dateNum = cDay.format('YYYY-MM-DD'),
+              dayEl = $('.fc-day[data-date="' + dateNum + '"]'),
+              totalNum = allApointments.filter((event, pos) => {
+                if ( event.start === dateNum ) {
+                  return event;
+                }
+              }).length,
+              openNum = allApointments.filter((event, pos) => {
+                if ( event.start === dateNum && event.status === 'Open' ) {
+                  return event;
+                }
+              }).length;
+
+          if( totalNum > 0 /* && view.name === 'month' */) {
+            let pluralApt = 'Appts',
+                eventCountTemplate;
+
+            if( Roles.userIsInRole(currentUser, 'teacher') ) {
+
+              if ( totalNum === 1 ) {
+                pluralApt = 'Appt';
+              }
+
+              eventCountTemplate = `
+                <div class="appointment-count text-center" style="margin-top: 2.5rem">
+                  <i>${ ( totalNum - openNum ) }/${ totalNum }</i> <span class="hidden-xs hidden-sm"> - Filled ${ pluralApt }</span>
                 </div>
-              `);
-
-            apptPerDay += 1;
-          } else {
-            element.find( '.fc-content' ).html(
-                `
-                <div class="row">
-                  <div class="col-xs-12">
-                    <h5>${ time.tz(usersTimezone).format('LT') }</h5>
-                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#dayModal${day}">
-                      Launch demo modal
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Button trigger modal -->
-
-
-                `
-            );
-
-            $('.container').append(`
-                <!-- Modal -->
-                <div class="modal fade" id="dayModal${day}" tabindex="-1" role="dialog" aria-labelledby="dayModalLabel${day}">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="dayModalLabel${day}">Modal title</h4>
-                      </div>
-                      <div class="modal-body modal-body-${day}">
-                        <div class="row">
-                          <div class="col-xs-12">
-                            <h5>${ time.tz(usersTimezone).format('LT') }</h5>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>`
-              );
-            apptPerDay = 0;
-            day += 1;
-          }
-
-
-
-
-
-
-            element.find( '.fc-content' ).html(
-                `
-                <div class="row">
-                  <div class="col-xs-12">
-                    <h5>${ time.tz(usersTimezone).format('LT') }</h5>
-                  </div>
-                </div>
-
-                `
-            );
-/*
-            $('.container').append(`
-              <!-- Modal -->
-              <div class="modal fade" id="dayModal${day}" tabindex="-1" role="dialog" aria-labelledby="dayModalLabel${day}">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="dayModalLabel${day}">Modal title</h4>
-                    </div>
-                    <div class="modal-body modal-body-${day}">
-                      ...
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>`
-            );*/
-
-            beforeAppointment = event._start._a;
-        },
-        eventDrop( event, delta, revert ) {
-            let date = event.start.format();
-            if ( !isPast( date ) ) {
-
-                let update = {
-                    _id: event._id,
-                    start: date,
-                    end: date
-                };
-
-                Meteor.call( 'editEvent', update, ( error ) => {
-                    if ( error ) {
-                        Bert.alert( error.reason, 'danger' );
-                    }
-                });
+              `;
             } else {
-                revert();
-                Bert.alert( 'Sorry, you can\'t move items to the past!', 'danger' );
-            }
-        },
-        dayClick( date ) {
-            let currentUser = Meteor.userId();
 
-            if(Roles.userIsInRole(currentUser, 'teacher')){
-                Session.set( 'eventModal', { type: 'add', date: date.format() } );
-                $( '#add-edit-event-modal' ).modal( 'show' );
-            }
-        },
-        eventClick( event, jsEvent, view ) {
-            console.log( jsEvent, view );
+              if ( openNum === 1 ) {
+                pluralApt = 'Appt';
+              }
 
-            Session.set( 'eventModal', { type: 'edit', event: event._id } );
+              eventCountTemplate = `
+                <div class="appointment-count text-center" style="margin-top: 2.5rem">
+                  <i>${ openNum }</i> <span class="hidden-xs hidden-sm"> - Open ${ pluralApt }</span>
+                </div>
+              `;
+            }
+
+
+            dayEl.append(eventCountTemplate);
+
+          }
+        }
+      },
+
+      eventDrop( event, delta, revert ) {
+          let date = event.start.format();
+          if ( !isPast( date ) ) {
+
+              let update = {
+                  _id: event._id,
+                  start: date,
+                  end: date
+              };
+
+              Meteor.call( 'editEvent', update, ( error ) => {
+                  if ( error ) {
+                      Bert.alert( error.reason, 'danger' );
+                  }
+              });
+          } else {
+              revert();
+              Bert.alert( 'Sorry, you can\'t move items to the past!', 'danger' );
+          }
+      },
+      dayClick( date, jsEvent, view ) {
+        let currentUser = Meteor.userId();
+        let today = moment().format('YYYY-MM-DD');
+
+        if ( view.name === 'month' ) {
+          $( '#events-calendar' ).fullCalendar( 'changeView', 'basicWeek' );
+          $( '#events-calendar' ).fullCalendar('gotoDate', date);
+
+        } else {
+          $( '#events-calendar' ).fullCalendar('gotoDate', date);
+        }
+
+        if ( Roles.userIsInRole(currentUser, 'teacher') && date.format() === Session.get('selectedDay') ) {
+            Session.set( 'eventModal', { type: 'add', date: date.format() } );
             $( '#add-edit-event-modal' ).modal( 'show' );
         }
+
+        //ad fc-today to th
+        $(`th[data-date='${today}']`).addClass('fc-today');
+        // reset selected day
+        $(".fc-state-highlight").removeClass("fc-state-highlight");
+        //highlight day th & td
+        $(`[data-date='${date.format('YYYY-MM-DD')}']`).addClass('fc-state-highlight');
+
+        Session.set('selectedDay', date.format() );
+      },
+      eventClick( event, jsEvent, view ) {
+
+          Session.set( 'eventModal', { type: 'edit', event: event._id } );
+          $( '#add-edit-event-modal' ).modal( 'show' );
+      }
     });
 
     Tracker.autorun( () => {

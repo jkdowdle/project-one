@@ -1,11 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 .pricing-text, .cat-title {
   text-align: center; }
 
 h1, h2, h3, h4, h5, h6, .nav a, .dropdown a {
-  font-family: "Bree Serif", serif; }
+  font-family: "Roboto", sans-serif; }
 
 p, .form-control, .table {
-  font-family: "Source Serif Pro", serif; }
+  font-family: "Roboto", sans-serif; }
 
 h1, h2, h3, h4, h5, h6, p, .nav a, .dropdown a {
   color: #333; }
@@ -408,25 +409,33 @@ body {
   background-color: #00495E; }
 
 h1 {
-  font-size: 5rem; }
+  font-size: 4.6rem; }
 
 h2 {
-  font-size: 4rem; }
-
-h3 {
-  font-size: 3.5rem; }
-
-h4 {
   font-size: 3rem; }
 
+h3 {
+  font-size: 2.125rem;
+  font-weight: 600; }
+
+h4 {
+  font-size: 1.98rem;
+  font-weight: 600; }
+
+h5 {
+  font-size: 1.825rem; }
+
+h6 {
+  font-size: 1.4rem; }
+
 p {
-  font-size: 1.8rem; }
+  font-size: 1.6rem; }
 
 a {
-  font-size: 1.85rem; }
+  font-size: 1.7rem; }
 
 .navbar-inverse a, .navbar-inverse .dropdown a {
-  font-size: 1em; }
+  font-size: 1.4rem; }
 
 .navbar-inverse .dropdown a:hover, a:hover {
   text-decoration: none; }
@@ -435,16 +444,16 @@ a {
   font-size: 1.6rem; }
 
 .table {
-  font-size: 1.2em; }
+  font-size: 1.6rem; }
 
 .exit-landing {
-  font-family: "Bree Serif", serif;
-  font-size: 1.8rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.9rem;
   cursor: pointer; }
 
 button, input {
-  font-family: "Bree Serif", serif;
-  font-size: 1.2em !important;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.7em;
   letter-spacing: 0.06em !important; }
 
 .form-control:focus {
@@ -512,6 +521,9 @@ section > .container > .row > h3 {
   padding-top: 1rem;
   padding-bottom: 1rem; }
 
+.h4-link {
+  font-size: 1em; }
+
 .panel-primary {
   border-color: #00495E; }
   .panel-primary h3 {
@@ -519,6 +531,18 @@ section > .container > .row > h3 {
   .panel-primary .panel-heading {
     border-color: #00495E;
     background-color: #00495E; }
+
+.style-flueint {
+  letter-spacing: -2px; }
+  .style-flueint .style-1 {
+    color: #6aa84f;
+    margin-right: 3px; }
+  .style-flueint .style-2 {
+    color: black;
+    margin-right: 3px;
+    font-size: 1.1em; }
+  .style-flueint .style-3 {
+    color: #674ea7; }
 
 .counter-padding-row {
   margin-left: -15px; }
@@ -536,6 +560,12 @@ section > .container > .row > h3 {
   -ms-user-select: none;
   -webkit-user-select: none; }
 
+.fc-left h2 {
+  font-size: 2.7rem !important; }
+
+.fc {
+  font-size: 1.4rem !important; }
+
 .credit-warning {
   color: #da5347; }
 
@@ -549,9 +579,19 @@ section > .container > .row > h3 {
 .fc-today-button {
   text-transform: capitalize; }
 
-td.fc-today {
-  background-color: rgba(92, 184, 92, 0.15) !important;
+th.fc-today, td.fc-today {
+  background-color: rgba(92, 184, 92, 0.15) !important; }
+
+td.fc-state-highlight {
+  background: #abdbea !important;
   font-weight: bolder; }
+
+thead tr td.fc-state-highlight, th.fc-state-highlight {
+  background: #5ab1cc !important;
+  font-weight: bolder; }
+
+.fc-day-grid .fc-row {
+  height: 2em; }
 
 .fc-content {
   cursor: pointer; }
@@ -562,8 +602,60 @@ td.fc-today {
     padding-left: 5px;
     padding-right: 5px; }
 
-.fc-content.filled {
+.next-appt {
+  text-decoration: underline; }
+
+.fc-content.filled, .appointment.Filled {
   background: #D9EDF7; }
+
+.fc-button {
+  text-transform: capitalize; }
+
+.fc-day {
+  cursor: pointer; }
+
+.appointment-count {
+  font-size: 1.15rem; }
+
+.appointment-container {
+  margin-top: 2rem; }
+  .appointment-container .section-container {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border: 1px solid #ccc; }
+    @media (min-width: 992px) {
+      .appointment-container .section-container {
+        margin: 0;
+        border: 0; } }
+    .appointment-container .section-container h3 {
+      font-weight: 600; }
+    .appointment-container .section-container .appointment {
+      cursor: pointer;
+      margin: .5rem auto;
+      padding: 0.2rem;
+      border: 1px solid #ccc;
+      border-radius: 0.1rem;
+      width: 82%; }
+      @media (min-width: 768px) {
+        .appointment-container .section-container .appointment {
+          width: 55%; } }
+      @media (min-width: 992px) {
+        .appointment-container .section-container .appointment {
+          width: 82%; } }
+      .appointment-container .section-container .appointment p {
+        margin: 0 1rem; }
+
+.flex {
+  height: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: stretch;
+  margin: 1rem 0; }
+  @media (min-width: 992px) {
+    .flex {
+      height: 199px;
+      margin: 0; } }
 
 .blog-preview a {
   font-size: 1.8rem; }

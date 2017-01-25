@@ -3,38 +3,48 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 5rem;
+	font-size: 4.6rem;
 }
 
 h2 {
-	font-size: 4rem;
+	font-size: 3rem;
 }
 
 h3 {
-	font-size: 3.5rem;
+	font-size: 2.125rem;
+	font-weight: 600;
 }
 
 h4 {
-	font-size: 3rem;
+	font-size: 1.98rem;
+	font-weight: 600;
+}
+
+h5 {
+	font-size: 1.825rem;
+}
+
+h6 {
+	font-size: 1.4rem;
 }
 
 p {
 	@extend %paragraph-font;
 	font: {
-		size: 1.8rem; 
+		size: 1.6rem;
 	}
 }
 
 a {
 	font: {
-		size: 1.85rem;
+		size: 1.7rem;
 	}
 }
 
 .navbar-inverse, .navbar-inverse .dropdown {
 	a {
 		font: {
-			size: 1em;
+			size: 1.4rem;
 		}
 	}
 }
@@ -53,7 +63,7 @@ a {
 .table {
 	@extend %paragraph-font;
 	font: {
-		size: 1.2em;
+		size: 1.6rem;
 	}
 }
 
@@ -65,16 +75,16 @@ a {
 
 .exit-landing {
 	font: {
-		family: $bree-serif;
-		size: 1.8rem;
+		family: $sans-serif;
+		size: 1.9rem;
 	}
 	cursor: pointer;
 }
 
 button, input {
 	font: {
-		family: $bree-serif;
-		size: 1.2em!important;
+		family: $sans-serif;
+		size: 1.7em;
 	}
 	letter-spacing: .06em!important;
 }

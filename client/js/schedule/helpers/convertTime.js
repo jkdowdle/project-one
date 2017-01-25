@@ -1,3 +1,11 @@
+Template.registerHelper('usersTimezone', () => {
+	if (Meteor.user()){
+			let currentUser = Meteor.userId(),
+					timezone = Accounts.users.findOne(currentUser).profile.timezone.name;
+			return timezone;
+	}
+});
+
 Template.registerHelper( 'convertTime', ( timestamp, timezone ) => {
 	if ( timestamp ) {
 		let time   = moment( timestamp ),

@@ -17,7 +17,9 @@ Template.addEditEventModal.events({
                 status: template.find('[name="status"]').value,
                 teachersRosterId: teachersRosterId,
                 scheduledStudent: 'Not Yet Available'
-            }; 
+            };
+
+      console.log(eventItem);
 
         if ( submitType === 'editEvent' ) {
             eventItem._id   = eventModal.event;

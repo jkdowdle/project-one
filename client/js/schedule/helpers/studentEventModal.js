@@ -30,7 +30,7 @@ Template.studentEventModal.helpers({
     },
     valueTime(time) {
         return moment(time).format('hh:mm: a');
-    },    
+    },
     usersTimezone() {
         if (Meteor.user()){
             let currentUser = Meteor.userId(),
@@ -41,13 +41,17 @@ Template.studentEventModal.helpers({
     unscheduleAppt() {
         if (Meteor.userId()){
             let eventModal = Session.get('eventModal'),
-                eventStatus = Events.findOne(eventModal.event).status;
+                eventStatus;
+
+            if (eventModal) {
+              eventStatus = Events && Events.findOne(eventModal.event).status;
+            }
 
             if(eventStatus === 'Filled')
                 return true;
-            else 
+            else
                 return false;
-        }        
+        }
     },
     disabled() {
         if (Meteor.userId()){
@@ -64,29 +68,20 @@ Template.studentEventModal.helpers({
         }
     },
     teacherInfo() {
-        let eventModal = Session.get('eventModal').event,
-            rosterId = Events.findOne(eventModal).teachersRosterId,
-            teacher = Accounts.users.findOne({'profile.rosterId': rosterId});
+        let eventModal = Session.get('eventModal'),
+            rosterId,
+            teacher;
 
-        return {
-            skypeid: teacher.profile.skypeid,
-            email: teacher.emails[0].address
+        if ( eventModal ) {
+          rosterId = Events.findOne(eventModal.event).teachersRosterId;
+          teacher = Accounts.users.findOne({'profile.rosterId': rosterId});
+        }
+
+        if ( teacher ) {
+          return {
+              skypeid: teacher.profile.skypeid,
+              email: teacher.emails[0].address
+          }
         }
     }
 });
-/*
-    scheduledStudentInfo() {
-        let eventModal = Session.get('eventModal').event,
-            studentId = Events.findOne(eventModal).scheduledStudent,
-            student = Accounts.users.findOne(studentId);
-
-        let name = student && student.profile && student.profile.name,
-            skypeid = student && student.profile && student.profile.skypeid,
-            email = student && student.emails[0] && student.emails[0].address;
-
-        return {
-            name: name,
-            skypeid: skypeid,
-            email: email
-        }
-    }*/

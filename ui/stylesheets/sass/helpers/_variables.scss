@@ -1,13 +1,20 @@
-// Media Queries 
+// Media Queries
 $screen-sm: 768px;
 $screen-md: 992px;
 $screen-lg: 1200px;
 
-// Typography 
+// Typography
+
+//@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC');
+//$sans-humanist: 'Alegreya Sans SC', sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+$sans-serif: 'Roboto', sans-serif;
+
 $bree-serif: 'Bree Serif', serif;
 $source-serif-pro: 'Source Serif Pro', serif;
 
-// Color 
+// Color
 $black-text: #333;
 $off-white: #F7F4E4;
 $blue: #00495E;

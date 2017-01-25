@@ -64,10 +64,13 @@ Template.addEditEventModal.helpers({
 
     },
     scheduledStudentInfo() {
-        let eventModal = Session.get('eventModal').event,
-            studentId = Events.findOne(eventModal).scheduledStudent,
-            student = Accounts.users.findOne(studentId);
+      let eventModal = Session.get('eventModal'),
+          studentId,
+          student;
 
+      if ( eventModal ) {
+        studentId = Events.findOne(eventModal.event) && Events.findOne(eventModal.event).scheduledStudent;
+        student = Accounts.users.findOne(studentId);
         let name = student && student.profile && student.profile.name,
             skypeid = student && student.profile && student.profile.skypeid,
             email = student && student.emails[0] && student.emails[0].address;
@@ -77,5 +80,6 @@ Template.addEditEventModal.helpers({
             skypeid: skypeid,
             email: email
         }
+      }
     }
 });
