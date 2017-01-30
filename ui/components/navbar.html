@@ -16,14 +16,14 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="mainNav">
 					<div class="nav nav-bar navbar-left">
-						{{> i18n_dropdown}}						
+						{{> i18n_dropdown}}
 					</div>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="{{pathFor route="home"}}">{{_ 'nav.home'}}</a></li>
 						<li><a href="{{pathFor route="blog"}}">{{_ 'nav.blog'}}</a></li>
 						{{#unless currentUser.emails.[0].verified}}
 
-					    {{else}} 
+					    {{else}}
 						    {{#if isInRole 'student'}}
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{_ 'nav.account'}} <span class="caret"></span></a>
@@ -49,6 +49,7 @@
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Management <span class="caret"></span></a>
 									<ul class="dropdown-menu">
 										<li><a href="{{pathFor route="blog"}}">{{_ 'nav.blog'}}</a></li>
+										<li><a href="{{pathFor route="schedule"}}">{{_ 'nav.appointments'}}</a></li>
 										<li><a href="{{pathFor route="listTeachers"}}">{{_ 'nav.teachers'}}</a></li>
 										<li><a href="{{pathFor route="listStudents"}}">{{_ 'nav.students'}}</a></li>
 										<li><a href="{{pathFor route="myAccount"}}">{{_ 'nav.account_info'}}</a></li>
@@ -56,9 +57,9 @@
 									</ul>
 								</li>
 							{{/if}}
-					   {{/unless}}					    				
+					   {{/unless}}
 						<li><a href="{{pathFor route='program'}}">{{_ 'nav.program'}}</a></li>
-						<li><a href="{{pathFor route='pricing'}}">{{_ 'nav.pricing'}}</a></li>					
+						<li><a href="{{pathFor route='pricing'}}">{{_ 'nav.pricing'}}</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{_ 'nav.learn_more'}} <span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -84,8 +85,5 @@
 				</div>
 			</div>
 		</div>
-	</div>  
+	</div>
 </template>
-
-
-

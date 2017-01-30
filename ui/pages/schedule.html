@@ -16,7 +16,11 @@
 				{{#if isInRole 'teacher'}}
             {{> addEditEventModal }}
         {{else}}
+					{{#if isInRole 'admin'}}
+						{{> addEditEventModal }}
+					{{else}}
             {{> studentEventModal }}
+					{{/if}}
         {{/if}}
 
 				<div class="row">
@@ -77,29 +81,6 @@
 					</div>
 				</div>
 			{{/if}}
-<!--
-				{{#if selectedDay }}
-
-					<div class="row">
-
-
-						<div class="col-md-12">
-
-							{{#if selectedDayEvents.apptsExist }}
-								<p>Appointments</p>
-								{{#each selectedDayEvents.appts}}
-									<div class="appointment {{status}}">
-										<p><smal>{{ status }} - </smal>{{ convertTime timeStart usersTimezone }}</p>
-									</div>
-								{{/each}}
-
-							{{else}}
-								<p>No Available Appointments</p>
-							{{/if}}
-
-						</div>
-					</div>
-				{{/if}} -->
 			</div>
 		</div>
 	</section>

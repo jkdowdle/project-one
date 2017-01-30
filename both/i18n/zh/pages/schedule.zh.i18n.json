@@ -18,6 +18,22 @@
 		"cancel": "取消",
 		"schedule": "预约",
 		"unschedule": "可预约时间",
-		"appt": "已预约时间."
+		"appt": "已预约时间.",
+		"book_session": "Book A Session",
+		"teacher": "Teacher",
+		"teacher_skype_id": "Teacher's Skype Id",
+		"student_skype_id": "Student's Skype Id",
+		"add_appt": "Add Appointment",
+		"open_appts": "Open Appts",
+		"filled_appts": "Filled Appts",
+		"next_session": "Your next scheduled session",
+		"none_signup": "None of your available sessions have been filled yet.",
+		"today": "Today at",
+		"tomorrow": "Tomorrow at",
+		"selected_day": "Selected day",
+		"morning_sessions": "Morning Sessions",
+		"afternoon_sessions": "Afternoon Sessions",
+		"evening_sessions": "Evening Sessions",
+		"no_avilable": "No available sessions"
 	}
 }

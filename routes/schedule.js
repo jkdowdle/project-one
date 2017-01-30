@@ -13,7 +13,8 @@ Router.route('/schedule', {
 				&& Accounts.users.findOne(currentUser).roles;
 
 		let student = $.inArray('student', roles),
-			teacher = $.inArray('teacher', roles);
+			teacher = $.inArray('teacher', roles),
+			admin = $.inArray('admin', roles);
 
 		if (student == 0){
 			return [
@@ -23,14 +24,22 @@ Router.route('/schedule', {
 		}
 
 		if (teacher == 0){
-			let	rosterId = Meteor.users.findOne(currentUser) 
-					&& Meteor.users.findOne(currentUser).profile 
+			let	rosterId = Meteor.users.findOne(currentUser)
+					&& Meteor.users.findOne(currentUser).profile
 					&& Meteor.users.findOne(currentUser).profile.rosterId;
 
 			return [
 				Meteor.subscribe('events', 'teacher', currentUser),
 				Meteor.subscribe('teachersStudents', rosterId)
 			];
+		}
+
+		if (admin == 0) {
+			console.log('yes master jedi');
+			console.log(Meteor.user());
+			return [
+				Meteor.subscribe('events', 'admin', currentUser),
+			]
 		}
 	},
 	onAfterAction: function() {
@@ -41,5 +50,5 @@ Router.route('/schedule', {
 			content: "Manage your appoinments through the Flueint Scheduler."
 		});
 	},
-	before: [authenticate.loggedIn, authenticate.studentOrTeacher]
+	before: [ authenticate.loggedIn ]
 });

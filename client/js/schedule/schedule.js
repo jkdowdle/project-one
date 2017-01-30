@@ -19,6 +19,7 @@ Template.schedule.onCreated( () => {
 
     Session.set('selectedDay', null);
 });
+
 /*
 Template.i18n_dropdown.events({
   'change select' () {
@@ -29,7 +30,7 @@ Template.i18n_dropdown.events({
         userLang = 'zh-cn';
       }
 
-      $('#events-calendar').fullCalendar('option', 'lang', userLang);
+      moment.locale(userLang);
     });
   }
 });*/
@@ -135,6 +136,14 @@ Template.schedule.onRendered( () => {
       },
 
       eventRender( event, element, view ) {
+
+        let userLang = TAPi18n.getLanguage();
+
+        if ( userLang === 'zh' ) {
+          userLang = 'zh-cn';
+        }
+
+        moment.locale(userLang);
 
         let currentUser = Meteor.userId(),
             usersTimezone = Accounts.users.findOne(currentUser).profile.timezone.name,
@@ -290,10 +299,10 @@ Template.schedule.onRendered( () => {
         userLang = 'zh-cn';
       }
 
-      console.log(userLang);
+      moment.locale(userLang);
       $('#events-calendar').fullCalendar('option', 'lang', userLang);
-      
-        Events.find().fetch();
-        $( '#events-calendar' ).fullCalendar( 'refetchEvents' );
+
+      Events.find().fetch();
+      $( '#events-calendar' ).fullCalendar( 'refetchEvents' );
     });
 });

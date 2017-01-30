@@ -39,11 +39,24 @@ Template.schedule.helpers({
 	},
 	nextSessionTimeFormat( momentObj, timezone ) {
 		if (momentObj) {
+
+			moment.locale('en');
+
 			let time = moment(momentObj).tz(timezone).format('lll'),
 					relative = moment(momentObj).tz(timezone).calendar();
 
 			let check = relative.match(/\b(tomorrow|today)\b/gi);
 
+			let userLang = TAPi18n.getLanguage();
+
+			if ( userLang === 'zh' ) {
+				userLang = 'zh-cn';
+			}
+
+			moment.locale(userLang);
+			time = moment(momentObj).tz(timezone).format('lll');
+			relative = moment(momentObj).tz(timezone).calendar();
+			
 			if ( check ) {
 				return relative;
 			}
