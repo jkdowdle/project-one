@@ -1,4 +1,4 @@
-// Admin Scheduler Branch
+// Master Scheduler Branch
 let allApointments = [];
 
 Template.schedule.onDestroyed(() => {
