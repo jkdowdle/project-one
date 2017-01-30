@@ -35,10 +35,10 @@ Router.route('/schedule', {
 		}
 
 		if (admin == 0) {
-			console.log('yes master jedi');
-			console.log(Meteor.user());
 			return [
 				Meteor.subscribe('events', 'admin', currentUser),
+				Meteor.subscribe('adminGetAll', 'teacher'),
+				Meteor.subscribe('adminGetAll', 'student')
 			]
 		}
 	},

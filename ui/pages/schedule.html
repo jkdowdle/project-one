@@ -18,7 +18,7 @@
             {{> addEditEventModal }}
         {{else}}
 					{{#if isInRole 'admin'}}
-						{{> addEditEventModal }}
+						{{> schedulerModal }}
 					{{else}}
             {{> studentEventModal }}
 					{{/if}}
@@ -32,15 +32,22 @@
 
 					<div class="col-md-4 col-lg-3 flex">
 
-						<p>Your next scheduled session: <span class="next-appt">{{ nextSessionTimeFormat nextSession.timeStart usersTimezone }}</span></p>
+						{{#if isInRole 'admin' }}
 
-							{{#if selectedDay }}
-								<p class="selected-day-p">Selected day: {{ selectedDay }}</p>
-								{{#if isInRole 'teacher'}}
-									<button class="add-appt btn btn-default btn-sm">Add Appointment</button>
+							<button class="master-scheduler btn btn-default btn-sm">Set Teachers Schedule</button>
+
+						{{else}}
+
+							<p>Your next scheduled session: <span class="next-appt">{{ nextSessionTimeFormat nextSession.timeStart usersTimezone }}</span></p>
+
+								{{#if selectedDay }}
+									<p class="selected-day-p">Selected day: {{ selectedDay }}</p>
+									{{#if isInRole 'teacher'}}
+										<button class="add-appt btn btn-default btn-sm">Add Appointment</button>
+									{{/if}}
 								{{/if}}
-							{{/if}}
 
+						{{/if}}
 					</div>
 
 				</div>

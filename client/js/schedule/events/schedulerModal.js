@@ -1,25 +1,23 @@
-Template.addEditEventModal.events({
+Template.schedulerModal.events({
   'submit form' ( event, template ) {
     event.preventDefault();
 
     let apptStart = new Date( template.find( '[name="start"]' ).value + ' ' + template.find('[name="timeStart"]').value);
     let apptEnd = moment(apptStart).add(30, 'minutes');
-    let teachersRosterId = Meteor.user().profile.rosterId;
+  //  let teachersRosterId = Meteor.user().profile.rosterId;
 
     let eventModal = Session.get( 'eventModal' ),
     submitType = eventModal.type === 'edit' ? 'editEvent' : 'addEvent',
     eventItem  = {
       title: template.find( '[name="title"]' ).value,
       start: template.find( '[name="start"]' ).value,
-      end: template.find( '[name="end"]' ).value,
+      end: template.find( '[name="start"]' ).value,
       timeStart: apptStart,
       timeEnd: new Date(apptEnd),
       status: template.find('[name="status"]').value,
-      teachersRosterId: teachersRosterId,
+      teachersRosterId: template.find( '[name="teacher"]' ).value,
       scheduledStudent: 'Not Yet Available'
     };
-
-    console.log(eventItem);
 
     if ( submitType === 'editEvent' ) {
       eventItem._id   = eventModal.event;
@@ -33,13 +31,6 @@ Template.addEditEventModal.events({
         closeModal();
       }
     });
-
-  //  let today = moment().format('YYYY-MM-DD');
-    // reset selected day
-    $(".fc-state-highlight").removeClass("fc-state-highlight");
-    $(`th[data-date=2017-02-05]`).addClass('fc-state-highlight');
-    console.log('grrr');
-
   },
   'click .delete-event' ( event, template ) {
     let eventModal = Session.get( 'eventModal' );
@@ -57,6 +48,6 @@ Template.addEditEventModal.events({
 });
 
 let closeModal = () => {
-  $( '#add-edit-event-modal' ).modal( 'hide' );
+  $( '#master-scheduler-modal' ).modal( 'hide' );
   $( '.modal-backdrop' ).fadeOut();
 };

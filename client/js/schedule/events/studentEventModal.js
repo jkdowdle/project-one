@@ -6,10 +6,10 @@ Template.studentEventModal.events({
             creditAmmount = Accounts.users.findOne(currentStudent).profile.credits,
             eventModal = Session.get( 'eventModal' ),
             submitType = eventModal.type === 'edit' ? 'editEvent' : 'addEvent',
-            eventItem  = { 
-                status: 'Filled',               
+            eventItem  = {
+                status: 'Filled',
                 scheduledStudent: currentStudent
-            };         
+            };
 
         if ( submitType === 'editEvent' ) {
             eventItem._id   = eventModal.event;
@@ -27,16 +27,17 @@ Template.studentEventModal.events({
         } else {
             Bert.alert('I am sorry, you do not have enough credits. <a href="/buy-credits">Buy more here.</a>', 'danger');
             closeModal();
-        }        
+        }
+
     },
     'click .unschedule-btn' ( event, template ) {
         let currentStudent = Meteor.userId();
         let eventModal = Session.get( 'eventModal' ),
             submitType = eventModal.type === 'edit' ? 'editEvent' : 'addEvent',
             eventItem  = {
-                status: 'Open',               
+                status: 'Open',
                 scheduledStudent: 'Not Yet Available'
-            };         
+            };
 
         if ( submitType === 'editEvent' ) {
             eventItem._id   = eventModal.event;
@@ -51,11 +52,11 @@ Template.studentEventModal.events({
                     closeModal();
                 }
             });
-        }  
+        }
     }
 });
 
 let closeModal = () => {
     $( '#add-edit-event-modal' ).modal( 'hide' );
     $( '.modal-backdrop' ).fadeOut();
-}; 
+};

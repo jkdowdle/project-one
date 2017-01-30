@@ -56,7 +56,7 @@ Template.schedule.helpers({
 			moment.locale(userLang);
 			time = moment(momentObj).tz(timezone).format('lll');
 			relative = moment(momentObj).tz(timezone).calendar();
-			
+
 			if ( check ) {
 				return relative;
 			}
@@ -108,12 +108,20 @@ Template.schedule.helpers({
 		 		selectedDay    = Session.get('selectedDay'),
 				morningStarts  = moment(selectedDay).tz(timezone).startOf('day').hour(0).minute(0).toISOString(),
 				morningEnds    = moment(selectedDay).tz(timezone).startOf('day').hour(12).minute(0).toISOString(),
-				available      = false;
+				available      = false,
+				query;
 
 		morningStarts = new Date(morningStarts);
 		morningEnds   = new Date(morningEnds);
 
-		let	morningAppts = Events.find({ 'timeStart': { '$gte': morningStarts, '$lt': morningEnds } }, { 'sort': { 'timeStart': 1 } })
+		if ( Roles.userIsInRole(currentUser, 'teacher') ) {
+			let rosterId = Meteor.user().profile.rosterId;
+			query = { 'teachersRosterId': rosterId, 'timeStart': { '$gte': morningStarts, '$lt': morningEnds } };
+		} else {
+			query = { 'timeStart': { '$gte': morningStarts, '$lt': morningEnds } };
+		}
+
+		let	morningAppts = Events.find(query, { 'sort': { 'timeStart': 1 } })
 			.fetch()
 			.map((event) => {
 				event.start = moment(event.timeStart).tz(timezone).format('YYYY-MM-DD');
@@ -136,12 +144,20 @@ Template.schedule.helpers({
 		 		selectedDay    = Session.get('selectedDay'),
 				afternoonStarts  = moment(selectedDay).tz(timezone).startOf('day').hour(12).minute(0).toISOString(),
 				afternoonEnds    = moment(selectedDay).tz(timezone).startOf('day').hour(17).minute(0).toISOString(),
-				available      = false;
+				available      = false,
+				query;
 
 		afternoonStarts = new Date(afternoonStarts);
 		afternoonEnds   = new Date(afternoonEnds);
 
-		let	afternoonAppts = Events.find({ 'timeStart': { '$gte': afternoonStarts, '$lt': afternoonEnds } }, { 'sort': { 'timeStart': 1 } })
+		if ( Roles.userIsInRole(currentUser, 'teacher') ) {
+			let rosterId = Meteor.user().profile.rosterId;
+			query = { 'teachersRosterId': rosterId, 'timeStart': { '$gte': afternoonStarts, '$lt': afternoonEnds } };
+		} else {
+			query = { 'timeStart': { '$gte': afternoonStarts, '$lt': afternoonEnds } };
+		}
+
+		let	afternoonAppts = Events.find(query, { 'sort': { 'timeStart': 1 } })
 			.fetch()
 			.map((event) => {
 				event.start = moment(event.timeStart).tz(timezone).format('YYYY-MM-DD');
@@ -164,12 +180,22 @@ Template.schedule.helpers({
 		 		selectedDay    = Session.get('selectedDay'),
 				eveningStarts  = moment(selectedDay).tz(timezone).startOf('day').hour(17).minute(0).toISOString(),
 				eveningEnds    = moment(selectedDay).tz(timezone).startOf('day').hour(24).minute(0).toISOString(),
-				available      = false;
+				available      = false,
+				query;
 
 		eveningStarts = new Date(eveningStarts);
 		eveningEnds   = new Date(eveningEnds);
 
-		let	eveningAppts = Events.find({ 'timeStart': { '$gte': eveningStarts, '$lt': eveningEnds } }, { 'sort': { 'timeStart': 1 } })
+		if ( Roles.userIsInRole(currentUser, 'teacher') ) {
+			let rosterId = Meteor.user().profile.rosterId;
+			query = { 'teachersRosterId': rosterId, 'timeStart': { '$gte': eveningStarts, '$lt': eveningEnds } };
+		} else {
+			query = { 'timeStart': { '$gte': eveningStarts, '$lt': eveningEnds } };
+		}
+
+		//{ $and: [ { price: { $ne: 1.99 } }, { price: { $exists: true } } ] } )
+
+		let	eveningAppts = Events.find(query, { 'sort': { 'timeStart': 1 } })
 			.fetch()
 			.map((event) => {
 				event.start = moment(event.timeStart).tz(timezone).format('YYYY-MM-DD');
