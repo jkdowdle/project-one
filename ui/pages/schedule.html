@@ -15,14 +15,17 @@
 				<br>
 
 				{{#if isInRole 'teacher'}}
-            {{> addEditEventModal }}
-        {{else}}
-					{{#if isInRole 'admin'}}
-						{{> schedulerModal }}
-					{{else}}
-            {{> studentEventModal }}
-					{{/if}}
+          {{> addEditEventModal }}
         {{/if}}
+
+				{{#if isInRole 'student'}}
+          {{> studentEventModal }}
+        {{/if}}
+
+				{{#if isInRole 'admin'}}
+					{{> schedulerModal }}
+					{{> addEditEventModal }}
+				{{/if}}
 
 				<div class="row">
 

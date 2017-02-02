@@ -1,83 +1,4 @@
 Template.schedulerModal.helpers({
-  modalType( type ) {
-    let eventModal = Session.get( 'eventModal' );
-    if ( eventModal ) {
-      return eventModal.type === type;
-    }
-  },
-  modalLabel() {
-    let eventModal = Session.get( 'eventModal' );
-
-    if ( eventModal ) {
-      return {
-        button: eventModal.type === 'edit' ? 'Edit' : 'Add',
-        label: eventModal.type === 'edit' ? 'Edit' : 'Add an'
-      };
-    }
-  },
-  selected( v1, v2 ) {
-    return v1 === v2;
-  },
-  event() {
-    let eventModal = Session.get( 'eventModal' );
-
-    if ( eventModal ) {
-      return eventModal.type === 'edit' ? Events.findOne( eventModal.event ) : {
-        start: eventModal.date,
-        end: eventModal.date
-      };
-    }
-  },
-  valueTime(time) {
-    return moment(time).format('hh:mm: a');
-  },
-  usersTimezone() {
-    if (Meteor.user()){
-      let currentUser = Meteor.userId(),
-      timezone = Accounts.users.findOne(currentUser).profile.timezone.name;
-      return timezone;
-    }
-  },
-  formatTime(time) {
-    return moment(time).format('LT');
-  },
-  disableFilled() {
-
-    let eventModal = Session.get('eventModal'),
-    appointmentStatus;
-
-    if (!eventModal) {
-      appointmentStatus;
-    } else {
-      appointmentStatus = Events.findOne(eventModal.event) && Events.findOne(eventModal.event).status;
-    }
-
-    if (appointmentStatus === 'Filled') {
-      return "disabled";
-    } else {
-      return "";
-    }
-
-  },
-  scheduledStudentInfo() {
-    let eventModal = Session.get('eventModal'),
-    studentId,
-    student;
-
-    if ( eventModal ) {
-      studentId = Events.findOne(eventModal.event) && Events.findOne(eventModal.event).scheduledStudent;
-      student = Accounts.users.findOne(studentId);
-      let name = student && student.profile && student.profile.name,
-      skypeid = student && student.profile && student.profile.skypeid,
-      email = student && student.emails[0] && student.emails[0].address;
-
-      return {
-        name: name,
-        skypeid: skypeid,
-        email: email
-      }
-    }
-  },
   getTeachers() {
     let teachers = Accounts.users.find({ 'roles': 'teacher' })
       .fetch()
@@ -87,5 +8,49 @@ Template.schedulerModal.helpers({
         return teacher;
       });
     return teachers;
+  },
+  getPresets() {
+    let presets = Presets.find({}, { 'sort': { 'name': 1 } })
+      .fetch()
+      .map((preset) => {
+        preset.start = convertHour( preset.range[0].start ).format('LT');
+        preset.end = convertHour( preset.range[0].end ).format('LT');
+        return preset;
+      });
+
+    return presets;
+  },
+  getWeeks() {
+    let weekOf = [];
+
+    for ( let i = 0; i < 5; i++ ) {
+    	weekOf.push({
+        day: moment().weekday(7).add(1 * i, 'w').format('dddd [the] Do [of] MMMM, YYYY'),
+        date: moment().weekday(7).add(1 * i, 'w').format('YYYY-MM-DD'),
+        weeksFromNow: parseInt((i * 1) + 1, 10)
+      });
+    }
+
+    return weekOf;
+  },
+  weekDay() {
+    let days = [
+      { value: 1, name: 'monday' },
+      { value: 2, name: 'tuesday' },
+      { value: 3, name: 'wednesday' },
+      { value: 4, name: 'thursday' },
+      { value: 5, name: 'friday' },
+      { value: 6, name: 'saturday' },
+      { value: 0, name: 'sunday' }
+    ];
+
+    return days;
   }
 });
+
+function convertHour( hourStamp ) {
+  let [ both, hour, minutes ] = hourStamp.match(/(\d\d):(\d\d)/);
+  hour = parseInt(hour, 10);
+  minutes = parseInt(minutes, 10);
+  return moment({ hour: hour, minutes: minutes });
+}

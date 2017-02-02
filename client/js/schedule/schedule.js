@@ -235,7 +235,7 @@ Template.schedule.onRendered( () => {
         $( '#events-calendar' ).fullCalendar('gotoDate', date);
       }
 
-      if ( Roles.userIsInRole(currentUser, 'teacher') && date.format() === Session.get('selectedDay') ) {
+      if ( !Roles.userIsInRole(currentUser, 'student') && date.format() === Session.get('selectedDay') ) {
         Session.set( 'eventModal', { type: 'add', date: date.format() } );
         $( '#add-edit-event-modal' ).modal( 'show' );
       }

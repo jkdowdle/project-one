@@ -1,49 +1,23 @@
 Template.schedulerModal.events({
-  'submit form' ( event, template ) {
+  'submit .appointment-scheduler' ( event, template ) {
     event.preventDefault();
 
-    let apptStart = new Date( template.find( '[name="start"]' ).value + ' ' + template.find('[name="timeStart"]').value);
-    let apptEnd = moment(apptStart).add(30, 'minutes');
-  //  let teachersRosterId = Meteor.user().profile.rosterId;
+    const target = event.target;
 
-    let eventModal = Session.get( 'eventModal' ),
-    submitType = eventModal.type === 'edit' ? 'editEvent' : 'addEvent',
-    eventItem  = {
-      title: template.find( '[name="title"]' ).value,
-      start: template.find( '[name="start"]' ).value,
-      end: template.find( '[name="start"]' ).value,
-      timeStart: apptStart,
-      timeEnd: new Date(apptEnd),
-      status: template.find('[name="status"]').value,
-      teachersRosterId: template.find( '[name="teacher"]' ).value,
-      scheduledStudent: 'Not Yet Available'
-    };
+    let daysArr = $('input:checkbox:checked').map(function() {
+        return this.value;
+    }).get();
 
-    if ( submitType === 'editEvent' ) {
-      eventItem._id   = eventModal.event;
+    let form = {
+      teachersRosterId: target.teacher.value,
+      preset: target.presets.value,
+      weeksFromNow: target.weekOf.value,
+      days: daysArr
     }
 
-    Meteor.call( submitType, eventItem, ( error ) => {
-      if ( error ) {
-        Bert.alert( error.reason, 'danger' );
-      } else {
-        Bert.alert( `Event ${ eventModal.type }ed!`, 'success' );
-        closeModal();
-      }
-    });
-  },
-  'click .delete-event' ( event, template ) {
-    let eventModal = Session.get( 'eventModal' );
-    if ( confirm( 'Are you sure? This is permanent.' ) ) {
-      Meteor.call( 'removeEvent', eventModal.event, ( error ) => {
-        if ( error ) {
-          Bert.alert( error.reason, 'danger' );
-        } else {
-          Bert.alert( 'Event deleted!', 'success' );
-          closeModal();
-        }
-      });
-    }
+    let eventArray = setEvents(form);
+
+    Meteor.call('addMultipleEvents', eventArray);
   }
 });
 
@@ -51,3 +25,49 @@ let closeModal = () => {
   $( '#master-scheduler-modal' ).modal( 'hide' );
   $( '.modal-backdrop' ).fadeOut();
 };
+
+let setEvents = ( data ) => {
+  let preset = Presets.findOne(data.preset);
+
+  let startInit = convertHour(preset.range[0].start),
+      start = convertHour(preset.range[0].start),
+      end = convertHour(preset.range[0].end),
+      rest = preset.range[0].rest,
+      duration = (parseInt(rest, 10) + parseInt(30, 10)),
+      weeksFromNow = parseInt(data.weeksFromNow, 10);
+
+  let eventArray = [];
+  let event;
+  let dayOfWeek;
+
+  for ( let i = 0, dayLength = data.days.length; i < dayLength; i++ ) {
+    start = startInit;
+    dayOfWeek = data.days[i];
+
+    while(start.isBefore(end)) {
+      event = {
+        title: 'Appointment',
+        start: moment(start).weekday(dayOfWeek).add(weeksFromNow, 'w').format('YYYY-MM-DD'),
+        end: moment(start).weekday(dayOfWeek).add(weeksFromNow, 'w').format('YYYY-MM-DD'),
+        timeStart: new Date( moment(start).add(weeksFromNow, 'w').weekday(dayOfWeek) ),
+        timeEnd: new Date( moment(start).add(weeksFromNow, 'w').weekday(dayOfWeek).add(30, 'm') ),
+        status: "Open",
+        scheduledStudent: 'Not Yet Available',
+        teachersRosterId: data.teachersRosterId
+      }
+
+      start = moment(start).add(duration, 'm');
+      eventArray.push(event);
+    }
+  }
+
+  return eventArray;
+};
+
+
+function convertHour( hourStamp ) {
+  let [ both, hour, minutes ] = hourStamp.match(/(\d\d):(\d\d)/);
+  hour = parseInt(hour, 10);
+  minutes = parseInt(minutes, 10);
+  return moment({ hour: hour, minutes: minutes });
+}

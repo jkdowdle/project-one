@@ -1,0 +1,54 @@
+<template name="presetModal">
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <form class="make-preset">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">
+              Preset
+            </h4>
+          </div>
+
+          <div class="modal-body">
+
+            <div class="form-group form-group-sm">
+              <label for="presetName control-label">Preset Name</label>
+              <input class="form-control" type="text" id="presetName" name="presetName">
+            </div>
+
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group form-group-sm">
+                  <label for="start" class="control-label">Range Start</label>
+                  <input class="form-control" type="time" name="start" id="start">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group form-group-sm">
+                  <label for="end" class="control-label">Range End</label>
+                  <input class="form-control" type="time" name="end" id="end">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group form-group-sm">
+                  <label for="rest" class="control-label">Minutes Between Apts</label>
+                  <input class="form-control" type="number" name="rest" id="rest">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-sm btn-default">Add Range</button>
+            <button type="submit" class="btn btn-sm btn-success btn-make-preset">Create</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</template>

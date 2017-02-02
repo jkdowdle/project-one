@@ -3,26 +3,20 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
-        <h1>Master Scheduler!!1</h1>
-
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="add-edit-event">
-            {{#if isInRole 'admin'}}
-              {{modalLabel.label}} {{_ 'schedule.appointment'}}
-            {{else}}
-              {{_ 'schedule.appointment_details'}}
-            {{/if}}
+            Set Schedules
           </h4>
         </div>
 
-        <form id="add-edit-event-form">
+        <form class="appointment-scheduler">
 
           <div class="modal-body">
 
             <div class="form-group">
               <label for="teacher">Teacher</label>
-              <select class="form-control" name="teacher" id="">
+              <select class="form-control" name="teacher" id="teacher">
                 {{getTeachers}}
 
                 {{#each getTeachers}}
@@ -33,76 +27,56 @@
             </div>
 
             <div class="form-group">
-              <label for="title">{{_ 'schedule.event'}}</label>
-              <input disabled type="text" name="title" class="form-control" value="Appointment">
+              <label for="teacher">Presets</label>
+              <select class="form-control" name="presets" id="presets">
+                {{#each getPresets}}
+                  <option value="{{_id}}">
+                    {{ name }}
+                     -->
+                    Between: {{ start }} &amp; {{ end }}
+                     -->
+                    {{ apptNumber }} Sessions
+                  </option>
+                {{/each}}
+              </select>
             </div>
 
             <div class="form-group">
-              <label for="start">{{_ 'schedule.day_of'}}</label>
-              <input {{disableFilled}} type="date" name="start" class="form-control" value="{{event.start}}">
+              <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModalLong">
+                New Preset
+              </button>
             </div>
 
             <div class="form-group">
-              <input disabled type="hidden" name="end" class="form-control" value="{{#if event.end}}{{event.end}}{{else}}{{event.start}}{{/if}}">
+              <label for="weekOf">Week Of</label>
+              <select class="form-control" name="weekOf" id="weekOf" >
+
+                {{#each getWeeks}}
+                  <option value="{{weeksFromNow}}">{{ day }}</option>
+                {{/each}}
+
+              </select>
             </div>
 
             <div class="form-group">
-              <label for="timeStart">{{_ 'schedule.time'}} <span class="apt-duration text-muted">{{_ 'schedule.appt_durration'}}</span></label>
-              <input {{disableFilled}} type="time" name="timeStart" class="form-control" value="">
-            </div>
 
-            {{#if modalType 'edit'}}
-              <div class="row">
-                <div class="col-sm-6">
-                  <label>{{_ 'schedule.starts'}}</label>
-                  <p>{{ convertTime event.timeStart usersTimezone }}</p>
-                </div>
-                <div class="col-sm-6">
-                  <label>{{_ 'schedule.ends'}}</label>
-                  <p>{{ convertTime event.timeEnd usersTimezone }}</p>
-                </div>
+              <div class="checkbox">
+
+                {{#each weekDay}}
+                  <label class="day text-capitalize">
+                    <input name="days" value="{{value}}" type="checkbox"> {{name}}
+                  </label>
+                {{/each}}
+
               </div>
-            {{/if}}
 
-            <div class="form-group">
-              {{#if modalType 'edit'}}
-                {{#if scheduledStudentInfo}}
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <label for="status">{{_ 'schedule.status'}}</label>
-                      <p>{{ event.status }}</p>
-                    </div>
-                    <div class="col-sm-6">
-                      <label for="status">{{_ 'schedule.student_name'}}</label>
-                      <p>{{scheduledStudentInfo.name}}</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <label for="status">{{_ 'schedule.student_email'}}</label>
-                      <p><a target="_blank" style="font-size: 1.8rem" href="mailto:{{scheduledStudentInfo.email}}">{{scheduledStudentInfo.email}}</a></p>
-                    </div>
-                    <div class="col-sm-6">
-                      <label for="status">Student's Skype Id</label>
-                      <p>{{scheduledStudentInfo.skypeid}}</p>
-                    </div>
-                  </div>
-                {{/if}}
-                <input disabled type="hidden" name="status" class="form-control" value="Open">
-              {{else}}
-                <label for="status">{{_ 'schedule.status'}}</label>
-                <input disabled type="text" name="status" class="form-control" value="Open">
-              {{/if}}
             </div>
 
           </div>
 
           <div class="modal-footer">
-            {{#if modalType 'edit'}}
-              <button {{disableFilled}} class="btn btn-danger pull-left delete-event">{{_ 'schedule.delete_event'}}</button>
-            {{/if}}
             <button type="button" class="btn btn-warning" data-dismiss="modal">{{_ 'schedule.cancel'}}</button>
-            <button {{disableFilled}} type="submit" class="btn btn-success">{{modalLabel.button}} {{_ 'schedule.appt'}}</button>
+            <button {{disableFilled}} type="submit" class="btn btn-success">Set Schedule</button>
           </div>
 
         </form>
@@ -110,4 +84,6 @@
       </div>
     </div>
   </div>
+
+  {{> presetModal}}
 </template>
