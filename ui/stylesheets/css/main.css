@@ -156,7 +156,7 @@ section.special {
     z-index: 2; }
     section.special .content .promo-title {
       color: #333 !important; }
-    section.special .content h2, section.special .content h3, section.special .content h4 {
+    section.special .content h1, section.special .content h2, section.special .content h3, section.special .content h4 {
       color: #FFF !important; }
     section.special .content .text {
       width: 99%;
@@ -575,9 +575,6 @@ section > .container > .row > h3 {
 .fc-day-grid-event {
   background: #FFF;
   border-color: #777; }
-
-.fc-today-button {
-  text-transform: capitalize; }
 
 th.fc-today, td.fc-today {
   background-color: rgba(92, 184, 92, 0.15) !important; }

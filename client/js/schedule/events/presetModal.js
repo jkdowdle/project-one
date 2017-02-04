@@ -1,3 +1,12 @@
+Template.presetModal.onDestroyed(() => {
+  Session.set('selectedPreset', undefined);
+  Session.set('creatingPreset', true);
+});
+
+Template.presetModal.onCreated(() => {
+  Session.set('creatingPreset', true);
+});
+
 Template.presetModal.events({
   'submit .make-preset' ( event, template ) {
     event.preventDefault();
@@ -16,8 +25,60 @@ Template.presetModal.events({
 
     newPreset.apptNumber = range.apptNumber;
 
-    Meteor.call('createPreset', newPreset);
+    Meteor.call('createPreset', newPreset, (error) => {
+      if (error) {
+        Bert.alert('')
+      } else {
+        template.find(".make-preset").reset();
+      }
+    });
 
+  },
+  'submit .edit-preset' ( event, template ) {
+    event.preventDefault();
+    const target = event.target;
+
+    let presetId = target.presetNameEdit.value;
+
+    let updatePreset = {
+      name: target.presetName.value,
+      range: [{
+        start: target.start.value,
+        end: target.end.value,
+        rest: target.rest.value
+      }]
+    };
+
+    console.log(updatePreset);
+
+    let range = convertTimeRange( target.start.value, target.end.value, target.rest.value );
+
+    updatePreset.apptNumber = range.apptNumber;
+
+    Meteor.call('updatePreset', presetId, updatePreset, () => {
+      $( '#master-scheduler-modal' ).modal( 'show' );
+      $( '#presetModal' ).modal( 'hide' );
+    });
+  },
+  'click .btn-delete-preset'() {
+    let presetId = $('#presetNameEdit').val();
+
+    Meteor.call('removePreset', presetId);
+  },
+  'click .btn-sched-modal' () {
+    $( '#master-scheduler-modal' ).modal( 'show' );
+    $( '#presetModal' ).modal( 'hide' );
+  },
+  'click .btn-toggle-editing' () {
+    Session.set('creatingPreset', !Session.get('creatingPreset'));
+    Session.set('selectedPreset', undefined);
+  },
+  'change #presetNameEdit' (event) {
+    let presetId = $('#presetNameEdit').val();
+
+    console.log(presetId);
+
+    Session.set('selectedPreset', { _id: presetId });
   }
 });
 

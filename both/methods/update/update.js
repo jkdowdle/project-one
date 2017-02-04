@@ -1,7 +1,7 @@
 Meteor.methods({
 	'editAccountData': function (editName, editTimezoneName, editTimezoneOffset, editSkypeid, editGender) {
 		Meteor.users.update({_id:Meteor.user()._id}, {
-			$set:{ 
+			$set:{
 				"profile.name":editName,
 				"profile.skypeid": editSkypeid,
 				"profile.gender": editGender,
@@ -25,10 +25,11 @@ Meteor.methods({
 		let currentUser = Meteor.userId();
 
 		Meteor.users.update(currentUser, {$inc: {'profile.credits': 10 }});
-		console.log(currentUser);
-		console.log(creditAmount);
 	},
 	'updateUsedCoupon': couponId => {
 		CouponCodes.update(couponId, {$set: { used: true } });
+	},
+	'updatePreset': (presetId, updatePreset) => {
+		Presets.update({ '_id': presetId }, { '$set': updatePreset } );
 	}
 });

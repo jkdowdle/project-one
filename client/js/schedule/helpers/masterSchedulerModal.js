@@ -1,4 +1,4 @@
-Template.schedulerModal.helpers({
+Template.masterSchedulerModal.helpers({
   getTeachers() {
     let teachers = Accounts.users.find({ 'roles': 'teacher' })
       .fetch()
@@ -10,7 +10,7 @@ Template.schedulerModal.helpers({
     return teachers;
   },
   getPresets() {
-    let presets = Presets.find({}, { 'sort': { 'name': 1 } })
+    let presets = Presets.find({}, { 'sort': { 'range.0.start': 1 } })
       .fetch()
       .map((preset) => {
         preset.start = convertHour( preset.range[0].start ).format('LT');

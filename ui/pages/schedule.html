@@ -23,7 +23,7 @@
         {{/if}}
 
 				{{#if isInRole 'admin'}}
-					{{> schedulerModal }}
+					{{> masterSchedulerModal }}
 					{{> addEditEventModal }}
 				{{/if}}
 
@@ -37,6 +37,10 @@
 
 						{{#if isInRole 'admin' }}
 
+							{{#if selectedDay }}
+								<p class="selected-day-p">Selected day: {{ selectedDay }}</p>
+							{{/if}}
+
 							<button class="master-scheduler btn btn-default btn-sm">Set Teachers Schedule</button>
 
 						{{else}}
@@ -46,7 +50,7 @@
 								{{#if selectedDay }}
 									<p class="selected-day-p">Selected day: {{ selectedDay }}</p>
 									{{#if isInRole 'teacher'}}
-										<button class="add-appt btn btn-default btn-sm">Add Appointment</button>
+										<!--<button class="add-appt btn btn-default btn-sm">Add Appointment</button> -->
 									{{/if}}
 								{{/if}}
 

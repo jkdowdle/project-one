@@ -12,10 +12,10 @@
 
 			{{> newsfeed}}
 
-			{{> parallaxSection}}  
+			{{> parallaxSection}}
 
 		</div>
-	</div>	
+	</div>
 </template>
 
 <template name="carouselRegister">
@@ -31,18 +31,18 @@
 				<div class="col-md-7">
 					<div class="carousel-segment">
 						{{> carouselTemplate}}
-					</div>				
+					</div>
 				</div>
 				<div class="col-md-5">
 					<div class="register-segment">
 						<h3 class="text-center">{{_ 'home.register.title'}}</h3>
 						{{> registerSection}}
-					</div>				
+					</div>
 				</div>
 			</div>
 		</section>
 	{{/if}}
-	
+
 </template>
 
 <template name="carouselTemplate">
@@ -65,7 +65,7 @@
 							<p class="excerpt-content">{{postContent _id}}</p>
 							<hr>
 							<p class="text-right"><a href="{{pathFor route='blogPost'}}"><em>{{_ 'blog.read_more'}}</em></a></p>
-						</div>					
+						</div>
 					</div>
 				{{/each}}
 			</div>
@@ -101,7 +101,7 @@
 										<p>{{_ 'home.promos.p_one'}}</p>
 										<div class="text-center">
 											<a href="#">{{_ 'home.promos.promo-link'}}</a>
-										</div>					
+										</div>
 									</div>
 								</div>
 							</div>
@@ -115,7 +115,7 @@
 										<p>{{_ 'home.promos.p_two'}}</p>
 										<div class="text-center">
 											<a href="#">{{_ 'home.promos.promo-link'}}</a>
-										</div>					
+										</div>
 									</div>
 								</div>
 							</div>
@@ -129,7 +129,7 @@
 										<p>{{_ 'home.promos.p_three'}}</p>
 										<div class="text-center">
 											<a href="#">{{_ 'home.promos.promo-link'}}</a>
-										</div>					
+										</div>
 									</div>
 								</div>
 							</div>
@@ -138,7 +138,7 @@
 	        	</div>
 	      	</div>
 	    </section>
-	</section>	
+	</section>
 </template>
 
 <template name="classRoomSection">
@@ -157,20 +157,20 @@
 			<div class="text centralize">
 				<div data-scrollax="properties: { 'translateY': '150%', 'opacity': 1.5 }">
 					<header class="major">
-						<h2>{{_ 'home.para_one.title'}}</h2>
+						<h1>{{_ 'home.para_one.title'}}</h1>
 					</header>
 					<div class="row" style="padding-top:30px;padding-left:20px;">
 						<div class="loc-text col-xs-12 col-sm-3">
-							<h3>{{_ 'home.para_one.sub_one'}}</h3>
+							<h2>{{_ 'home.para_one.sub_one'}}</h2>
 						</div>
 						<div class="loc-text col-xs-12 col-sm-3">
-							<h3>{{_ 'home.para_one.sub_two'}}</h3>
+							<h2>{{_ 'home.para_one.sub_two'}}</h2>
 						</div>
 						<div class="loc-text col-xs-12 col-sm-3">
-							<h3>{{_ 'home.para_one.sub_three'}}</h3>
+							<h2>{{_ 'home.para_one.sub_three'}}</h2>
 						</div>
 						<div class="loc-text col-xs-12 col-sm-3">
-							<h3>{{_ 'home.para_one.sub_four'}}</h3>
+							<h2>{{_ 'home.para_one.sub_four'}}</h2>
 						</div>
 					</div>
 				</div>
@@ -192,12 +192,11 @@
                   		<h2>{{_ 'home.para_two.title_two'}}</h2>
                   		<h2>{{_ 'home.para_two.title_three'}}</h2>
                 	</header>
-                	<h4>- {{_ 'home.para_two.sub_one'}}</h4>
-                	<h4>- {{_ 'home.para_two.sub_two'}}</h4>
-                	<h4>- {{_ 'home.para_two.sub_three'}}</h4>
+                	<h3>- {{_ 'home.para_two.sub_one'}}</h3>
+                	<h3>- {{_ 'home.para_two.sub_two'}}</h3>
+                	<h3>- {{_ 'home.para_two.sub_three'}}</h3>
           		</div>
         	</div>
       	</div>
     </section>
 </template>
-

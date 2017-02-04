@@ -1,4 +1,4 @@
-<template name="schedulerModal">
+<template name="masterSchedulerModal">
   <div class="modal fade" id="master-scheduler-modal" tabindex="-1" role="dialog" aria-labelledby="master-scheduler-modal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -42,12 +42,6 @@
             </div>
 
             <div class="form-group">
-              <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModalLong">
-                New Preset
-              </button>
-            </div>
-
-            <div class="form-group">
               <label for="weekOf">Week Of</label>
               <select class="form-control" name="weekOf" id="weekOf" >
 
@@ -76,6 +70,7 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-warning" data-dismiss="modal">{{_ 'schedule.cancel'}}</button>
+            <button type="button" class="btn btn-primary btn-new-preset" data-toggle="modal">New Preset</button>
             <button {{disableFilled}} type="submit" class="btn btn-success">Set Schedule</button>
           </div>
 

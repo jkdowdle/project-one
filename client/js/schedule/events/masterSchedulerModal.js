@@ -1,4 +1,4 @@
-Template.schedulerModal.events({
+Template.masterSchedulerModal.events({
   'submit .appointment-scheduler' ( event, template ) {
     event.preventDefault();
 
@@ -17,13 +17,27 @@ Template.schedulerModal.events({
 
     let eventArray = setEvents(form);
 
-    Meteor.call('addMultipleEvents', eventArray);
+    Meteor.call('addMultipleEvents', eventArray, (error) => {
+      if ( error ) {
+        Bert.alert( error.reason, 'danger' );
+      } else {
+        Bert.alert( `Appointment scheduled!`, 'success' );
+      }
+    });
+  },
+  'click .btn-new-preset' () {
+    openPresetModal();
   }
 });
 
 let closeModal = () => {
   $( '#master-scheduler-modal' ).modal( 'hide' );
   $( '.modal-backdrop' ).fadeOut();
+};
+
+let openPresetModal = () => {
+  $( '#master-scheduler-modal' ).modal( 'hide' );
+  $( '#presetModal' ).modal( 'show' );
 };
 
 let setEvents = ( data ) => {

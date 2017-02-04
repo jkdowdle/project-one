@@ -81,5 +81,15 @@ Template.addEditEventModal.helpers({
             email: email
         }
       }
+    },
+    getTeachers() {
+      let teachers = Accounts.users.find({ 'roles': 'teacher' })
+        .fetch()
+        .map((teacher) => {
+          teacher.email = teacher.emails[0].address;
+
+          return teacher;
+        });
+      return teachers;
     }
 });

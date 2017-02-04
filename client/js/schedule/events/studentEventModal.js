@@ -29,6 +29,8 @@ Template.studentEventModal.events({
             closeModal();
         }
 
+        keepSelectedDayHighlight();
+
     },
     'click .unschedule-btn' ( event, template ) {
         let currentStudent = Meteor.userId();
@@ -53,6 +55,8 @@ Template.studentEventModal.events({
                 }
             });
         }
+
+      keepSelectedDayHighlight();
     }
 });
 
@@ -60,3 +64,14 @@ let closeModal = () => {
     $( '#add-edit-event-modal' ).modal( 'hide' );
     $( '.modal-backdrop' ).fadeOut();
 };
+
+let keepSelectedDayHighlight = () => {
+  let selectedDay = Session.get('selectedDay');
+  let today = moment().format('YYYY-MM-DD');
+  setTimeout(() => {
+
+    $('.fc-state-highlight').removeClass('fc-state-highlight');
+    $(`[data-date=${selectedDay}]`).addClass('fc-state-highlight');
+    $(`[data-date=${today}]`).addClass('fc-today');
+  });
+}

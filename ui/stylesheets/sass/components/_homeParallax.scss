@@ -24,7 +24,7 @@ section.special {
             top: 50%;
             left: 50%;
             @include transform-translate(-50%, -50%);
-        } 
+        }
     }
     .content {
         position: absolute;
@@ -36,7 +36,7 @@ section.special {
         .promo-title {
             color: $black-text!important;
         }
-        h2, h3, h4 {
+        h1, h2, h3, h4 {
             color: $white!important;
         }
         .text {
@@ -47,8 +47,8 @@ section.special {
     }
 }
 
-// Media Queries 
-// xm 
+// Media Queries
+// xm
 
 @media screen and (max-width: 1000px) {
 

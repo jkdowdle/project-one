@@ -36,11 +36,5 @@ Meteor.methods({
 		let newAdmin = Accounts.createUser(id);
 		Roles.addUsersToRoles(newAdmin, String(accountTypeInput));
 		Accounts.sendVerificationEmail( newAdmin );
-	},
-	'postBlogPost': function(blog) {
-		return BlogPosts.insert(blog);
-	},
-	'createPreset': function( presetObj ) {
-		return Presets.insert(presetObj);
 	}
 });

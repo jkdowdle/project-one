@@ -10,11 +10,6 @@ let isPast = ( date ) => {
   return moment( today ).isAfter( date );
 };
 
-Template.schedule.rendered = function() {
-  let today = moment().format('YYYY-MM-DD');
-  $(`[data-date='${today}']`).addClass('fc-today');
-};
-
 Template.schedule.onCreated( () => {
 
   let template = Template.instance();
@@ -26,6 +21,7 @@ Template.schedule.onCreated( () => {
 Template.schedule.events({
   'click .fc-month-button' () {
     Session.set('selectedDay', null);
+    $('.fc-state-highlight').removeClass('fc-state-highlight');
   },
   'click .add-appt' () {
     let currentUser = Meteor.userId();
@@ -35,9 +31,10 @@ Template.schedule.events({
     }
   },
   'click .fc-basicWeek-button' () {
+    Session.set('selectedDay', null );
     $('.fc-state-highlight').removeClass('fc-state-highlight');
     let today = moment().format('YYYY-MM-DD');
-    $(`[data-date='${today}']`).addClass('fc-today fc-state-highlight');
+    $(`[data-date='${today}']`).addClass('fc-today');
   },
   'click .appointment' () {
     Session.set( 'eventModal', { type: 'edit', event: this._id } );
@@ -61,13 +58,33 @@ Template.schedule.events({
 
 Template.schedule.onRendered( () => {
 
-  $( '#events-calendar' ).fullCalendar({
+  let EventsCalendar = $( '#events-calendar' ).fullCalendar({
     firstDay: 1,
     height: 600,
+    customButtons: {
+      today: {
+        text: 'today',
+        click (el) {
+          console.log('works');
+          let view = $('#events-calendar').fullCalendar( 'getView' );
+
+          if ( view.name === 'month' ) {
+            $( '#events-calendar' ).fullCalendar( 'changeView', 'basicWeek' );
+          }
+
+          $('#events-calendar').fullCalendar( 'today' );
+
+          let today = moment();
+          Session.set('selectedDay', today.format() );
+          $('.fc-state-highlight').removeClass('fc-state-highlight');
+          $(`[data-date='${today.format('YYYY-MM-DD')}']`).addClass('fc-today fc-state-highlight');
+        }
+      }
+    },
     header: {
       left: 'title',
       center: '',
-      right: 'month,basicWeek,today,prev,next'
+      right: 'month,basicWeek,today,atoday,prev,next'
     },
 
     events( start, end, timezone, callback ) {
@@ -124,9 +141,9 @@ Template.schedule.onRendered( () => {
       element.find( '.fc-content' )
       .html(`
         <div class="row">
-        <div class="col-xs-12">
-        <h5>${ time.tz(usersTimezone).format('LT') }</h5>
-        </div>
+          <div class="col-xs-12">
+            <h5>${ time.tz(usersTimezone).format('LT') }</h5>
+          </div>
         </div>
         `
       );
@@ -235,7 +252,12 @@ Template.schedule.onRendered( () => {
         $( '#events-calendar' ).fullCalendar('gotoDate', date);
       }
 
-      if ( !Roles.userIsInRole(currentUser, 'student') && date.format() === Session.get('selectedDay') ) {
+      if ( Roles.userIsInRole(currentUser, 'teacher') && date.format() === Session.get('selectedDay') ) {
+        Session.set( 'eventModal', { type: 'add', date: date.format() } );
+        $( '#add-edit-event-modal' ).modal( 'show' );
+      }
+
+      if ( Roles.userIsInRole(currentUser, 'admin') && date.format() === Session.get('selectedDay') ) {
         Session.set( 'eventModal', { type: 'add', date: date.format() } );
         $( '#add-edit-event-modal' ).modal( 'show' );
       }
@@ -270,6 +292,8 @@ Template.schedule.onRendered( () => {
     $( '#events-calendar' ).fullCalendar( 'refetchEvents' );
   });
 });
+
+
 
 function formatEvent(event) {
   let currentUser = Meteor.userId(),
