@@ -12,11 +12,11 @@ Meteor.methods({
             scheduledStudent: String
         });
 
-        try {           
+        try {
             return [
-                Events.update( event._id, {
-                    $set: event
-                })                
+              Events.update( event._id, {
+                $set: event
+              })
             ];
         } catch ( exception ) {
             throw new Meteor.Error( '500', `${ exception }` );
@@ -35,16 +35,14 @@ Meteor.methods({
             scheduledStudent: String
         });
 
-        console.log(typeof changeCredit);
-
         try {
             return [
                 Events.update( event._id, {
                     $set: event
                 }),
                 Accounts.users.update(studentId, {
-                    $inc: { 'profile.credits': changeCredit } 
-                })  
+                    $inc: { 'profile.credits': changeCredit }
+                })
             ];
         } catch ( exception ) {
             throw new Meteor.Error( '500', `${ exception }` );

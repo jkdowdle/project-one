@@ -15,13 +15,13 @@ Meteor.methods({
 				Bert.alert(error.reason, 'danger');
 				return false;
 			}
-		});
+		});			
 
 		Accounts.sendVerificationEmail(userId, newEmail, error => {
 			if (error){
-				Bert.alert(error.reason, 'danger');				
+				Bert.alert(error.reason, 'danger');
 				return false;
 			}
-		});		
-	}	
+		});
+	}
 });

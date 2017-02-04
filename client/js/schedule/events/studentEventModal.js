@@ -6,10 +6,10 @@ Template.studentEventModal.events({
             creditAmmount = Accounts.users.findOne(currentStudent).profile.credits,
             eventModal = Session.get( 'eventModal' ),
             submitType = eventModal.type === 'edit' ? 'editEvent' : 'addEvent',
-            eventItem  = { 
-                status: 'Filled',               
+            eventItem  = {
+                status: 'Filled',
                 scheduledStudent: currentStudent
-            };         
+            };
 
         if ( submitType === 'editEvent' ) {
             eventItem._id   = eventModal.event;
@@ -27,16 +27,19 @@ Template.studentEventModal.events({
         } else {
             Bert.alert('I am sorry, you do not have enough credits. <a href="/buy-credits">Buy more here.</a>', 'danger');
             closeModal();
-        }        
+        }
+
+        keepSelectedDayHighlight();
+
     },
     'click .unschedule-btn' ( event, template ) {
         let currentStudent = Meteor.userId();
         let eventModal = Session.get( 'eventModal' ),
             submitType = eventModal.type === 'edit' ? 'editEvent' : 'addEvent',
             eventItem  = {
-                status: 'Open',               
+                status: 'Open',
                 scheduledStudent: 'Not Yet Available'
-            };         
+            };
 
         if ( submitType === 'editEvent' ) {
             eventItem._id   = eventModal.event;
@@ -51,11 +54,24 @@ Template.studentEventModal.events({
                     closeModal();
                 }
             });
-        }  
+        }
+
+      keepSelectedDayHighlight();
     }
 });
 
 let closeModal = () => {
     $( '#add-edit-event-modal' ).modal( 'hide' );
     $( '.modal-backdrop' ).fadeOut();
-}; 
+};
+
+let keepSelectedDayHighlight = () => {
+  let selectedDay = Session.get('selectedDay');
+  let today = moment().format('YYYY-MM-DD');
+  setTimeout(() => {
+
+    $('.fc-state-highlight').removeClass('fc-state-highlight');
+    $(`[data-date=${selectedDay}]`).addClass('fc-state-highlight');
+    $(`[data-date=${today}]`).addClass('fc-today');
+  });
+}

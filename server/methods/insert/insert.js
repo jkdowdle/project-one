@@ -1,5 +1,5 @@
 Meteor.methods({
-	'createNewStudent': function (id, accountTypeInput) {		
+	'createNewStudent': function (id, accountTypeInput) {
 		let getLowestStudentRoster = [
 		    { $unwind : "$students" },
 		    { $group : { _id : "$_id", len : { $sum : 1 } } },
@@ -20,7 +20,7 @@ Meteor.methods({
 		TeachersRosters.update(rosterId, {$push: { students: { studentId: student } } });
 		Roles.addUsersToRoles(student, String(accountTypeInput));
 		Accounts.sendVerificationEmail( student );
-		Meteor.call('couponEmail', student);				
+		Meteor.call('couponEmail', student);
 	},
 	'createNewTeacher': function (id, accountTypeInput){
 		let rosterId = TeachersRosters.insert({ students: [ {dummyData: 'arrayLengthOne'} ] });
@@ -36,8 +36,5 @@ Meteor.methods({
 		let newAdmin = Accounts.createUser(id);
 		Roles.addUsersToRoles(newAdmin, String(accountTypeInput));
 		Accounts.sendVerificationEmail( newAdmin );
-	},
-	'postBlogPost': function(blog) {
-		return BlogPosts.insert(blog);
 	}
 });

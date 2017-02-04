@@ -1,0 +1,8 @@
+form.appointment-scheduler {
+  .checkbox {
+    display: flex;
+    flex-flow: wrap column;
+    height: 60px;
+    align-content: space-around;
+  }
+}

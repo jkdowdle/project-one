@@ -1,7 +1,7 @@
 Meteor.startup(() => {
 	const rawCollection = Events.rawCollection();
 	const ensureIndex = Meteor.wrapAsync(rawCollection.ensureIndex, rawCollection);
-	ensureIndex( { "timeEnd": 1 }, { expireAfterSeconds: 259200 } );
+	ensureIndex( { "timeEnd": 1 }, { expireAfterSeconds: 7200 } );
 
 	Meteor.users.remove("8GF9QjfuxXRNEAcMp");
 

@@ -1,0 +1,126 @@
+<template name="presetModal">
+  <!-- Modal -->
+  <div class="modal fade" id="presetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        {{#if creatingPreset}}
+          <form class="make-preset">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">
+                Preset
+              </h4>
+            </div>
+
+            <div class="modal-body">
+
+              <div class="form-group form-group-sm">
+                <label for="presetName control-label">Preset Name</label>
+                <input class="form-control" type="text" id="presetName" name="presetName">
+              </div>
+
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group form-group-sm">
+                    <label for="start" class="control-label">Range Start</label>
+                    <input class="form-control" type="time" name="start" id="start">
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group form-group-sm">
+                    <label for="end" class="control-label">Range End</label>
+                    <input class="form-control" type="time" name="end" id="end">
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group form-group-sm">
+                    <label for="rest" class="control-label">Minutes Between Apts</label>
+                    <input class="form-control" type="number" name="rest" id="rest">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-default btn-sched-modal">Go Back</button>
+              <button type="button" class="btn btn-sm btn-warning btn-toggle-editing">Edit Presets</button>
+              <button type="submit" class="btn btn-sm btn-success btn-make-preset">Create</button>
+            </div>
+          </form>
+
+        {{else}}
+
+          <form class="edit-preset">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">
+                Edit Preset
+              </h4>
+            </div>
+
+            <div class="modal-body">
+
+              <div class="form-group form-group-sm">
+                <label for="presetNameEdit" class="control-label">Preset</label>
+                <select name="presetNameEdit" id="presetNameEdit" class="form-control">
+                  <option value="" default>Please select the preset to edit</option>
+                  {{#each getPresets}}
+                    <option value="{{_id}}">
+                      {{ name }}
+                       -->
+                      Between: {{ start }} &amp; {{ end }}
+                       -->
+                      {{ apptNumber }} Sessions
+                    </option>
+                  {{/each}}
+                </select>
+              </div>
+
+              {{#if selectedPreset}}
+
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="form-group form-group-sm">
+                      <label for="presetName" class="control-label">Preset Name</label>
+                      <input class="form-control" type="text" id="presetName" name="presetName" value="{{ selectedPreset.name }}">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group form-group-sm">
+                      <label for="start" class="control-label">Range Start</label>
+                      <input class="form-control" type="time" name="start" id="start" value="{{selectedPreset.start}}">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group form-group-sm">
+                      <label for="end" class="control-label">Range End</label>
+                      <input class="form-control" type="time" name="end" id="end" value="{{selectedPreset.end}}">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group form-group-sm">
+                      <label for="rest" class="control-label">Minutes Between Apts</label>
+                      <input class="form-control" type="number" name="rest" id="rest" value="{{selectedPreset.rest}}">
+                    </div>
+                  </div>
+                </div>
+
+              {{/if}}
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-danger btn-delete-preset">Delete</button>
+              <button type="button" class="btn btn-sm btn-warning btn-toggle-editing">Cancel</button>
+              <button type="submit" class="btn btn-sm btn-success btn-make-preset">Update</button>
+            </div>
+        </form>
+
+        {{/if}}
+
+      </div>
+    </div>
+  </div>
+</template>
